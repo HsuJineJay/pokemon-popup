@@ -467,14 +467,15 @@ button {
 }
 
 /* 快閃店按鈕 */
-.store_switch_bn {
+.switchActive {
   background-color: var(--pika--red);
-  color: var(--pk--white);
+  color: var(--pk--white) !important ;
+  border: 2px solid var(--pika--red) !important;
 }
 
-/* 咖啡廳按鈕 */
-.cafe_switch_bn {
-  border: 3px solid var(--pk--black);
+/* 咖啡廳/快閃店 未點擊的按鈕 */
+.switch_bn {
+  border: 2px solid var(--pk--black);
   color: var(--pk--black);
   cursor: pointer;
   pointer-events: auto;

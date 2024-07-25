@@ -5,25 +5,58 @@ window.onload = function () {
   // ==============================
 
   // >>>>>>快閃資訊內容變化按鈕<<<<<<
-  let switchStore = document.getElementById("switchStore")
-  let switchCafe = document.getElementById("switchCafe")
-
-  //switchCafe被點擊時更換成咖啡廳內容
-  switchCafe.addEventListener('click', changeToCafe);
-
-  function changeToCafe(){
-    let typeTagChin = document.querySelectorAll(".type_tag>h5")
-    // console.log(typeTag[0].children[0]);
-    typeTagChin.forEach( (element) => {
-      console.log(element);
-      element.innerText = "咖啡廳"
-    });
-    let typeTagEng = document.querySelectorAll(".type_tag>h6")
-    typeTagEng.forEach( (element) => {
-      console.log(element);
-      element.innerText = "cafe"
-    });
+  
+  // 更動的資料
+  let infoData = {
+    // 咖啡廳資料
+    cafe:{
+      title: 'cafe',
+      tagChin: '咖啡廳',
+      tagEng: 'cafe',
+      date: '2024年7月1日(周一)',
+      location: '新光三越信義新天地A4館 5 樓',
+      address: '台北市信義區松高路19號',
+      imgUrl: '/main/images/cafe_popup_map.jpg',
+    },
+    //快閃店更動資料
+    store:{
+      title: 'store',
+      tagChin: '快閃店',
+      tagEng: 'store',
+      date: '2024年8月1日(周四)',
+      location: '新光三越信義新天地A11館 3 樓',
+      address: '台北市信義區松壽路11號',
+      imgUrl: '/main/images/store_popup_map.jpg',
+    }
   }
+
+  //咖啡廳/快閃店按鈕切換，移除.switchActive在針對現在點擊的按鈕增加.switchActive
+  $('#switchCafe').on('click' , function(){
+    $('.switch_button button').removeClass('switchActive')
+    $(this).addClass('switchActive')
+    changeInfo(infoData.cafe)
+  })
+  $('#switchStore').on('click' , function(){
+    $('.switch_button button').removeClass('switchActive')
+    $(this).addClass('switchActive')
+    changeInfo(infoData.store)
+  })
+
+  //改變資料內容函式
+  function changeInfo(info){
+    // 內容更換
+    // console.log(info.title);
+
+    $('.card_title_text:first h6').text(info.title)
+    $('.type_tag>h5').text(info.tagChin)
+    $('.type_tag>h6').text(info.tagEng)
+    $('.date_tag h5:first-child').text(info.date)
+    $('.card_lg_detail h5').text(info.location)
+    $('.card_lg_detail p').text(info.address)
+    $('.card_lg_detail img').attr('src',info.imgUrl )
+  }
+
+
 
 
 
