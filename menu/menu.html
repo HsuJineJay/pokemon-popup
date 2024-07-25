@@ -18,6 +18,8 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
+  <script src="/_js/jquery-3.7.1.js"></script>
+
 </head>
 
 <body>
@@ -115,26 +117,25 @@
           </div>
         </div>
         
+
+
         <!-- 菜單分類類別選單 -->
           <ul class="menu_category w-100 nav nav-tabs gap-1 gap-md-3 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
 
-            <li class=" ">
-                <a class="category_bn nav-link text-center active show " data-bs-toggle="tab"
-                    data-bs-target="#menu-meal">
+            <li class=" " id="selectMeal">
+                <a class="category_bn nav-link text-center " >
                     <h4 class="m-0">主餐</h4>
                 </a>
             </li>
 
-            <li class="">
-                <a class="category_bn nav-link text-center" data-bs-toggle="tab"
-                    data-bs-target="#menu-drink">
+            <li class="" id="selectDrinks">
+                <a class="category_bn nav-link text-center" >
                     <h4 class="m-0">飲品</h4>
                 </a>
             </li>
 
-            <li class="">
-                <a class="category_bn nav-link text-center" data-bs-toggle="tab"
-                    data-bs-target="#menu-desert">
+            <li class="" id="selectDersert">
+                <a class="category_bn nav-link text-center" >
                     <h4 class="m-0">甜點</h4>
                 </a>
             </li>
@@ -142,197 +143,16 @@
         </ul>
 
         <!-- 菜單品項卡片 -->
-        <div class="menu_card_group d-flex justify-content-around ">
+        <div id="menuContainer" class="menu_card_group d-flex justify-content-around ">
 
-          <!-- 餐點卡片1 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="foodImg1" src="" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">耿鬼的可疑清淡冰沙</h4>
-              <h5 class="font-chin">320元</h5>
-              <p class="font-chin m-0">
-                葡萄味冷凍冰沙<br>使用葡萄果肉，使其果香更加濃郁！<br>喝太快會被「可疑的光」迷惑！
-              </p>
-            </div>
-          </div>
-
-          <!-- 餐點卡片2 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="foodImg2" src="" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊步皇家奶茶～毛茸茸的金融家～</h4>
-              <h5 class="font-chin">410元</h5>
-              <p class="font-chin m-0">
-                "躲藏起來的伊布突然出現<br>這是一種甜甜的皇家奶茶口味飲料<br>上面加了金融家和大量的奶油"
-              </p>
-            </div>
-          </div>
-
-          <!-- 餐點卡片3 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="foodImg3" src="" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">新葉喵冰淇淋汽水～哈密瓜～</h4>
-              <h5 class="font-chin">310元</h5>
-              <p class="font-chin m-0">
-                "含有哈密瓜果肉的奶汽水！<br>與新葉喵的餅乾一起好好享用吧♪"
-              </p>
-            </div>
-          </div>
-
-          <!-- =========以下重複========== -->
-
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-          <!-- 餐點卡片 -->
-          <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-            <img id="" src="https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/14-1.jpg?raw=true" >
-            <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-              <h4 class="font-chin">伊布秘藏的彩色拌飯盤餐</h4>
-              <h5 class="font-chin">600元</h5>
-              <p class="font-chin m-0">
-                靈感来自伊布及其進化的寶可夢們<br>如同具有多種進化潛力的伊布<br>是一份秘藏的拌飯盤餐唷♪
-              </p>
-            </div>
-          </div>
-
-        </div>
-
+          
     
     
     
       </div>
     </section>
+
+
     <!-- ==========菜單seciton 結束========== -->
     
 

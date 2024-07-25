@@ -1,19 +1,95 @@
-window.onload = function() {
+window.onload = function () {
 
-  // 變數儲存產品的url
-  let foodUrl_1 = "https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/3-1.jpg?raw=true";
-  let foodUrl_2 = "https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/2-1.jpg?raw=true";
-  let foodUrl_3 = "https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/1-1.jpg?raw=true";
-  let foodUrl_4 = "https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/4-1.jpg?raw=true";
-  let foodUrl_5 = "https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/5-1.jpg?raw=true";
-  let foodUrl_6 = "https://github.com/Bruce1995010101/pkimg/blob/main//menuImg/6-1.jpg?raw=true";
-  
-  document.getElementById("foodImg1").src = foodUrl_1;
-  document.getElementById("foodImg2").src = foodUrl_2;
-  document.getElementById("foodImg3").src = foodUrl_3;
-  document.getElementById("foodImg4").src = foodUrl_4;
-  document.getElementById("foodImg5").src = foodUrl_5;
-  document.getElementById("foodImg6").src = foodUrl_6;
+  //=================================================
+  //餐點api
+  //=================================================
+
+  // >>>>>>>>>>撈資料<<<<<<<<<<<<<
+
+  //一載入就顯示全部內容
+  menuSwitch("")
+
+
+  //點擊來切換menu的類別
+  $('.menu_category li').on('click', function() {
+    // console.log(this);
+    
+    //再次點選已經active按鈕的話就顯示全部
+    if ($(this).find('a').hasClass('active')) {
+      // console.log('remove');
+      
+      //如果現在點選的li裡面的a有.active的話就移除.active
+      $(this).find('a').removeClass('active');
+      //顯示所有的菜單內容
+      menuSwitch("");
+
+    } else { //切換個別類別的菜單內容
+
+      //移除所有的.active
+      $('.menu_category li a').removeClass('active')
+      //對現在點選的a標籤添加.active
+      $(this).find('a').addClass('active');
+      // 針對不同id名稱加入apiUrl的切換菜單內容
+      switch($(this).attr('id')) {
+        case 'selectMeal':
+          menuSwitch('?itemType=主餐');
+          break;
+        case 'selectDrinks':
+          menuSwitch('?itemType=飲品');
+          break;
+        case 'selectDersert':
+          menuSwitch('?itemType=甜點');
+          break;
+      }
+    
+    }
+
+  })
+
+
+
+  //類別按鈕切換不同菜單內容
+  // $('#selectMeal').on('click', () => { menuSwitch('?itemType=主餐')} )
+  // $('#selectDrinks').on('click', () => { menuSwitch('?itemType=飲品') })
+  // $('#selectDersert').on('click', () => { menuSwitch('?itemType=甜點') })
+
+  function menuSwitch(menuName) {
+    //這裡要帶入的參數名稱 都是資料庫的欄位名稱
+    // let apiUrl = 'http://localhost/frontend/bigProject/api/menuItem/menuItem.php?itemMain=1&menuExist=1'//以這個例子來說 以itemMain=1（主打商品）和menuExist=1（上架商品）為篩選條件 篩出資料
+    let apiUrl = `http://localhost/frontend/bigProject/api/menuItem/menuItem.php${menuName}`//以這個例子來說 以itemMain=1（主打商品）和menuExist=1（上架商品）為篩選條件 篩出資料
+    // console.log('apiUrl:::::::' , apiUrl);
+    $.ajax({
+      url: apiUrl,
+      method: 'GET',
+      success: function (dataStr) {
+        data = JSON.parse(dataStr);
+        // console.log(data);
+        result = ""
+        for (row of data) {
+          // console.log(row);
+          result += `
+                    <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
+                      <img src="${row['itemImg']}" >
+                      <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
+                        <h4 class="font-chin">${row['itemName']}</h4>
+                        <h5 class="font-chin">${row['itemPrice']}元</h5>
+                        <p class="font-chin m-0">
+                            ${row['itemDescribe']}
+                        </p>
+                      </div>
+                    </div>
+        `;
+        }
+
+        $('#menuContainer').html(result)
+
+      }
+    }).fail(function (z) {
+      console.log('fail:', z.innerText);
+    })
+
+
+  }
 
 
 
