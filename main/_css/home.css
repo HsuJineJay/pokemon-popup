@@ -6,6 +6,8 @@
 /* -----------全域設定字型與顏色 開始----------- */
 :root {
   /* color */
+  --home-main: var(--pika--yellow);
+  --home-sub: var(--pika--red);
   --pk--white: #fff;
   --pk--black: #3F3A3A;
   --pk-bg-beige: #FCF3E4;
@@ -35,7 +37,6 @@
 
   /* scroll */
   scroll-behavior: smooth;
-
 
 }
 
@@ -119,14 +120,14 @@ button {
 /* ======手機版menu====== */
 .header-navibar-sm {
 
-  background-color: var(--pika--yellow) !important;
+  background-color: var(--home-main) !important;
   /* backdrop-filter: blur(5px); */
   border-radius: 30px 0px 0px 30px;
 
 }
 
 .offcanvas-header {
-  background-color: var(--pika--red) !important;
+  background-color: var(--home-main) !important;
 }
 
 /* .offcanvas-title {
@@ -157,7 +158,7 @@ button {
 }
 
 .navbar-nav .nav-link.active {
-  color: var(--pika--red) !important;
+  color: var(--home-sub) !important;
 }
 
 .nav-item span {
@@ -222,7 +223,7 @@ button {
   /* height: 40vh; */
   display: flex;
   flex-direction: column;
-  background-color: var(--pika--yellow);
+  background-color: var(--home-main);
   padding-top: 10vh;
   padding-bottom: 5vh;
   justify-content: flex-end;
@@ -287,7 +288,15 @@ button {
   font-weight: 700;
   font-size: 2vmin;
   letter-spacing: 0.3vmin;
-  color: var(--pika--red);
+  color: var(--home-sub);
+}
+
+.footer-link path{
+  fill: var(--home-sub);
+}
+.footer-link svg{
+  width: 2vmin;
+  height: 2vmin;
 }
 
 /* ======footer手機版RWD====== */
@@ -341,26 +350,59 @@ button {
 
 /* -----------section1 開始----------- */
 .section_1 {
-  background-color: var(--pika--yellow);
-  height: 100vh;
+  background-color: var(--home-main);
+  /* height: 100vh; */
+  /* padding-top: 20vh; */
   padding-top: 20vh;
-  padding-bottom: 15vh;
+  padding-bottom: 10vh;
+  transition: 0.5s ease-in;
 }
 
 .main_banner {
-  height: 65vh;
+  height: 70vh;
+}
+
+.main_video{
+  width: 35vw;
+  /* max-width: 100%; */
+  /* max-width: 50%; */
 }
 
 .main_video video {
-  max-width: 100%;
-  max-height: 85%;
+  /* max-width: 100%; */
+  /* max-width: 40vw; */
+  max-height: auto;
+  aspect-ratio: 1 / 1; 
   background-color: var(--pk--black);
   border-radius: 1000px;
+
 }
+
+#bannerAnimaiton2{
+  /* margin-top: -50%; */
+}
+
 
 .scroll_icon button {
   width: 8vmin;
+  height: 8vmin;
+  cursor: pointer;
+  
 }
+.scroll_icon_left {
+  background-image: url('/_images/icon/silde_icon_left.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.scroll_icon_right {
+  background-image: url('/_images/icon/silde_icon_right.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 
 .main_title h1 {
   font-family: var(--pk--font-eng);
@@ -378,11 +420,13 @@ button {
   color: var(--pk--white);
   text-align: center;
 
-  background-color: var(--pika--red);
+  background-color: var(--home-sub);
+  transition: 0.1s ease-in-out;
   border-radius: 1000px;
   padding: 15px 60px;
   width: fit-content;
 }
+
 
 /* ======section1手機版RWD====== */
 @media screen and (max-width:768px) {
@@ -433,7 +477,8 @@ button {
 /* -----------section2 開始----------- */
 /* ======section2標題區====== */
 .section_2 {
-  background-color: var(--pika--yellow);
+  background-color: var(--home-main);
+  transition: 0.5s ease-in;
 }
 
 .section_2>div {
@@ -449,7 +494,7 @@ button {
 .sec_title h3 {
   font-size: 3.5vmin;
   letter-spacing: 0.5vmin;
-  color: var(--pika--red);
+  color: var(--home-sub);
 }
 
 .switch_button {
@@ -468,9 +513,9 @@ button {
 
 /* 快閃店按鈕 */
 .switchActive {
-  background-color: var(--pika--red);
+  background-color: var(--home-sub);
   color: var(--pk--white) !important ;
-  border: 2px solid var(--pika--red) !important;
+  border: 2px solid var(--home-sub) !important;
 }
 
 /* 咖啡廳/快閃店 未點擊的按鈕 */
@@ -495,7 +540,7 @@ button {
 }
 
 .card_title_text h6 {
-  color: var(--pika--red);
+  color: var(--home-sub);
   font-size: 2.4vmin;
   letter-spacing: 0.3vmin;
 }
@@ -556,7 +601,7 @@ button {
 }
 
 .card_lg_detail h6 {
-  color: var(--pika--red);
+  color: var(--home-sub);
   font-size: 2.4vmin;
   letter-spacing: 0.1vmin;
 }
@@ -590,27 +635,30 @@ button {
 }
 
 .card_date .type_tag {
-  border-color: var(--pika--red);
+  border-color: var(--home-sub);
 }
 
 .card_date .type_tag * {
-  color: var(--pika--red);
+  color: var(--home-sub);
 }
 
 .date_tag h5 {
   padding: 10px 45px;
   width: fit-content;
-  background-color: var(--pika--red);
+  background-color: var(--home-sub);
   color: var(--pk--white);
   border-radius: 5px;
 }
+.date_tag path{
+  fill: var(--home-sub);
+}
 
 .card_date .card_notice {
-  background-color: var(--pika--yellow);
+  background-color: var(--home-main);
 }
 
 .card_date .card_notice h6 {
-  color: var(--pika--red);
+  color: var(--home-sub);
 }
 
 .card_notice li {
@@ -621,23 +669,23 @@ button {
 
 /* 預約指南卡片 */
 .card_reservation {
-  background-color: var(--pika--red);
+  background-color: var(--home-sub);
   padding-left: 0px 30px;
   border-radius: 30px;
 }
 
 .card_reservation .card_title_text h6 {
-  color: var(--pika--yellow);
+  color: var(--home-main);
   font-kerning: none;
   letter-spacing: 0.1vmin;
 }
 
 .card_reservation .card_notice h6 {
-  color: var(--pika--yellow);
+  color: var(--home-main);
 }
 
 .card_reservation_bn {
-  background-color: var(--pika--yellow);
+  background-color: var(--home-main);
   padding: 15px;
   border-radius: 1000px;
 
@@ -724,7 +772,7 @@ button {
 
   /* 活動日期卡片 */
   .card_date {
-    background-color: var(--pika--yellow);
+    background-color: var(--home-main);
     border-radius: 30px 30px 0px 0px;
   }
 
@@ -801,7 +849,9 @@ button {
   /* left: 0; */
   /* top: 0; */
 }
-
+#waveTop path {
+  fill: var(--home-main);
+}
 
 /* 旋轉卡片 */
 .rotate_card_section{
@@ -841,7 +891,7 @@ button {
   left: 50%;
   transform: translateX(-50%) ;
   
-  background-color: var(--pika--red);
+  background-color: var(--home-sub);
   border-radius: 200px 200px 30px 30px;
 }
 
@@ -914,6 +964,9 @@ button {
 
 /* ======手機版RWD旋轉卡片====== */
 @media screen and (max-width:768px) {
+  #waveTop path {
+    fill: var(--pk--white);
+  }
   .section_3{
     background: url(/main/images/sec3_bg_comic.png) repeat center/70%;
   }
@@ -982,7 +1035,7 @@ button {
 }
 
 .more_menu_bn{
-  background-color: var(--pika--red);
+  background-color: var(--home-sub);
   padding: 15px 60px;
   border-radius: 1000px;
   color: var(--pk--white);
@@ -1000,7 +1053,7 @@ button {
   display: none;
 }
 .menu_card{
-  background-color: var(--pika--yellow);
+  background-color: var(--home-main);
   border-radius: 30px;
   width: fit-content;
   height: 100%;
@@ -1028,7 +1081,7 @@ button {
   object-fit: cover;
 }
 .menu_card_detail h4{
-  color: var(--pika--red);
+  color: var(--home-sub);
   font-size: 2.2vmin;
   letter-spacing: 0.1vmin;
   text-align: center;
@@ -1154,7 +1207,7 @@ button {
 }
 
 .game_bn>div{
-  background-color: var(--pika--yellow);
+  background-color: var(--home-main);
   width: 25vw;
   height: 25vw;
   border-radius: 50%;
@@ -1176,7 +1229,7 @@ button {
   padding: 15px;
   margin-top: -9vh;
   font-size: 8vmin;
-  color: var(--pika--yellow);
+  color: var(--home-main);
   letter-spacing: 0.5vmin;
   border-radius: 1500px;
 
@@ -1185,7 +1238,7 @@ button {
   width: 100vw;
   height: 60px;
   border-radius: 60px 60px 0px 0px ;
-  background-color: var(--pika--red);
+  background-color: var(--home-sub);
   z-index: 1;
   position: relative;
 }

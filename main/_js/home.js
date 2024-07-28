@@ -1,15 +1,176 @@
 window.onload = function () {
 
   // ==============================
+  // section1 各個屬性顏色變換
+  // ==============================
+  /*     const changeColorBtn = document.getElementById('colorChangeR');
+      
+      changeColorBtn.addEventListener('click', function() {
+        // console.log(1234);
+          // 獲取:root元素
+          const root = document.documentElement;
+          
+          // 檢查當前的顏色
+          const currentColor = getComputedStyle(root).getPropertyValue('--home-main').trim();
+          // const currentColor = getComputedStyle(root).getPropertyPriority("--pika--yellow");
+          console.log("currentColor--->>" , currentColor);
+          
+          if (currentColor === 'var(--pika--yellow)') {
+              // 如果當前是黃色，就改成藍色
+              root.style.setProperty('var(--water--blue)');
+          } else {
+              // 如果當前是藍色，就改回黃色
+              root.style.setProperty('var(--pika--yellow)');
+          }
+      }); */
+
+
+
+  const colorChangeR = document.getElementById('colorChangeR');
+  const colorChangeL = document.getElementById('colorChangeL');
+  const animaiton = document.getElementById('bannerAnimaiton');
+  let colorCount = 0
+
+  // 獲取:root元素
+  const root = document.documentElement;
+  // const pikaYellow = getComputedStyle(root).getPropertyValue('--pika--yellow').trim();
+  // const waterBlue = getComputedStyle(root).getPropertyValue('--water--blue').trim();
+  // const fireOrange = getComputedStyle(root).getPropertyValue('--fire--orange').trim();
+  // const grassLightGreen = getComputedStyle(root).getPropertyValue('--grass--lightGreen').trim();
+  // const stoneGray = getComputedStyle(root).getPropertyValue('--stone--gray').trim();
+  // const PsychicPink = getComputedStyle(root).getPropertyValue('--Psychic--pink').trim();
+
+  //所有顏色組合
+  let colorSet = {
+    main: [
+      'var(--pika--yellow)',
+      'var(--water--blue)',
+      'var(--fire--orange)',
+      'var(--grass--lightGreen)',
+      'var(--stone--gray)',
+      'var(--Psychic--pink)',
+    ],
+    sub: [
+      'var(--pika--red)',
+      'var(--water--brown)',
+      'var(--fire--green)',
+      'var(--grass--darkGreen)',
+      'var(--stone--brown)',
+      'var(--Psychic--blue)',
+    ]
+  }
+
+  //動畫的資料
+  let animaitonData = {
+    walk:[
+      '/main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm',
+      '/main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm',
+      '/main/images/寶可夢動圖/小火龍/小火龍_走路.webm',
+      '/main/images/寶可夢動圖/菊草葉/菊草葉_走路.webm',
+      '/main/images/寶可夢動圖/小拳石/小拳石_走路.webm',
+      '/main/images/寶可夢動圖/果然翁/果然翁_走路.webm',
+    ]
+  }
+
+  //下一個顏色函式
+  function nextColor() {
+    if (event) event.preventDefault();
+
+    //顏色計數器，每次點擊按鈕加一
+    colorCount = (colorCount + 1) % colorSet.main.length;
+    // console.log("colorCount---->>", colorCount, colorSet.main[colorCount]);
+    // console.log( animaiton.attributes['src'].value );
+    changeColor();
+    changeAnimation()
+  }
+  //上一個顏色函式
+  function prevColor() {
+    if (event) event.preventDefault();
+
+    //顏色計數器，每次點擊按鈕減一
+    // colorCount =  colorCount <= 0 ? (-(colorCount - 1)) % colorSet.main.length : (colorCount - 1) % colorSet.main.length;
+    // colorCount = (colorCount - 1) % colorSet.main.length;
+    colorCount = (colorCount - 1 + colorSet.main.length) % colorSet.main.length;
+    // console.log("colorCount---->>", colorCount, colorSet.main[colorCount]);
+    changeColor();
+    changeAnimation()
+
+  }
+
+  //改變顏色函式
+  function changeColor() {
+    // // 獲取當前的 --home-main 值
+    // const homeMain = getComputedStyle(root).getPropertyValue('--home-main').trim();
+    // // console.log("Current --home-main value:", homeMain);
+
+
+    // switch (homeMain) {
+    //   case pikaYellow:
+    //     root.style.setProperty('--home-main', 'var(--water--blue)');
+    //     break;
+    //   case waterBlue:
+    //     root.style.setProperty('--home-main', 'var(--fire--orange)');
+    //     break;
+    //   case fireOrange:
+    //     root.style.setProperty('--home-main', 'var(--grass--lightGreen)');
+    //     break;
+    //   case grassLightGreen:
+    //     root.style.setProperty('--home-main', 'var(--stone--gray)');
+    //     break;
+    //   case stoneGray:
+    //     root.style.setProperty('--home-main', 'var(--Psychic--pink)');
+    //     break;
+    //   case PsychicPink:
+    //     root.style.setProperty('--home-main', 'var(--pika--yellow)');
+    //     break;
+    //   default:
+    //     root.style.setProperty('--home-main', 'var(--pika--yellow)');
+    // }
+
+
+    root.style.setProperty('--home-main', colorSet.main[colorCount]);
+    root.style.setProperty('--home-sub', colorSet.sub[colorCount]);
+  }
+
+  function changeAnimation(){
+    // requestAnimationFrame(() => {
+    //   animaiton.setAttribute('src', animaitonData.walk[colorCount]);
+    // });
+
+
+    animaiton.pause();  // 暫停當前影片
+    animaiton.removeAttribute('src');  // 移除 src 屬性
+    animaiton.load();  // 重置影片元素
+    
+    // 使用 setTimeout 來延遲設置新的 src
+    setTimeout(() => {
+      animaiton.setAttribute('src', animaitonData.walk[colorCount]);
+      animaiton.play();  // 播放新影片
+    }, 0);
+  }
+
+
+  //當按鈕點擊時執行換顏色函式
+  colorChangeR.addEventListener('click', nextColor)
+  colorChangeL.addEventListener('click', prevColor)
+
+
+
+
+
+
+
+
+  // ==============================
   // section2 快閃資訊
   // ==============================
 
   // >>>>>>快閃資訊內容變化按鈕<<<<<<
-  
+
   // 更動的資料
   let infoData = {
     // 咖啡廳資料
-    cafe:{
+    cafe: {
       title: 'cafe',
       tagChin: '咖啡廳',
       tagEng: 'cafe',
@@ -19,7 +180,7 @@ window.onload = function () {
       imgUrl: '/main/images/cafe_popup_map.jpg',
     },
     //快閃店更動資料
-    store:{
+    store: {
       title: 'store',
       tagChin: '快閃店',
       tagEng: 'store',
@@ -31,19 +192,19 @@ window.onload = function () {
   }
 
   //咖啡廳/快閃店按鈕切換，移除.switchActive在針對現在點擊的按鈕增加.switchActive
-  $('#switchCafe').on('click' , function(){
+  $('#switchCafe').on('click', function () {
     $('.switch_button button').removeClass('switchActive')
     $(this).addClass('switchActive')
     changeInfo(infoData.cafe)
   })
-  $('#switchStore').on('click' , function(){
+  $('#switchStore').on('click', function () {
     $('.switch_button button').removeClass('switchActive')
     $(this).addClass('switchActive')
     changeInfo(infoData.store)
   })
 
   //改變資料內容函式
-  function changeInfo(info){
+  function changeInfo(info) {
     // 內容更換
     // console.log(info.title);
 
@@ -53,7 +214,7 @@ window.onload = function () {
     $('.date_tag h5:first-child').text(info.date)
     $('.card_lg_detail h5').text(info.location)
     $('.card_lg_detail p').text(info.address)
-    $('.card_lg_detail img').attr('src',info.imgUrl )
+    $('.card_lg_detail img').attr('src', info.imgUrl)
   }
 
 
@@ -185,6 +346,6 @@ window.onload = function () {
   })
 
   //每次載入都先執行一次，讓opacity可以變化
-  moveCard() 
+  moveCard()
 
 }
