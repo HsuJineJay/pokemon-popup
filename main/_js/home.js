@@ -26,6 +26,30 @@ window.onload = function () {
 
 
 
+  //手機版scroll觸發換寶可夢與顏色
+  let touchstartX = 0;
+  let touchendX = 0;
+  const section1 = document.getElementById('section1')
+
+  section1.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX;
+  });
+
+  section1.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    if (touchendX < touchstartX) {
+      nextColor();
+    }
+    if (touchendX > touchstartX) {
+      prevColor();
+    }
+  }
+
+  // 電腦版按鈕點擊換寶可夢與顏色
   const colorChangeR = document.getElementById('colorChangeR');
   const colorChangeL = document.getElementById('colorChangeL');
   const animaiton = document.getElementById('bannerAnimaiton');
@@ -62,13 +86,21 @@ window.onload = function () {
 
   //動畫的資料
   let animaitonData = {
-    walk:[
+    walk: [
       '/main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm',
       '/main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm',
       '/main/images/寶可夢動圖/小火龍/小火龍_走路.webm',
       '/main/images/寶可夢動圖/菊草葉/菊草葉_走路.webm',
       '/main/images/寶可夢動圖/小拳石/小拳石_走路.webm',
       '/main/images/寶可夢動圖/果然翁/果然翁_走路.webm',
+    ],
+    happy: [
+      '/main/images/寶可夢動圖/皮卡丘/皮卡丘_開心.webm',
+      '/main/images/寶可夢動圖/傑尼龜/傑尼龜_開心.webm',
+      '/main/images/寶可夢動圖/小火龍/小火龍_開心.webm',
+      '/main/images/寶可夢動圖/菊草葉/菊草葉_開心.webm',
+      '/main/images/寶可夢動圖/小拳石/小拳石_開心.webm',
+      '/main/images/寶可夢動圖/果然翁/果然翁_開心.webm',
     ]
   }
 
@@ -132,23 +164,77 @@ window.onload = function () {
     root.style.setProperty('--home-sub', colorSet.sub[colorCount]);
   }
 
-  function changeAnimation(){
+  function changeAnimation() {
+    animaiton.setAttribute('src', animaitonData.walk[colorCount]);
     // requestAnimationFrame(() => {
     //   animaiton.setAttribute('src', animaitonData.walk[colorCount]);
     // });
 
 
-    animaiton.pause();  // 暫停當前影片
-    animaiton.removeAttribute('src');  // 移除 src 屬性
-    animaiton.load();  // 重置影片元素
-    
-    // 使用 setTimeout 來延遲設置新的 src
-    setTimeout(() => {
-      animaiton.setAttribute('src', animaitonData.walk[colorCount]);
-      animaiton.play();  // 播放新影片
-    }, 0);
+    // animaiton.pause();  // 暫停當前影片
+    // animaiton.removeAttribute('src');  // 移除 src 屬性
+    // animaiton.load();  // 重置影片元素
+
+    // // 使用 setTimeout 來延遲設置新的 src
+    // setTimeout(() => {
+    //   animaiton.setAttribute('src', animaitonData.walk[colorCount]);
+    //   animaiton.play();  // 播放新影片
+    // }, 0);
   }
 
+
+  let isHappyPlaying = false;
+  //當影片被點擊的時候替換成開心的影片
+  function clickChangeAnimation() {
+    animaiton.setAttribute('src', animaitonData.happy[colorCount]);
+
+
+    // 如果現在是走路動畫就設定成開心動畫
+/*     if (!isHappyPlaying) {
+      // 設置 happy 動畫
+      animaiton.setAttribute('src', animaitonData.happy[colorCount]);
+      // animaiton.loop = false; // 關閉循環播放
+      isHappyPlaying = true;
+
+      // 監聽 timeupdate 事件
+      animaiton.addEventListener('timeupdate', checkTime);
+
+      // 開始播放
+      animaiton.play();
+    } */
+
+  }
+
+
+/* 
+  //當開心影片播完以後跳回原本的影片
+  let happyDuration = 0
+  //取得目前影片長度
+  animaiton.addEventListener('loadedmetadata', function () {
+    happyDuration = animaiton.duration;
+    console.log("Happy animation duration:", happyDuration);
+  });
+
+  function checkTime() {
+    //  小於happy 動畫的動畫時間
+    if (animaiton.currentTime >= happyDuration - 0.01) {
+      // 移除 timeupdate 事件監聽器
+      animaiton.removeEventListener('timeupdate', checkTime);
+
+      // 設置 walk 動畫
+      animaiton.setAttribute('src', animaitonData.walk[colorCount]);
+      animaiton.loop = true; // 重新開啟循環播放
+      isHappyPlaying = false;
+
+      // 開始播放 walk 動畫
+      animaiton.play();
+    }
+  }
+ */
+
+
+  //點擊影片執行換影片的函式
+  animaiton.addEventListener('click', clickChangeAnimation)
 
   //當按鈕點擊時執行換顏色函式
   colorChangeR.addEventListener('click', nextColor)
@@ -242,19 +328,116 @@ window.onload = function () {
 
 
   // >>>>>>360度旋轉滾動卡片<<<<<<
+  const section3 = document.getElementById('section3')
+  let rotateScrollStartX = 0;
+  let rotateScrollEndX = 0;
+
   let rotateContain = document.querySelector('.rotate_card')
   let productItems = document.querySelectorAll('.carousel_item .product_card')
+  const totalItems = productItems.length;
+  let rotateIndex = 0
+
+
   productItems.forEach((item, idx) => {
     item.addEventListener('click', function () {
-      rotateContain.style.transform = `rotate(${-idx * 60}deg)`
-      // console.log(idx);
+      // rotateIndex = idx
+      // rotateContain.style.transform = `rotate(${-rotateIndex * 60}deg)`
+      // // console.log(idx);
 
-      // 更新所有item的文字方向
-      productItems.forEach((i, index) => {
-        i.style.transform = `translateX(-50%) rotate(${(index - idx) * -60}deg)`
-      })
+      // // 更新所有item的文字方向
+      // productItems.forEach((i, index) => {
+      //   i.style.transform = `translateX(-50%) rotate(${(index - rotateIndex) * -60}deg)`
+      // })
+      // rotateCard()
+
+
+      //判斷是往左點還是往右點
+      // if ((idx - rotateIndex + totalItems) % totalItems <= totalItems / 2) {
+      // if ((idx - rotateIndex) % totalItems <= totalItems / 2) {
+      // if (   Math.abs(( idx - (rotateIndex % totalItems ) )  % totalItems) <= totalItems / 2) {
+      //   rotateIndex++;
+      //   console.log('rotateIndex--!!!!>>>' , rotateIndex);
+      //   console.log('idx-right-->>>' ,idx);
+      //   console.log('==========>>>' ,  Math.abs(( idx - (rotateIndex % totalItems ) )  % totalItems)       )
+      //   console.log('原本>>>' ,  (idx - rotateIndex + totalItems) % totalItems       )
+      //   rotateCard()
+      // } else {
+      //   rotateIndex--;
+      //   console.log('rotateIndex-left->>>' , rotateIndex);
+      //   console.log('idx-left-->>>' ,idx);
+      //   console.log('==========>>>' ,  Math.abs(( idx - (rotateIndex % totalItems ) )  % totalItems)       )
+      //   console.log('原本>>>' ,  (idx - rotateIndex + totalItems) % totalItems       )
+      //   rotateCard()
+      // }
+
+
+
+      //用於數計算現在的位置
+      let currentPosition = rotateIndex % totalItems;
+      //如果變負值的話，就加上卡片總數，讓currentPosition永遠是正的
+      if (currentPosition < 0) currentPosition += totalItems;
+
+      //順時針的時候的旋轉角度
+      let clockwiseDiff = (idx - currentPosition + totalItems) % totalItems;
+      //逆時針的時候的旋轉角度
+      let counterclockwiseDiff = (currentPosition - idx + totalItems) % totalItems;
+
+      //選擇較小的旋轉距離來決定旋轉方向，這樣可以保證總是選擇最短路徑
+      if (clockwiseDiff < counterclockwiseDiff) {
+        rotateIndex++
+        console.log('右旋轉');
+      } else {
+        rotateIndex--
+        console.log('左旋轉');
+      }
+
+      console.log('rotateIndex:', rotateIndex);
+      console.log('idx:', idx);
+      rotateCard();
+
     })
+
+
+
   })
+
+  // >>>>>>scroll 360度旋轉滾動卡片<<<<<<
+  section3.addEventListener('touchstart', e => {
+    rotateScrollStartX = e.changedTouches[0].screenX;
+  });
+
+  section3.addEventListener('touchend', e => {
+    rotateScrollEndX = e.changedTouches[0].screenX;
+    scrollRotate();
+  });
+
+  function scrollRotate() {
+    if (rotateScrollEndX < rotateScrollStartX) {
+      rotateIndex++;
+      console.log(rotateIndex);
+      rotateCard()
+    }
+    if (rotateScrollEndX > rotateScrollStartX) {
+      rotateIndex--;
+      console.log(rotateIndex);
+      rotateCard()
+    }
+  }
+
+  //旋轉卡片的函式
+  function rotateCard() {
+    // 旋轉全部卡片
+    rotateContain.style.transform = `rotate(${-rotateIndex * 60}deg)`
+    // 更新所有item的文字方向，把歪掉的卡片轉正回來
+    productItems.forEach((i, index) => {
+      i.style.transform = `translateX(-50%) rotate(${(index - rotateIndex) * -60}deg)`
+    })
+  }
+
+
+
+
+
 
 
 
@@ -291,6 +474,7 @@ window.onload = function () {
   let currentIndex = 0
 
 
+
   // 當menuNext按鈕點擊時裡面的每個menu_card向左滑
   menuPrev.addEventListener('click', showPrevCard);
   menuNext.addEventListener('click', showNextCard);
@@ -300,6 +484,12 @@ window.onload = function () {
     // console.log("下一個");
     if (currentIndex < menuCardAll.length - 1) {
       currentIndex++;
+      // cardContain.scrollLeft += moveDistance
+      cardContain.scrollTo({
+        left: cardContain.scrollLeft + moveDistance,
+        behavior: 'smooth'
+      });
+
       moveCard()
     }
   }
@@ -307,9 +497,17 @@ window.onload = function () {
   // 按上一個按鈕會執行的function
   function showPrevCard() {
     // console.log("上一個");
-    console.log(moveDistance);
+    // console.log("moveDistance==>", moveDistance);
+    // console.log("cardWidth==>", cardWidth);
+    // console.log("cardGap==>", cardGap);
+
     if (currentIndex > 0) {
       currentIndex--;
+      // cardContain.scrollLeft -= moveDistance
+      cardContain.scrollTo({
+        left: cardContain.scrollLeft - moveDistance,
+        behavior: 'smooth'
+      });
       moveCard()
     }
   }
@@ -319,19 +517,28 @@ window.onload = function () {
   let cardGap = parseInt(window.getComputedStyle(menuCardAll[0]).gap);
   let moveDistance = cardWidth + cardGap;
 
+
   // 移動每個卡片
   function moveCard() {
+    // cardContain.scrollLeft += moveDistance
+
     menuCardAll.forEach((card, index) => {
       // console.log(index);
       // console.log(card);
 
+
       // 設定移動距離css
-      card.style.transform = `translateX(${(currentIndex) * -moveDistance}px)`;
-      // 設定左至右漸變消失的css
-      card.style.opacity = `${(((currentIndex - index + 0.2) * 0.5) + 1)}`;
+      // card.style.transform = `translateX(${(currentIndex) * -moveDistance}px)`;
+
+      //scroll取消漸變消失
+      menuCardAll.forEach((card, index) => {
+        card.style.opacity = `1`;
+      })
 
       // 當在第一個的時候往前的按鈕消失
       currentIndex === 0 ? menuPrev.style.visibility = "hidden" : menuPrev.style.visibility = "visible";
+      // 當在第一個的時候往後的按鈕消失
+      currentIndex === menuCardAll.length - 1 ? menuNext.style.visibility = "hidden" : menuNext.style.visibility = "visible";
 
     })
   }
@@ -339,6 +546,7 @@ window.onload = function () {
   //如果有滾動的話就回復成原本的opacity和按鈕顯示
   cardContain.addEventListener('scroll', function () {
     // console.log("scroll");
+    //scroll取消漸變消失
     menuCardAll.forEach((card, index) => {
       card.style.opacity = `1`;
     })
@@ -347,5 +555,10 @@ window.onload = function () {
 
   //每次載入都先執行一次，讓opacity可以變化
   moveCard()
+  // 設定左至右漸變消失的css
+  menuCardAll.forEach((card, index) => {
+    card.style.opacity = `${(((currentIndex - index + 0.2) * 0.5) + 1)}`;
+  })
+
 
 }
