@@ -66,7 +66,7 @@ button {
 /* ======電腦版 menu====== */
 .nav-logo>img {
   max-width: 30vmin;
-  transition: .1s ease-in-out;
+  transition: .08s ease-in-out;
 }
 
 @media screen and (max-width:768px) {
@@ -75,8 +75,12 @@ button {
   }
 }
 
-.nav-logo>img:hover {
-  filter: invert(100%) sepia(4%) saturate(0%) hue-rotate(0deg) brightness(121%) contrast(80%);
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+
+  .nav-logo>img:hover {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%) drop-shadow(3px 2px 0px var(--home-sub));
+    transform: scale(1.03) translate(-3px, -2px);
+  }
 }
 
 .nav-header {
@@ -102,8 +106,34 @@ button {
   background-color: var(--pk--white);
   /* border-radius: 1.5rem; */
   color: var(--pk--black);
+  position: relative;
   /* padding: 0.5rem 1rem; */
   /* transition: color .15s ease-in-out, padding .15s ease-in-out, --color-1 .15s ease-in-out, --color-2 .15s ease-in-out; */
+
+}
+
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .header-navibar::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1000px;
+    background: transparent;
+    outline: 0 solid var(--pk--black);
+    transition: all 0.1s ease-in-out;
+    z-index: -1;
+  }
+
+  .header-navibar:hover::before {
+    background: var(--pk--black);
+    outline: 5px solid var(--home-sub);
+  }
+
+  /* .header-navibar:hover {
+    filter: drop-shadow(0 );
+  } */
+
 
 }
 
@@ -190,6 +220,102 @@ button {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.3rem;
+
+}
+
+.header .header-navibar button .nav-button-text>span>span {
+  font-family: var(--pk--font-chin);
+  /* text-align: center; */
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+/* 按鈕hover動畫 */
+.header .header-navibar button .nav-button-text>span>span {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .header .header-navibar button .nav-button-text {
+    display: block;
+    overflow: hidden;
+    padding: 0px 0;
+  }
+
+  .header .header-navibar button .nav-button-text>span {
+    position: relative;
+    display: block;
+    animation: headerNavHoverOff 0.3s cubic-bezier(0, 0.5, 0.5, 1) forwards,
+      headerNavHoverDownOff 0.1s ease-in-out 0.2s forwards;
+  }
+
+  .header .header-navibar button .nav-button-text>span>span {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: block;
+    color: var(--home-sub);
+    font-family: var(--pk--font-chin);
+    width: 100%;
+    line-height: 2vmin;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+    letter-spacing: 0.3vmin;
+
+  }
+
+  .header .header-navibar button:hover .nav-button-text>span {
+    animation: headerNavHover 0.3s cubic-bezier(0, 0.5, 0.5, 1) forwards,
+      headerNavHoverDown 0.1s ease-in-out 0.2s forwards;
+  }
+
+
+
+}
+
+
+/* 按鈕hover動畫 */
+@keyframes headerNavHover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes headerNavHoverDown {
+  0% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(-17px);
+  }
+}
+
+@keyframes headerNavHoverOff {
+  0% {
+    transform: translateY(-17px);
+  }
+
+  100% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes headerNavHoverDownOff {
+  0% {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 
@@ -206,6 +332,47 @@ button {
     margin-right: 2vw;
   }
 }
+
+
+/* 購物車hover動畫 */
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .navbar-cart:hover {
+    animation: cartRotateRight 0.25s ease-out;
+    transform-origin: center 40px;
+  }
+}
+
+@keyframes cartRotateRight {
+  0% {
+    transform: rotateX(0);
+  }
+
+  25% {
+    transform: rotate(8deg) translateX(5px);
+
+  }
+
+  40% {
+    transform: rotate(0deg) translateX(0px);
+  }
+
+  60% {
+    transform: rotate(-5deg) translateX(-3px);
+  }
+
+  70% {
+    transform: rotate(0deg) translateX(0px);
+  }
+
+  90% {
+    transform: rotate(3deg) translateX(2px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateX(0px);
+  }
+}
+
 
 /* 手機menu icon */
 .menu-icon {
@@ -289,15 +456,38 @@ button {
   font-size: 2vmin;
   letter-spacing: 0.3vmin;
   color: var(--home-sub);
+
+  transition: 0.15s ease-out;
 }
 
-.footer-link path{
+.footer-link path {
   fill: var(--home-sub);
 }
-.footer-link svg{
+
+.footer-link svg {
   width: 2vmin;
   height: 2vmin;
+  transition: 0.2s ease-in-out;
 }
+
+
+/* footer按鈕hover動畫 */
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .footer-link button:hover svg {
+    width: 2.5vmin;
+    height: 2.5vmin;
+    transform: translateX(3px) rotate(90deg);
+  }
+  .footer-link button:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 3px 5px 0 var(--home-sub);
+  }
+  .footer-social button:hover img {
+    filter: invert(100) contrast(100);
+    outline: 3px;
+  }
+}
+
 
 /* ======footer手機版RWD====== */
 @media screen and (max-width:768px) {
@@ -362,7 +552,7 @@ button {
   height: 70vh;
 }
 
-.main_video{
+.main_video {
   width: 35vw;
   /* max-width: 100%; */
   /* max-width: 50%; */
@@ -371,14 +561,46 @@ button {
 .main_video video {
   /* max-width: 100%; */
   /* max-width: 40vw; */
+  width: 100%;
   max-height: auto;
-  aspect-ratio: 1 / 1; 
+  aspect-ratio: 1 / 1;
   background-color: var(--pk--black);
   border-radius: 1000px;
-
 }
 
-#bannerAnimaiton2{
+.video_container {
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+
+.video_container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--pk--white);
+  position: absolute;
+  left: 0px;
+  top: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transform: scale(0.5);
+  /* transition: opacity 2s ease-out ; */
+}
+
+.video_container.fade_overlay::before {
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  transform: scale(1);
+}
+
+.video_container.show_overlay::before {
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+#bannerAnimaiton2 {
   /* margin-top: -50%; */
 }
 
@@ -387,8 +609,9 @@ button {
   width: 8vmin;
   height: 8vmin;
   cursor: pointer;
-  
+
 }
+
 .scroll_icon_left {
   background-image: url('/_images/icon/silde_icon_left.svg');
   background-size: contain;
@@ -517,7 +740,7 @@ button {
 /* 快閃店按鈕 */
 .switchActive {
   background-color: var(--home-sub);
-  color: var(--pk--white) !important ;
+  color: var(--pk--white) !important;
   border: 2px solid var(--home-sub) !important;
 }
 
@@ -652,7 +875,8 @@ button {
   color: var(--pk--white);
   border-radius: 5px;
 }
-.date_tag path{
+
+.date_tag path {
   fill: var(--home-sub);
 }
 
@@ -840,26 +1064,37 @@ button {
 /* 波浪svg */
 .wave_container {
   width: 100vw;
-  height: 10vh;
+  height: 15vh;
   z-index: 100;
-  /* overflow: hidden; */
+  /* overflow: visible; */
   position: relative;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
+
 .wave_svg {
   /* position: absolute; */
   width: 100%;
   height: 100%;
   /* left: 0; */
   /* top: 0; */
+  overflow: visible;
+
 }
+
 #waveTop path {
   fill: var(--home-main);
 }
 
-/* 旋轉卡片 */
-.rotate_card_section{
-  height:60vw;
+.wave_svg path {
+  transition: all ease-in-out;
 }
+
+/* 旋轉卡片 */
+.rotate_card_section {
+  height: 60vw;
+}
+
 .rotate_card {
   border-radius: 50%;
   /* border: 2px solid #000; */
@@ -881,7 +1116,7 @@ button {
   /* line-height: 30px;
   text-align: center; */
 
-  
+
 }
 
 .carousel_item .product_card {
@@ -892,61 +1127,94 @@ button {
   position: absolute;
   top: 10px;
   left: 50%;
-  transform: translateX(-50%) ;
-  
+  transform: translateX(-50%);
+
   background-color: var(--home-sub);
   border-radius: 200px 200px 30px 30px;
 }
 
-.item1 { transform: translateX(-50%) rotate(0deg); }
+.item1 {
+  transform: translateX(-50%) rotate(0deg);
+}
 
-.item2 { transform: translateX(-50%) rotate(60deg); }
-.item2>.product_card { transform: translateX(-50%) rotate(-60deg); }
+.item2 {
+  transform: translateX(-50%) rotate(60deg);
+}
 
-.item3 { transform: translateX(-50%) rotate(120deg); }
-.item3>.product_card { transform: translateX(-50%) rotate(-120deg); }
+.item2>.product_card {
+  transform: translateX(-50%) rotate(-60deg);
+}
 
-.item4 { transform: translateX(-50%) rotate(180deg); }
-.item4>.product_card { transform: translateX(-50%) rotate(-180deg); }
+.item3 {
+  transform: translateX(-50%) rotate(120deg);
+}
 
-.item5 { transform: translateX(-50%) rotate(240deg); }
-.item5>.product_card { transform: translateX(-50%) rotate(-240deg); }
+.item3>.product_card {
+  transform: translateX(-50%) rotate(-120deg);
+}
 
-.item6 { transform: translateX(-50%) rotate(300deg); }
-.item6>.product_card { transform: translateX(-50%) rotate(-300deg); }
+.item4 {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.item4>.product_card {
+  transform: translateX(-50%) rotate(-180deg);
+}
+
+.item5 {
+  transform: translateX(-50%) rotate(240deg);
+}
+
+.item5>.product_card {
+  transform: translateX(-50%) rotate(-240deg);
+}
+
+.item6 {
+  transform: translateX(-50%) rotate(300deg);
+}
+
+.item6>.product_card {
+  transform: translateX(-50%) rotate(-300deg);
+}
 
 /* 卡片樣式 */
-.carousel_item img{
+.carousel_item img {
   width: 20vw;
   height: 20vw;
   border-radius: 50%;
+  object-fit: cover;
 }
-.product_tag h6{
+
+.product_tag h6 {
   padding: 5px 20px;
-  border-radius:1000px ;
+  border-radius: 1000px;
   border: 1px solid var(--pk--black);
 
   font-size: 1.3vmin;
   color: var(--pk--black);
   letter-spacing: 0.1vmin;
 }
-.carousel_item h4{
+
+.carousel_item h4 {
   font-size: 2.2vmin;
   color: var(--pk--white);
   letter-spacing: 0.3vmin;
+  line-height: 3vmin;
 }
-.carousel_item h5{
+
+.carousel_item h5 {
   font-size: 1.9vmin;
   color: var(--pk--white);
   letter-spacing: 0.1vmin;
   font-weight: 400;
 }
-.product_card{
+
+.product_card {
   overflow: hidden;
 }
 
 /* 右下更多按鈕 */
-.more_product_bn{
+.more_product_bn {
   position: absolute;
   background-color: var(--pk--black);
   border-radius: 50%;
@@ -955,65 +1223,85 @@ button {
   right: -6vw;
   bottom: -6vw;
 }
-.more_product_bn::before{
+
+.more_product_bn::before {
   position: absolute;
-  background: url(/_images/icon/more_icon.svg) no-repeat center center  ;
+  background: url(/_images/icon/more_icon.svg) no-repeat center center;
   width: 3vw;
   height: 3vw;
-  top:2vw;
+  top: 2vw;
   left: 2vw;
   content: "";
 }
 
 /* ======手機版RWD旋轉卡片====== */
 @media screen and (max-width:768px) {
+  .wave_container {
+    height: 10vh;
+  }
+
   #waveTop path {
     fill: var(--pk--white);
   }
-  .section_3{
+
+  .section_3 {
     background: url(/main/images/sec3_bg_comic.png) repeat center/70%;
   }
-  .rotate_card_section{
-    height:60vw;
+
+  .rotate_card_section {
+    height: 60vw;
     margin-top: 15vh;
     margin-bottom: 20vh;
   }
+
   .rotate_card {
     width: 100vw;
     height: 100vw;
     margin-top: 170%;
   }
+
   .carousel_item .product_card {
     padding: 15px;
     border-radius: 200px 200px 15px 15px;
   }
+
   .carousel_item {
     top: -80%;
     height: 130%;
   }
-  .carousel_item img{
+
+  .carousel_item img {
     width: 50vw;
     height: 50vw;
   }
-  .carousel_item h4{
+
+  .carousel_item h4 {
     font-size: 4.5vmin;
     letter-spacing: 0.3vmin;
+    line-height: 6vmin;
   }
-  .carousel_item h5{
+
+  .carousel_item h5 {
     font-size: 4vmin;
     letter-spacing: 0.3vmin;
   }
-  .more_product_bn{
-    width:  50vw;
-    height: 50vw;
-    right: -25vw;
-    bottom: -25vw;
+
+  .more_product_bn {
+    width: 30vw;
+    height: 30vw;
+    right: -15vw;
+    bottom: -15vw;
   }
-  .more_product_bn::before{
-    width: 13vw;
+
+  .more_product_bn::before {
+    width: 4vw;
+    height: 8vw;
+    top: 5vw;
+    left: 7vw;
+    /* width: 13vw;
     height: 13vw;
     top:8vw;
-    left: 8vw;
+    left: 8vw; */
   }
 }
 
@@ -1026,18 +1314,19 @@ button {
 
 
 /* -----------section4 開始----------- */
-.section_4{
+.section_4 {
   background-color: var(--pk-bg-beige);
   position: relative;
   z-index: 100;
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
-.section_4>.sec_title{
+
+.section_4>.sec_title {
   margin-left: 5vw;
 }
 
-.more_menu_bn{
+.more_menu_bn {
   background-color: var(--home-sub);
   padding: 15px 60px;
   border-radius: 1000px;
@@ -1046,57 +1335,65 @@ button {
 }
 
 /* 餐點卡片 */
-.menu_card_group{
+.menu_card_group {
   /* height: 50vh; */
   overflow-x: hidden;
   overflow-y: scroll;
   border-radius: 30px 0px 0px 30px;
   gap: 15px;
 }
+
 .menu_card_group::-webkit-scrollbar {
   display: none;
 }
-.menu_card{
+
+.menu_card {
   background-color: var(--home-main);
   border-radius: 30px;
   width: fit-content;
   height: 100%;
   padding: 45px 15px 15px 15px;
-  transition: transform 0.2s ease-in-out , opacity 0.5s ease-in-out;
-  
+  transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
+
 
 }
-.menu_card_detail{
+
+.menu_card_detail {
   background-color: var(--pk--white);
   padding: 20px 15px;
   border-radius: 15px;
   width: 28vw;
   height: max-content;
 }
-.menu_card>h3{
+
+.menu_card>h3 {
   font-size: 8vmin;
   color: var(--pk--white);
   letter-spacing: 0.5vmin;
 }
-.menu_card img{
+
+.menu_card img {
   width: 100%;
-  aspect-ratio: 1 / 1; 
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
 }
-.menu_card_detail h4{
+
+.menu_card_detail h4 {
   color: var(--home-sub);
   font-size: 2.2vmin;
   letter-spacing: 0.1vmin;
   text-align: center;
   width: fit-content;
 }
-.menu_card_detail h5{
+
+.menu_card_detail h5 {
   font-size: 1.9vmin;
   letter-spacing: 0.1vmin;
   font-weight: 400;
 }
-.menu_card_detail p{
+
+.menu_card_detail p {
   text-align: center;
   font-weight: 400;
   font-size: 1.3vmin;
@@ -1110,58 +1407,70 @@ button {
   justify-content: center;
   align-items: center;
 }
-.menu_slide_group{
-  top:50%;
+
+.menu_slide_group {
+  top: 50%;
   width: 100%;
   z-index: 10;
   pointer-events: none;
 
 }
-#menuPrev,#menuNext{
+
+#menuPrev,
+#menuNext {
   width: 8vmin;
   cursor: pointer;
   pointer-events: auto;
 }
-#menuNext{
+
+#menuNext {
   margin-left: auto;
 }
-#menuPrev{
+
+#menuPrev {
   margin-left: 35vw;
 }
 
 /* ======section4手機版RWD====== */
 @media screen and (max-width:768px) {
-  .section_4>.sec_title{
+  .section_4>.sec_title {
     margin-left: 0vw;
   }
-  .more_menu_bn{
+
+  .more_menu_bn {
     margin: 0px 15px;
     font-size: 5.5vmin;
     letter-spacing: 0.8vmin;
     padding: 10px;
   }
-  .menu_card{
-   /* width: 80vw; */
-   /* height: 90vh; */
+
+  .menu_card {
+    /* width: 80vw; */
+    /* height: 90vh; */
   }
-  .menu_card_detail{
+
+  .menu_card_detail {
     padding: 15px 10px;
     width: 75vw;
   }
-  .menu_card>h3{
-    font-size:15vmin;
+
+  .menu_card>h3 {
+    font-size: 15vmin;
   }
+
   /* .menu_card img{
     width: 70vw;
     height: 70vw;
   } */
-  .menu_card_detail h4{
+  .menu_card_detail h4 {
     font-size: 4.5vmin;
   }
-  .menu_card_detail h5{
+
+  .menu_card_detail h5 {
     font-size: 4vmin;
   }
-  .menu_card_detail p{
+
+  .menu_card_detail p {
     text-align: center;
     font-weight: 400;
     font-size: 1.3vmin;
@@ -1171,22 +1480,24 @@ button {
     padding: 10px 0px;
     width: 95%;
     height: 10vh;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .menu_card_group{
+  .menu_card_group {
     border-radius: 30px 0px 0px 30px;
     margin-left: 15px;
-    gap:15px;
+    gap: 15px;
   }
 
-  #menuPrev,#menuNext{
+  #menuPrev,
+  #menuNext {
     width: 15vmin;
   }
-  #menuPrev{
+
+  #menuPrev {
     margin-left: 0;
   }
 
@@ -1201,36 +1512,40 @@ button {
 
 
 /* -----------section5 開始----------- */
-.section_5{
+.section_5 {
   background-color: var(--pk-bg-beige);
 }
-.game_bg{
+
+.game_bg {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(/main/images/sec5_game_bg.png) lightgray 50% / cover no-repeat;
   mix-blend-mode: multiply;
-  border-radius: 8000px 8000px 0 0 ;
+  border-radius: 8000px 8000px 0 0;
   width: 100vw;
   height: 50vw;
   margin-bottom: -60px;
 }
 
-.game_bn>div{
+.game_bn>div {
   background-color: var(--home-main);
   width: 25vw;
   height: 25vw;
   border-radius: 50%;
 }
-.game_bn h5{
+
+.game_bn h5 {
   color: var(--pk--black);
   font-size: 4.5vmin;
   letter-spacing: 0.3vmin;
 }
-.game_bn h6{
+
+.game_bn h6 {
   color: var(--pk--black);
   font-size: 3vmin;
   letter-spacing: 0.3vmin;
   font-weight: 400;
 }
-.game_bn>h3{
+
+.game_bn>h3 {
   background-color: var(--pk--black);
   width: 100%;
   padding: 15px;
@@ -1241,10 +1556,11 @@ button {
   border-radius: 1500px;
 
 }
-.footer_top{
+
+.footer_top {
   width: 100vw;
   height: 60px;
-  border-radius: 60px 60px 0px 0px ;
+  border-radius: 60px 60px 0px 0px;
   background-color: var(--home-sub);
   z-index: 1;
   position: relative;
@@ -1252,29 +1568,34 @@ button {
 
 /* ======section5手機版RWD====== */
 @media screen and (max-width:768px) {
-  .game_bg{
+  .game_bg {
     width: 100vw;
     height: 100vh;
     margin-bottom: -30px;
   }
-  .game_bn>div{
+
+  .game_bn>div {
     width: 70vw;
     height: 70vw;
   }
-  .game_bn h5{
+
+  .game_bn h5 {
     font-size: 9.5vmin;
   }
-  .game_bn h6{
+
+  .game_bn h6 {
     font-size: 6.5vmin;
   }
-  .game_bn>h3{
+
+  .game_bn>h3 {
     padding: 5px;
     margin-top: -9vh;
     font-size: 15vmin;
   }
-  .footer_top{
+
+  .footer_top {
     height: 30px;
-    border-radius: 30px 30px 0px 0px ;
+    border-radius: 30px 30px 0px 0px;
   }
 }
 

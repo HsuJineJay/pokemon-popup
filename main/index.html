@@ -36,17 +36,25 @@
         <div class="d-flex ">
           <!-- 電腦版菜單 -->
           <div class="header-navibar px-4 d-none d-md-flex">
-            <button class="nav-button shadow-drop-2-center bn-transition mx-3">
-              <a href="/reservation/reservation.html"> <span class="nav-button-text">RESERVATION</span></a>
+            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+              <a href="/reservation/reservation.html">
+                <span class="nav-button-text"><span>&nbsp;RESERVATION&nbsp;<span>預約入場</span></span>
+              </a>
             </button>
-            <button class="nav-button shadow-drop-2-center bn-transition mx-3">
-              <a href="/goods/goods.html"> <span class="nav-button-text">GOODS</span></span></a>
+            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+              <a href="/goods/goods.html"> 
+                <span class="nav-button-text"><span>&nbsp;GOODS&nbsp;<span>快閃商品</span></span>              
+              </a>
             </button>
-            <button class="nav-button shadow-drop-2-center bn-transition mx-3">
-              <a href="/menu/menu.html"> <span class="nav-button-text">MENU</span></a>
+            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+              <a href="/menu/menu.html">
+                <span class="nav-button-text"><span>&nbsp;MENU&nbsp;<span>餐點菜單</span></span>                
+              </a>
             </button>
-            <button class="nav-button shadow-drop-2-center bn-transition mx-3">
-              <a href="/game/game.html"> <span class="nav-button-text">GAME</span></span></a>
+            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+              <a href="/game/game.html">
+                <span class="nav-button-text"><span>&nbsp;GAME&nbsp;<span>大冒險</span></span>              
+              </a>
             </button>
           </div>
 
@@ -116,10 +124,13 @@
         <!-- 動畫區塊 -->
         <div class="main_video h-100 d-flex flex-column justify-content-center">
           <!-- <video src="/main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm" muted autoplay loop></video> -->
-            <video id="bannerAnimaiton" autoplay loop muted preload="none" src="/main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm"></video>
-            <!-- <video id="bannerAnimaiton2" autoplay loop muted style="visibility: hidden;"></video> -->
+          <div class="video_container">
+            <video id="bannerAnimaiton" autoplay loop muted preload="none"
+              src="/main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm"></video>
+          </div>
+          <!-- <video id="bannerAnimaiton2" autoplay loop muted style="visibility: hidden;"></video> -->
 
-            <div class="scroll_icon w-100 d-none d-md-flex justify-content-center gap-5 pt-4">
+          <div class="scroll_icon w-100 d-none d-md-flex justify-content-center gap-5 pt-4">
             <button id="colorChangeL" class="scroll_icon_left"></button>
             <button id="colorChangeR" class="scroll_icon_right"></button>
           </div>
@@ -298,7 +309,7 @@
     <section id="section3" class="section_3">
 
       <!-- 頂部波浪svg -->
-      <div class="wave_container" id="waveTop">
+      <!-- <div class="wave_container" id="waveTop">
         <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -310,6 +321,25 @@
                 M0 16.67L4.27 20C8.53 23.33 17.07 26.67 25.6 25C34.13 23.33 42.67 16.67 51.2 15C59.73 13.33 68.27 16.67 76.8 18.33C85.33 20 93.87 20 97.93 20L102 20V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V16.67Z;
                 M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
               dur="30s" repeatCount="indefinite" />
+          </path>
+        </svg>
+      </div> -->
+
+      <div class="wave_container" id="waveTop">
+        <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
+            fill="#FFE050">
+            <animate attributeName="d"
+              values="
+                M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z;
+                M0 15L4.27 18C8.53 21 17.07 27 25.6 26C34.13 25 42.67 17 51.2 14C59.73 11 68.27 13 76.8 16C85.33 19 93.87 23 97.93 25L102 27V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V15Z;
+                M0 22L4.27 20C8.53 18 17.07 14 25.6 15C34.13 16 42.67 22 51.2 24C59.73 26 68.27 24 76.8 22C85.33 20 93.87 18 97.93 17L102 16V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V22Z;
+                M0 17L4.27 19C8.53 21 17.07 25 25.6 24C34.13 23 42.67 17 51.2 15C59.73 13 68.27 15 76.8 18C85.33 21 93.87 25 97.93 27L102 29V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V17Z;
+                M0 20L4.27 18C8.53 16 17.07 12 25.6 13C34.13 14 42.67 20 51.2 22C59.73 24 68.27 22 76.8 20C85.33 18 93.87 16 97.93 15L102 14V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V20Z;
+                M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
+              dur="120s" repeatCount="indefinite" />
           </path>
         </svg>
       </div>
@@ -325,135 +355,9 @@
       <!-- section3商品卡片 -->
       <div class="rotate_card_section d-flex justify-content-center align-items-center">
 
-        <div class="rotate_card" style="transform: rotate(0deg)">
+        <div id="productCardContainer" class="rotate_card" style="transform: rotate(0deg)">
 
-          <!-- 商品卡片1 -->
-          <div class="carousel_item item1">
-            <div class="product_card d-flex flex-column gap-3">
-              <!-- 圖片 -->
-              <img id="productImg1" src="">
-              <!-- 內容 -->
-              <div class="d-flex flex-column gap-2">
-                <div class="product_tag d-flex">
-                  <h6 class="font-chin m-0">會場限定</h6>
-                </div>
 
-                <div class="d-flex flex-column text-start gap-0">
-                  <h4 class="font-chin m-0">果然翁玩偶</h4>
-                  <h5 class="font-chin">350元</h5>
-                </div>
-              </div>
-              <!-- 右下更多按鈕 -->
-              <button class="more_product_bn">
-
-              </button>
-            </div>
-          </div>
-
-          <!-- 商品卡片2 -->
-          <div class="carousel_item item2">
-            <div class="product_card d-flex flex-column gap-3">
-              <!-- 圖片 -->
-              <img id="productImg2" src="">
-              <!-- 內容 -->
-              <div class="d-flex flex-column gap-2">
-                <div class="product_tag d-flex">
-                  <h6 class="font-chin m-0">會場限定</h6>
-                </div>
-
-                <div class="d-flex flex-column text-start gap-0">
-                  <h4 class="font-chin m-0">果然翁玩偶</h4>
-                  <h5 class="font-chin">350元</h5>
-                </div>
-              </div>
-              <!-- 右下更多按鈕 -->
-              <button class="more_product_bn"></button>
-            </div>
-          </div>
-
-          <!-- 商品卡片3 -->
-          <div class="carousel_item item3">
-            <div class="product_card d-flex flex-column gap-3">
-              <!-- 圖片 -->
-              <img id="productImg3" src="">
-              <!-- 內容 -->
-              <div class="d-flex flex-column gap-2">
-                <div class="product_tag d-flex">
-                  <h6 class="font-chin m-0">會場限定</h6>
-                </div>
-
-                <div class="d-flex flex-column text-start gap-0">
-                  <h4 class="font-chin m-0">果然翁玩偶</h4>
-                  <h5 class="font-chin">350元</h5>
-                </div>
-              </div>
-              <!-- 右下更多按鈕 -->
-              <button class="more_product_bn"></button>
-            </div>
-          </div>
-
-          <!-- 商品卡片4 -->
-          <div class="carousel_item item4">
-            <div class="product_card d-flex flex-column gap-3">
-              <!-- 圖片 -->
-              <img id="productImg4" src="">
-              <!-- 內容 -->
-              <div class="d-flex flex-column gap-2">
-                <div class="product_tag d-flex">
-                  <h6 class="font-chin m-0">會場限定</h6>
-                </div>
-
-                <div class="d-flex flex-column text-start gap-0">
-                  <h4 class="font-chin m-0">果然翁玩偶</h4>
-                  <h5 class="font-chin">350元</h5>
-                </div>
-              </div>
-              <!-- 右下更多按鈕 -->
-              <button class="more_product_bn"></button>
-            </div>
-          </div>
-
-          <!-- 商品卡片5 -->
-          <div class="carousel_item item5">
-            <div class="product_card d-flex flex-column gap-3">
-              <!-- 圖片 -->
-              <img id="productImg5" src="">
-              <!-- 內容 -->
-              <div class="d-flex flex-column gap-2">
-                <div class="product_tag d-flex">
-                  <h6 class="font-chin m-0">會場限定</h6>
-                </div>
-
-                <div class="d-flex flex-column text-start gap-0">
-                  <h4 class="font-chin m-0">果然翁玩偶</h4>
-                  <h5 class="font-chin">350元</h5>
-                </div>
-              </div>
-              <!-- 右下更多按鈕 -->
-              <button class="more_product_bn"></button>
-            </div>
-          </div>
-
-          <!-- 商品卡片6 -->
-          <div class="carousel_item item6">
-            <div class="product_card d-flex flex-column gap-3">
-              <!-- 圖片 -->
-              <img id="productImg6" src="">
-              <!-- 內容 -->
-              <div class="d-flex flex-column gap-2">
-                <div class="product_tag d-flex">
-                  <h6 class="font-chin m-0">會場限定</h6>
-                </div>
-
-                <div class="d-flex flex-column text-start gap-0">
-                  <h4 class="font-chin m-0">果然翁玩偶</h4>
-                  <h5 class="font-chin">350元</h5>
-                </div>
-              </div>
-              <!-- 右下更多按鈕 -->
-              <button class="more_product_bn"></button>
-            </div>
-          </div>
 
 
         </div>
@@ -461,7 +365,7 @@
 
 
       <!-- 底部波浪svg -->
-      <div class="wave_container">
+      <!-- <div class="wave_container">
         <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -473,6 +377,31 @@
               M0 25L15.625 20C31.25 15 62.5 5 93.75 10C125 15 156.25 35 187.5 45C218.75 55 250 55 281.25 50C312.5 45 343.75 35 359.375 30L375 25V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V25Z;
               M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
               dur="10s" repeatCount="indefinite" />
+          </path>
+        </svg>
+      </div> -->
+
+
+      <div class="wave_container">
+        <svg viewBox="0 0 375 85" class="wave_svg" preserveAspectRatio="none" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
+            fill="#FCF3E4">
+            <animate attributeName="d"
+              values="
+              M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z;
+              
+              M0 25L15.625 30C31.25 35 62.5 45 93.75 40C125 35 156.25 15 187.5 5C218.75 -5 250 -5 281.25 5C312.5 15 343.75 35 359.375 45L375 55V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V25Z;
+              
+              M0 40L15.625 35C31.25 30 62.5 20 93.75 25C125 30 156.25 50 187.5 60C218.75 70 250 70 281.25 65C312.5 60 343.75 50 359.375 45L375 40V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V40Z;
+              
+              M0 10L15.625 15C31.25 20 62.5 30 93.75 25C125 20 156.25 0 187.5 -10C218.75 -20 250 -20 281.25 -10C312.5 0 343.75 20 359.375 30L375 40V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V10Z;
+              
+              M0 30L15.625 25C31.25 20 62.5 10 93.75 15C125 20 156.25 40 187.5 50C218.75 60 250 60 281.25 55C312.5 50 343.75 40 359.375 35L375 30V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V30Z;
+              
+              M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
+              dur="120s" repeatCount="indefinite" />
           </path>
         </svg>
       </div>
@@ -496,11 +425,11 @@
       </div>
 
       <!-- section4餐點卡片 -->
-      <div
+      <div id="menuCardContainer"
         class="menu_card_group col-md-8 col-12 d-inline-flex justify-content-start overflow-scroll position-relative">
 
         <!-- 餐點卡片1 -->
-        <div class="menu_card d-flex flex-column flex-fill justify-content-center align-items-center gap-3">
+        <!-- <div class="menu_card d-flex flex-column flex-fill justify-content-center align-items-center gap-3">
           <h3 class="font-eng m-0"> TOP1</h3>
           <img id="foodImg1" src="">
           <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
@@ -510,10 +439,10 @@
               葡萄味冷凍冰沙<br>使用葡萄果肉，使其果香更加濃郁！<br>喝太快會被「可疑的光」迷惑！
             </p>
           </div>
-        </div>
+        </div> -->
 
         <!-- 餐點卡片2 -->
-        <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
+        <!-- <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
           <h3 class="font-eng m-0"> TOP2</h3>
           <img id="foodImg2" src="">
           <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
@@ -523,10 +452,10 @@
               "躲藏起來的伊布突然出現<br>這是一種甜甜的皇家奶茶口味飲料<br>上面加了金融家和大量的奶油"
             </p>
           </div>
-        </div>
+        </div> -->
 
         <!-- 餐點卡片3 -->
-        <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
+        <!-- <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
           <h3 class="font-eng m-0"> TOP3</h3>
           <img id="foodImg3" src="">
           <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
@@ -536,10 +465,10 @@
               "含有哈密瓜果肉的奶汽水！<br>與新葉喵的餅乾一起好好享用吧♪"
             </p>
           </div>
-        </div>
+        </div> -->
 
         <!-- 餐點卡片 -->
-        <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
+        <!-- <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
           <h3 class="font-eng m-0"> TOP3</h3>
           <img id="foodImg4" src="">
           <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
@@ -549,10 +478,10 @@
               "含有哈密瓜果肉的奶汽水！<br>與新葉喵的餅乾一起好好享用吧♪"
             </p>
           </div>
-        </div>
+        </div> -->
 
         <!-- 餐點卡片 -->
-        <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
+        <!-- <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
           <h3 class="font-eng m-0"> TOP3</h3>
           <img id="foodImg5" src="">
           <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
@@ -562,7 +491,7 @@
               "含有哈密瓜果肉的奶汽水！<br>與新葉喵的餅乾一起好好享用吧♪"
             </p>
           </div>
-        </div>
+        </div> -->
 
 
 
@@ -626,7 +555,7 @@
 
             <div class="footer-link">
               <button class="">
-                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24"
                   style="enable-background:new 0 0 24 24;" xml:space="preserve">
                   <path class="st0" d="M23.9,2.4c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.2-0.3c0-0.1-0.1-0.1-0.1-0.2
@@ -637,7 +566,7 @@
                 隱私權政策
               </button>
               <button class="">
-                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24"
                   style="enable-background:new 0 0 24 24;" xml:space="preserve">
                   <path class="st0" d="M23.9,2.4c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.2-0.3c0-0.1-0.1-0.1-0.1-0.2
@@ -648,6 +577,7 @@
                 常見問題
               </button>
             </div>
+            
           </div>
 
         </div>
