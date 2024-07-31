@@ -690,7 +690,7 @@ function productGetData() {
                         </div>
                       </div>
                       <!-- 右下更多按鈕 -->
-                      <button class="more_product_bn">
+                      <button class="more_product_bn" onclick="clickMoreBN()">
 
                       </button>
                     </div>
@@ -710,7 +710,10 @@ function productGetData() {
   })
 }
 
-
+// 點擊右下角箭頭按鈕跳轉到商品頁面
+function clickMoreBN(){
+  window.location.href = '/goods/goods.html';
+}
 
 
 

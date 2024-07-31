@@ -324,7 +324,9 @@ button {
   display: flex;
   height: 60px !important;
   margin-left: 1vw;
+  cursor: pointer;
 }
+
 
 @media screen and (max-width:768px) {
   .navbar-cart {
@@ -378,6 +380,7 @@ button {
 .menu-icon {
   pointer-events: none;
   height: 45px !important;
+  
 }
 
 
@@ -478,10 +481,12 @@ button {
     height: 2.5vmin;
     transform: translateX(3px) rotate(90deg);
   }
+
   .footer-link button:hover {
-    /* transform: scale(1.05); */
+    transform: translate(-3px , -5px);
     box-shadow: 3px 5px 0 var(--home-sub);
   }
+
   .footer-social button:hover img {
     filter: invert(100) contrast(100);
     outline: 3px;
@@ -609,23 +614,48 @@ button {
   width: 8vmin;
   height: 8vmin;
   cursor: pointer;
+  position: relative;
+  /* z-index: 1; */
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
 
+
+  animation: scrollIconBG 1s ease-in infinite;
+  transition: 0.5s;
+}
+
+/* section1切換動畫按鈕背景動畫 */
+.scroll_icon button:hover {
+  filter: invert(1) contrast(5);
+}
+
+@keyframes scrollIconBG {
+  0% {
+    outline: 0 solid rgba(255, 255, 255, 1);
+  }
+
+  100% {
+    outline: 1vmin solid rgba(255, 255, 255, 0);
+  }
+}
+
+
+.scroll_icon_left,
+.scroll_icon_right {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 2;
 }
 
 .scroll_icon_left {
   background-image: url('/_images/icon/silde_icon_left.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .scroll_icon_right {
   background-image: url('/_images/icon/silde_icon_right.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
-
 
 .main_title h1 {
   font-family: var(--pk--font-eng);
@@ -693,6 +723,39 @@ button {
     padding: 5px 45px;
     justify-content: center;
   }
+
+  .scroll_hint div {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .scroll_hint div:nth-child(1) svg{
+    /* transform: translateX(20px); */
+    animation: scrollHintLeft 1s ease-in-out infinite;
+  }
+  .scroll_hint div:nth-child(3) svg {
+    animation: scrollHintRight 1s ease-in-out infinite;
+  }
+
+}
+
+@keyframes scrollHintLeft {
+  0% {
+    transform: translateX(15px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes scrollHintRight {
+  0% {
+    transform: translateX(-15px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* -----------section1 結束----------- */
@@ -739,9 +802,18 @@ button {
 
 /* 快閃店按鈕 */
 .switchActive {
-  background-color: var(--home-sub);
+  background-color: var(--home-sub) !important;
   color: var(--pk--white) !important;
   border: 2px solid var(--home-sub) !important;
+  outline: 0px solid var(--home-sub) !important;
+  transition: 1s ease-out ;
+}
+
+/* 快閃店按鈕hover效果 */
+.switchActive:hover{
+  box-shadow: 3px 5px var(--home-main);
+  transform: translate(-3px, -5px);
+  /* outline: 2px solid var(--pk--black) !important; */
 }
 
 /* 咖啡廳/快閃店 未點擊的按鈕 */
@@ -750,6 +822,13 @@ button {
   color: var(--pk--black);
   cursor: pointer;
   pointer-events: auto;
+  background-color: transparent;
+  transition: 0.1s ease-in-out ;
+}
+/* 快閃店按鈕hover效果 */
+.switch_bn:hover{
+  background-color: var(--home-main);
+  outline: 2px solid var(--pk--black);
 }
 
 /* ======section2內容區====== */
@@ -918,6 +997,13 @@ button {
 
   color: var(--pk--black);
   font-size: 3vmin;
+  box-shadow: 0px 0px var(--pk--white);
+  transition: 0.15s ease-out;
+}
+
+.card_reservation_bn:hover{
+  box-shadow: 5px 5px var(--pk--white);
+  transform: translate(-5px, -5px);
 }
 
 /* ======section2手機版RWD====== */
@@ -1232,7 +1318,26 @@ button {
   top: 2vw;
   left: 2vw;
   content: "";
+  transition: 0.15s ease-in-out;
 }
+
+.more_product_bn:hover::before {
+  transform: translateX(5px);
+}
+
+
+.more_product_bn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+
 
 /* ======手機版RWD旋轉卡片====== */
 @media screen and (max-width:768px) {
@@ -1332,6 +1437,13 @@ button {
   border-radius: 1000px;
   color: var(--pk--white);
   font-size: 3vmin;
+
+  box-shadow: 0px 0px var(--pk--white);
+  transition: 0.15s ease-out;
+}
+.more_menu_bn:hover{
+  box-shadow: -5px 0px var(--home-main);
+  transform: translate(5px, 0px);
 }
 
 /* 餐點卡片 */
@@ -1530,20 +1642,53 @@ button {
   width: 25vw;
   height: 25vw;
   border-radius: 50%;
+  transition: 0.3s ease-in-out;
 }
 
-.game_bn h5 {
+/* 圓形背景hover動畫 */
+.game_bn:hover>div {
+  background-color: var(--home-sub);
+  width: calc(25vw + 5px);
+  height: calc(25vw + 5px);
+  outline: 5px solid var(--pk--white);
+}
+
+.game_bn>div h5, 
+.game_bn>div h6 {
   color: var(--pk--black);
+  transition: 0.1s ease-out;
+}
+
+/* 圓形背景hover時 文字動畫 */
+.game_bn:hover>div h5, 
+.game_bn:hover>div h6 {
+  color: var(--home-main);
+}
+
+
+.game_bn h5 {
   font-size: 4.5vmin;
   letter-spacing: 0.3vmin;
 }
 
 .game_bn h6 {
-  color: var(--pk--black);
   font-size: 3vmin;
   letter-spacing: 0.3vmin;
   font-weight: 400;
 }
+
+/* .game_bn>div::before {
+  content: "<svg viewBox="0 0 100 100"><path d="M 0,50 a 50,50 0 1, 1 0, 1 z" id="circle"></path><text><textPath xlink:href="#circle">这是一个环形文字效果</textPath</text></svg>";
+  position: absolute;
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
+  background: red; */
+  /* outline: 10px solid var(--pk--black); */
+  /* transition: all 0.1s ease-in-out;
+  z-index: -1;
+} */
+
 
 .game_bn>h3 {
   background-color: var(--pk--black);
@@ -1554,7 +1699,15 @@ button {
   color: var(--home-main);
   letter-spacing: 0.5vmin;
   border-radius: 1500px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 0px var(--home-sub);
+}
 
+/* START文字hover動畫 */
+.game_bn:hover>h3 {
+  color: var(--pk--white);
+  box-shadow: 0px 5px var(--home-sub);
+  transform: translate(0px, -5px);
 }
 
 .footer_top {
