@@ -88,20 +88,20 @@ window.onload = function () {
   //動畫的資料
   let animaitonData = {
     walk: [
-      '/main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm',
-      '/main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm',
-      '/main/images/寶可夢動圖/小火龍/小火龍_走路.webm',
-      '/main/images/寶可夢動圖/菊草葉/菊草葉_走路.webm',
-      '/main/images/寶可夢動圖/小拳石/小拳石_走路.webm',
-      '/main/images/寶可夢動圖/果然翁/果然翁_走路.webm',
+      'main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm',
+      'main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm',
+      'main/images/寶可夢動圖/小火龍/小火龍_走路.webm',
+      'main/images/寶可夢動圖/菊草葉/菊草葉_走路.webm',
+      'main/images/寶可夢動圖/小拳石/小拳石_走路.webm',
+      'main/images/寶可夢動圖/果然翁/果然翁_走路.webm',
     ],
     happy: [
-      '/main/images/寶可夢動圖/皮卡丘/皮卡丘_開心.webm',
-      '/main/images/寶可夢動圖/傑尼龜/傑尼龜_開心.webm',
-      '/main/images/寶可夢動圖/小火龍/小火龍_開心.webm',
-      '/main/images/寶可夢動圖/菊草葉/菊草葉_開心.webm',
-      '/main/images/寶可夢動圖/小拳石/小拳石_開心.webm',
-      '/main/images/寶可夢動圖/果然翁/果然翁_開心.webm',
+      'main/images/寶可夢動圖/皮卡丘/皮卡丘_開心.webm',
+      'main/images/寶可夢動圖/傑尼龜/傑尼龜_開心.webm',
+      'main/images/寶可夢動圖/小火龍/小火龍_開心.webm',
+      'main/images/寶可夢動圖/菊草葉/菊草葉_開心.webm',
+      'main/images/寶可夢動圖/小拳石/小拳石_開心.webm',
+      'main/images/寶可夢動圖/果然翁/果然翁_開心.webm',
     ]
   }
 
@@ -282,7 +282,7 @@ window.onload = function () {
       date: '2024年7月1日(周一)',
       location: '新光三越信義新天地A4館 5 樓',
       address: '台北市信義區松高路19號',
-      imgUrl: '/main/images/cafe_popup_map.jpg',
+      imgUrl: 'main/images/cafe_popup_map.jpg',
     },
     //快閃店更動資料
     store: {
@@ -292,7 +292,7 @@ window.onload = function () {
       date: '2024年8月1日(周四)',
       location: '新光三越信義新天地A11館 3 樓',
       address: '台北市信義區松壽路11號',
-      imgUrl: '/main/images/store_popup_map.jpg',
+      imgUrl: 'main/images/store_popup_map.jpg',
     }
   }
 
