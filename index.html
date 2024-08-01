@@ -17,6 +17,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="_js/jquery-3.7.1.js"></script>
+  <!-- 購物車引用 JS -->
+  <script src="/_js/shoppingCartIcon.js"></script>
+  <link rel="stylesheet" href="/_css/shoppingCartIcon.css">
 
 
 
@@ -58,11 +61,21 @@
             </button>
           </div>
 
-          <!-- 購物車按鈕 -->
-          <div class="navbar-cart">
-            <!-- <object data="/_images/icon/cart_icon.svg" type="image/svg+xml"></object> -->
-            <img src="_images/icon/cart_icon.svg" alt="購物車圖示">
-          </div>
+         <!-- 購物車按鈕 -->
+        <div class="navbar-cart" id="openNav" onclick="openNav()">
+          <img src="/_images/icon/cart_icon.svg" alt="購物車圖示">
+        </div>
+        <!-- 購物車導覽列小圖片 -->
+        <div id="mySidenav" class="sidenav">
+          <!-- 關閉標籤 -->
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
+          <!-- 提示訊息 -->
+          <div id="buyprompt_message"></div>
+          <!-- 商品小卡 -->
+          <ul id="result_goodslist" class="result_goodslist"></ul><br><br>
+        </div>
+        <div id="backgroundOverlay" onclick="closeNav()">
+        </div>
 
           <!-- 手機版菜單 -->
           <!-- 手機按鈕icon -->

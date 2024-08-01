@@ -598,11 +598,13 @@ button {
   transition: all 0.3s ease-in;
   opacity: 0;
   transform: scale(1);
+  z-index: 1;
 }
 
 .video_container.show_overlay::before {
   opacity: 1;
   transform: scale(0.9);
+  z-index: 1;
 }
 
 #bannerAnimaiton2 {
@@ -1144,7 +1146,7 @@ button {
 .section_3 {
   width: 100vw;
   /* overflow-x: hidden;  */
-  background: url(../main/images/sec3_bg_comic.png) repeat center/30%;
+  background: url('../images/sec3_bg_comic.png') repeat center/30%;
 }
 
 /* 波浪svg */
@@ -1312,7 +1314,7 @@ button {
 
 .more_product_bn::before {
   position: absolute;
-  background: url(../../_images/icon/more_icon.svg) no-repeat center center;
+  background: url('../../_images/icon/more_icon.svg') no-repeat center center;
   width: 3vw;
   height: 3vw;
   top: 2vw;
@@ -1350,7 +1352,7 @@ button {
   }
 
   .section_3 {
-    background: url(../images/sec3_bg_comic.png) repeat center/70%;
+    background: url('../images/sec3_bg_comic.png') repeat center/70%;
   }
 
   .rotate_card_section {
@@ -1629,7 +1631,7 @@ button {
 }
 
 .game_bg {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(../images/sec5_game_bg.png) lightgray 50% / cover no-repeat;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url('../images/sec5_game_bg.png') lightgray 50% / cover no-repeat;
   mix-blend-mode: multiply;
   border-radius: 8000px 8000px 0 0;
   width: 100vw;
