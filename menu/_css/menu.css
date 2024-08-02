@@ -59,9 +59,10 @@ button {
 /* -----------全域字型與顏色設定 結束----------- */
 
 
-.menu_section{
+.menu_section {
   padding: 20vh 0px 5vh 0px;
 }
+
 /* 菜單標題列 */
 .sec_title h2 {
   font-size: 11vmin;
@@ -87,53 +88,90 @@ button {
 
 
 /* 菜單分類類別 */
-.menu_category{
-  background-color:var(--pk--black) ;
+.menu_category {
+  background-color: var(--pk--black);
   padding: 10px;
   border-radius: 1000px;
 }
-.category_bn{
+
+.category_bn {
   padding: 10px 60px !important;
   background-color: transparent;
   border: 1px solid var(--pk--white) !important;
   border-radius: 1000px !important;
   box-sizing: border-box;
 }
-.category_bn h4{
+
+.category_bn h4 {
   color: var(--pk--white);
   font-size: 2.2vmin;
   letter-spacing: 0.3vmin;
+  transition: 0.3s ease-out;
+
 }
-.category_bn.active{
-  background-color: var(--pika--red)!important;
+
+.category_bn.active {
+  background-color: var(--pika--red) !important;
   border: 1px solid var(--pika--red) !important;
-  
+
 }
+
+/* 菜單類別hover效果 */
+.menu_category li {
+  border-radius: 1000px;
+  transition: 0.2s ease-out;
+}
+
+/* 未選取的類別hover */
+.menu_category li:hover {
+  background-color: var(--pika--yellow);
+  outline: 2px solid var(--pk--white);
+}
+.menu_category li:hover h4{
+  color: var(--pika--red);
+}
+
+
+/* 已經選取的類別hover */
+.menu_category li:hover:has(.active) {
+  box-shadow: 3px 5px var(--pika--yellow);
+  transform: translate(-3px, -5px);
+  outline: 0px solid var(--pk--white);
+}
+.menu_category li:hover:has(.active) h4{
+  color: var(--pk--white);
+}
+
 @media screen and (max-width:768px) {
-  .category_bn{
+  .category_bn {
     padding: 5px 30px !important;
   }
-  .category_bn h4{
+
+  .category_bn h4 {
     font-size: 4.5vmin;
   }
 
 }
 
 /* 菜單品項卡片 */
-.menu_card_group{
+.menu_card_group {
   row-gap: 30px;
-  flex-wrap: wrap;
+  column-gap: 20px;
+  /* flex-wrap: wrap; */
 }
+
 /* 餐點卡片 */
-.menu_card{
+.menu_card {
   background-color: var(--pika--yellow);
   border-radius: 200px 200px 30px 30px;
-  width: fit-content;
+  /* width: fit-content; */
   min-height: fit-content;
-  padding: 15px ;
-  width: 24%;
+  padding: 15px;
+  /* width: 24%; */
+  width: 285px;
 }
-.menu_card_detail{
+
+.menu_card_detail {
   background-color: var(--pk--white);
   padding: 20px 15px;
   border-radius: 15px;
@@ -141,26 +179,38 @@ button {
   height: max-content;
 }
 
-.menu_card img{
+.menu_card figure {
   width: 100%;
-  aspect-ratio: 1 / 1; 
+  overflow: hidden;
   border-radius: 50%;
-  object-fit: cover;
-
 }
-.menu_card_detail h4{
+
+.menu_card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
+}
+
+.menu_card:hover img{
+  transform: scale(1.2);
+}
+
+.menu_card_detail h4 {
   color: var(--pika--red);
   font-size: 2.2vmin;
   letter-spacing: 0.1vmin;
   text-align: center;
   width: fit-content;
 }
-.menu_card_detail h5{
+
+.menu_card_detail h5 {
   font-size: 1.9vmin;
   letter-spacing: 0.1vmin;
   font-weight: 400;
 }
-.menu_card_detail p{
+
+.menu_card_detail p {
   text-align: center;
   font-weight: 400;
   font-size: 1.3vmin;
@@ -174,30 +224,37 @@ button {
   justify-content: center;
   align-items: center;
 }
+
 /* ======section4手機版RWD====== */
 @media screen and (max-width:768px) {
-  .menu_card_group{
+  .menu_card_group {
     padding: 0px 15px;
   }
-  .menu_card{
+
+  .menu_card {
 
     width: 90%;
   }
-  .menu_card_detail{
+
+  .menu_card_detail {
     padding: 15px 10px;
     width: 100%;
   }
-  .menu_card img{
+
+  .menu_card img {
     /* width: 70vw;
     height: 70vw; */
   }
-  .menu_card_detail h4{
+
+  .menu_card_detail h4 {
     font-size: 4.5vmin;
   }
-  .menu_card_detail h5{
+
+  .menu_card_detail h5 {
     font-size: 4vmin;
   }
-  .menu_card_detail p{
+
+  .menu_card_detail p {
     text-align: center;
     font-weight: 400;
     font-size: 1.3vmin;
