@@ -31,7 +31,7 @@ body{
         max-width: 1920px;
         margin: 0 auto;
         /* background-color:#FFE050 ; */
-        background-image: url(./images/publicImg/bg_comic.png);
+        background-image: url(../images/publicImg/bg_comic.png);
         background-size: contain;
         
     }
@@ -56,6 +56,7 @@ body{
     .seven_Anicontainer{
         visibility: hidden;
     }
+    
     
 }
 
@@ -251,7 +252,7 @@ input {
     flex-direction: column;
     align-items: center;
     margin-top: -25%;
-   
+   z-index: 1;
     position: absolute;
     width: 100%;
    
@@ -272,7 +273,7 @@ input {
     max-height: 90px;
     width: 15vmax;
     height: 15vmax;
-    background-image: url(./images/firstPageImg/ballButtonNormal.svg);
+    background-image: url(../images/firstPageImg/ballButtonNormal.svg);
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0;
@@ -282,11 +283,11 @@ input {
     font-family: "Fredoka", sans-serif;
     font-weight: 600;
     text-align: center;
-
+    z-index: 2;
 }
 /* hover換綠色圖片 */
 #startButtonContainer:hover{
-    background-image: url(./images/firstPageImg/ballButtonShine.svg);
+    background-image: url(../images/firstPageImg/ballButtonShine.svg);
     transition: ease-in-out 0.5s;
 }
 
@@ -317,7 +318,22 @@ input {
 
     width: 100vw;
     max-width: 250px;
+ /* 寶可夢自轉 ========= */
+    animation-name: pokeballRotate ;
+    transform: rotateX(0deg);
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite;
+   
     
+}
+/* 寶可夢自轉動畫 ========= */
+@keyframes pokeballRotate {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
 }
 
 /* 所有雲朵的容器 */
@@ -328,7 +344,21 @@ input {
     top: 0;
     left: 0;
     overflow: hidden;
+    /* animation-name: cloundAni;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite; */
 }
+
+/* @keyframes cloundAni{
+    0%{
+        left: 0%;
+    }50%{
+        left: 5%;
+    }100%{
+        left: 0%;
+    }
+} */
 
 /* 雲朵定位 */
 .cloud1container {
@@ -471,7 +501,7 @@ input {
     height: 20vw;
     /* max-width: 100px; */
     /* max-width: 100px; */
-    background-image: url(./images/publicImg/questionIcon.svg);
+    background-image: url(../images/publicImg/questionIcon.svg);
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0;
@@ -499,7 +529,7 @@ input {
  width: 100%;
  max-width: 400px;
  max-height: 120px;
-
+visibility: hidden;
 }
 
 /* 問題容器 */
@@ -548,6 +578,7 @@ input {
     margin-top: 2vh;
     width: 100%;
     /* height: 100%; */
+    visibility: hidden;
 }
 
 /* 選項按鈕 */
@@ -572,6 +603,7 @@ input {
     margin-bottom: 5vh;
     width: 100%;
     margin-top: 2%;
+    visibility: hidden;
 }
 
 /* 寶貝球圖片 */
@@ -587,14 +619,23 @@ input {
     flex-direction: column;
     gap: 1vh;
     align-items: center;
+    
+}
+/* 旁白框控制容器 */
+.storyTextCtrl{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 /* 旁白文字 */
+/* 動態設計 */
 .storyText {
     width: 80%;
     max-width: 400px;
     height: 9vw;
-    background-image: url(./images/publicImg/talkContent.svg);
+    background-image: url(../images/publicImg/talkContent.svg);
     background-repeat: no-repeat;
     background-size: contain;
     margin: 0;
@@ -602,17 +643,41 @@ input {
     /* font-size: 90%; */
     justify-content: center;
     font-family: "Fredoka", "Noto Sans TC", sans-serif;
-    font-weight: 600;
+    /* font-weight: 800; */
     text-align: center;
     background-size: contain;
     display: flex;
     align-items: center;
     background-position: center;
+    visibility: visible;
+    animation-name:storyTextFade;
+    opacity: 0;
+    animation-duration: 4s;
+    animation-delay: 0.3s;
+    /* animation-fill-mode:forwards; */
+    animation-timing-function: ease-in-out;
 
+}
+
+/*storyTextFade 動態 ========== */
+
+@keyframes storyTextFade{
+    0%{
+        opacity: 0
+    }25%{
+        opacity: 1
+    }90%{
+        opacity: 1
+        
+    }100%{
+        opacity: 0
+    }
 }
 
 .storyText h4{
     font-size: 92%;
+    font-family: "Fredoka", "Noto Sans TC", sans-serif;
+    font-weight: bold;
     margin: 0;
 }
 
@@ -674,7 +739,7 @@ input {
 .musicIcon1 {
     width: 10%;
     height: 10%;
-    background-image: url(./images/thirdPageImg/Musical.svg);
+    background-image: url(../images/thirdPageImg/Musical.svg);
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -687,7 +752,7 @@ input {
 .musicIcon2 {
     width: 10%;
     height: 10%;
-    background-image: url(./images/thirdPageImg/Musical.svg);
+    background-image: url(../images/thirdPageImg/Musical.svg);
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -794,7 +859,7 @@ input {
     top: 0;
     left: 40;
     overflow: hidden;
-    background-image: url(./images/fourthPageImg/cakebg.svg);
+    background-image: url(../images/fourthPageImg/cakebg.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 0 30vh;
@@ -1213,7 +1278,7 @@ input {
     max-width: 600px;
     max-height: 600px;
     
-    background-image: url(./images/guessWhoPage/guessWhoNoshadow.svg);
+    background-image: url(../images/guessWhoPage/guessWhoNoshadow.svg);
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0;
@@ -1347,7 +1412,7 @@ input {
     height: 33vw;
     max-width: 300px;
     max-height: 105px;
-    background-image: url(./images/result_Images/nameCon.svg);
+    background-image: url(../images/result_Images/nameCon.svg);
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0;
@@ -1391,7 +1456,7 @@ input {
     height: 15vw;
     max-width: 380px;
     max-height: 45px;
-    background-image: url(./images/result_Images/AttrtextCon.svg);
+    background-image: url(../images/result_Images/AttrtextCon.svg);
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0;
@@ -1459,7 +1524,7 @@ input {
     border: #3F3A3A 8px solid;
     width: 55vw;
     height: 55vw;
-    background-image: url(./images/publicImg/bg_comic.png);
+    background-image: url(../images/publicImg/bg_comic.png);
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
@@ -1578,7 +1643,7 @@ input {
 .friend_figure_container {
     display: flex;
     align-items: center;
-    background-image: url(./images/publicImg/bg_comic.png);
+    background-image: url(../images/publicImg/bg_comic.png);
     background-size: contain;
 
 }
