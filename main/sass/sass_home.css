@@ -104,6 +104,10 @@ a:hover, a:visited, a:link, a:active {
   border-radius: 1000px;
 }
 
+.round--circle {
+  border-radius: 50%;
+}
+
 @keyframes headerNavHover {
   0% {
     transform: translateY(0);
@@ -165,6 +169,47 @@ a:hover, a:visited, a:link, a:active {
   }
   100% {
     transform: rotate(0deg) translateX(0px);
+  }
+}
+@keyframes videoShakeHint {
+  0% {
+    transform: rotate(0deg) translateX(0px);
+  }
+  2% {
+    transform: rotate(2deg) translateX(1px);
+  }
+  4% {
+    transform: rotate(-1deg) translateX(0px);
+  }
+  8% {
+    transform: rotate(0deg) translateX(0px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0px);
+  }
+}
+@keyframes scrollIconBG {
+  0% {
+    outline: 0 solid rgb(255, 255, 255);
+  }
+  100% {
+    outline: 1vmin solid rgba(255, 255, 255, 0);
+  }
+}
+@keyframes scrollHintLeft {
+  0% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes scrollHintRight {
+  0% {
+    transform: translateX(-15px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 .header {
@@ -415,6 +460,210 @@ a:hover, a:visited, a:link, a:active {
 }
 .header__nav .nav .offcanvas-body .mobile-nav__item .nav-link span {
   font-family: var(--pk--font-eng);
+}
+
+.section1 {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  background-color: var(--home-main);
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+  transition: 0.5s ease-in;
+  flex-direction: row;
+}
+@media screen and (max-width: 768px) {
+  .section1 {
+    flex-direction: column;
+    padding-top: 12vh;
+  }
+}
+.section1__container {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 30px;
+  height: 70vh;
+}
+@media screen and (max-width: 768px) {
+  .section1__container {
+    gap: 15px;
+    flex-direction: column;
+    flex: 1 1 auto !important;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+.section1__container .main-video {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  width: 35vw;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .section1__container .main-video {
+    width: 100% !important;
+    align-items: center;
+  }
+}
+.section1__container .main-video__container {
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+.section1__container .main-video__container::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-radius: 50%;
+  background: var(--pk--white);
+  position: absolute;
+  left: 0;
+  top: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transform: scale(0.5);
+}
+.section1__container .main-video__container.fade_overlay::before {
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  transform: scale(1);
+  z-index: 1;
+}
+.section1__container .main-video__container.show_overlay::before {
+  opacity: 1;
+  transform: scale(0.9);
+  z-index: 1;
+}
+.section1__container .main-video__container video {
+  width: 100%;
+  max-height: auto;
+  aspect-ratio: 1/1;
+  background-color: rgba(63, 58, 58, 0.9);
+  outline: 0px solid var(--home-sub);
+  transition: 0.2s ease-in-out;
+  animation: videoShakeHint 5s ease-in infinite;
+  transform-origin: bottom center;
+}
+@media screen and (max-width: 768px) {
+  .section1__container .main-video__container video {
+    max-width: 100%;
+    width: calc(100vw - 30px);
+  }
+}
+.section1__container .main-video__container video:hover {
+  outline: 10px solid var(--home-sub);
+}
+.section1__container .main-video .scroll-icon {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  gap: 30px;
+  padding-top: 25px;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .section1__container .main-video .scroll-icon {
+    display: none;
+  }
+}
+.section1__container .main-video .scroll-icon button {
+  width: 8vmin;
+  height: 8vmin;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  animation: scrollIconBG 1s ease-in infinite;
+  transition: 0.5s;
+}
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .section1__container .main-video .scroll-icon button:hover {
+    filter: invert(1) contrast(5);
+  }
+}
+.section1__container .main-video .scroll-icon__left {
+  background-image: url("../../images/icon/silde_icon_left.svg");
+}
+.section1__container .main-video .scroll-icon__right {
+  background-image: url("../../images/icon/silde_icon_right.svg");
+}
+.section1__container .main-title {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 15px;
+}
+@media screen and (max-width: 768px) {
+  .section1__container .main-title {
+    gap: 0;
+    align-items: center;
+  }
+}
+.section1__container .main-title h1 {
+  color: var(--pk--black);
+  font-size: 11vmin;
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  letter-spacing: 0.5vmin;
+  text-align: start;
+}
+@media screen and (max-width: 768px) {
+  .section1__container .main-title h1 {
+    font-size: 18vmin;
+    line-height: 18vmin;
+    text-align: center;
+  }
+}
+.section1__container .main-title h2 {
+  color: var(--pk--white);
+  font-size: 3.5vmin;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  letter-spacing: 0.5vmin;
+  transition: 0.1s ease-in-out;
+  padding: 15px 60px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media screen and (max-width: 768px) {
+  .section1__container .main-title h2 {
+    font-size: 5vmin;
+    padding: 5px 45px;
+    justify-content: center;
+  }
+}
+.section1__container .scroll-hint {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .section1__container .scroll-hint {
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+  }
+}
+.section1__container .scroll-hint div {
+  display: flex;
+  overflow: hidden;
+}
+.section1__container .scroll-hint div:nth-child(1) svg {
+  animation: scrollHintLeft 1s ease-in-out infinite;
+}
+.section1__container .scroll-hint div:nth-child(3) svg {
+  animation: scrollHintRight 1s ease-in-out infinite;
 }
 
 .footer {

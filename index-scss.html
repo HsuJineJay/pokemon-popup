@@ -137,30 +137,30 @@
     <!-- ==========header 結束========== -->
 
     <!-- ==========section1 主視覺 開始========== -->
-    <section id="section1" class="section_1 d-flex flex-column flex-md-row justify-content-center">
-      <div class="section-container main_banner d-flex  align-items-center gap-md-5 gap-3">
+    <section id="section1 mobile-container" class="section1 bk--main-color">
+      <div class="section1__container">
 
         <!-- 動畫區塊 -->
-        <div class="main_video h-100 d-flex flex-column justify-content-center">
+        <div class="main-video">
           <!-- <video src="/./main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm" muted autoplay loop></video> -->
-          <div class="video_container">
-            <video id="bannerAnimaiton" autoplay loop muted preload="none"
+          <div id="videoContainer" class="main-video__container ">
+            <video id="bannerAnimaiton" class="round--circle" autoplay loop muted preload="none"
               src="./main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm"></video>
           </div>
           <!-- <video id="bannerAnimaiton2" autoplay loop muted style="visibility: hidden;"></video> -->
 
-          <div class="scroll_icon w-100 d-none d-md-flex justify-content-center gap-5 pt-4">
-            <button id="colorChangeL" class="scroll_icon_left"></button>
-            <button id="colorChangeR" class="scroll_icon_right"></button>
+          <div class="scroll-icon">
+            <button id="colorChangeL" class="scroll-icon__left round--circle"></button>
+            <button id="colorChangeR" class="scroll-icon__right round--circle"></button>
           </div>
         </div>
         <!-- 主標題 -->
-        <div class="main_title d-inline-flex flex-column gap-md-3 gap-0">
+        <div class="main-title main_title d-inline-flex flex-column gap-md-3 gap-0">
           <h1>POKEMON<br>POP-UP</h1>
-          <div>快閃店 X 咖啡廳</div>
+          <h2 class="round--pill bk--sub-color">快閃店 X 咖啡廳</h2>
         </div>
         <!-- 手機版scroll提示字 -->
-        <div class="scroll_hint d-flex d-md-none align-items-center">
+        <div class="scroll-hint">
 
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="135" height="15" viewBox="0 0 135 15" fill="none">

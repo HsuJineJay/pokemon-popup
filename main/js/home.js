@@ -53,7 +53,7 @@ window.onload = function () {
   const colorChangeR = document.getElementById('colorChangeR');
   const colorChangeL = document.getElementById('colorChangeL');
   const animaiton = document.getElementById('bannerAnimaiton');
-  const videoContainer = document.querySelector('.video_container');
+  const videoContainer = document.getElementById('videoContainer');
   let colorCount = 0
 
   // 獲取:root元素

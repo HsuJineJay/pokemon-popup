@@ -1,0 +1,200 @@
+.section1 {
+  @include flex--(center, normal);
+  background-color: var(--home-main);
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+  transition: 0.5s ease-in;
+  flex-direction: row;
+
+  @include mobile {
+    flex-direction: column;
+    padding-top: 12vh;
+  }
+
+  &__container {
+    @include flex--(normal, center);
+    gap: $space--5;
+    height: 70vh;
+
+    @include mobile {
+      gap: $space--3;
+      flex-direction: column;
+      flex: 1 1 auto !important;
+      height: fit-content;
+    }
+
+    // 動畫區塊
+    .main-video {
+      @include flex--(center, normal);
+      flex-direction: column;
+      width: 35vw;
+      height: 100%;
+
+      @include mobile {
+        width: 100% !important;
+        align-items: center;
+      }
+
+      &__container {
+        height: auto;
+        width: 100%;
+        position: relative;
+
+        &::before {
+          @include equal-wh--(100%);
+          content: "";
+          border-radius: 50%;
+          background: var(--pk--white);
+          position: absolute;
+          left: 0;
+          top: 0;
+          mix-blend-mode: soft-light;
+          opacity: 0;
+          transform: scale(0.5);
+        }
+
+        &.fade_overlay::before {
+          transition: all 0.3s ease-in;
+          opacity: 0;
+          transform: scale(1);
+          z-index: 1;
+        }
+
+        &.show_overlay::before {
+          opacity: 1;
+          transform: scale(0.9);
+          z-index: 1;
+        }
+
+
+        video {
+          width: 100%;
+          max-height: auto;
+          aspect-ratio: 1 / 1;
+          background-color: rgba(63, 58, 58, 0.9);
+          outline: 0px solid var(--home-sub);
+          transition: 0.2s ease-in-out;
+          // 寶可夢影片提示晃動動畫
+          animation: videoShakeHint 5s ease-in infinite;
+          transform-origin: bottom center;
+
+          @include mobile {
+            max-width: 100%;
+            width: calc(100vw - 30px);
+          }
+
+          &:hover {
+            outline: 10px solid var(--home-sub);
+          }
+        }
+      }
+
+      .scroll-icon {
+        @include flex--(center, normal);
+        gap: ($space--5);
+        padding-top: $space--4;
+        width: 100%;
+
+        @include mobile {
+          display: none;
+        }
+
+        button {
+          @include equal-wh--(8vmin);
+          cursor: pointer;
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          position: relative;
+          z-index: 1;
+          animation: scrollIconBG 1s ease-in infinite;
+          transition: 0.5s;
+
+          @include web-hover {
+            &:hover {
+              filter: invert(1) contrast(5);
+            }
+          }
+        }
+
+        &__left {
+          background-image: url('../../images/icon/silde_icon_left.svg');
+        }
+
+        &__right {
+          background-image: url('../../images/icon/silde_icon_right.svg');
+        }
+
+      }
+
+    }
+
+    // 主標題
+    .main-title {
+      display: inline-flex;
+      flex-direction: column;
+      gap: $space--3;
+
+      @include mobile {
+        gap: 0;
+        align-items: center;
+      }
+
+      h1 {
+        @include font__eng--(var(--pk--black), $eng--main-title);
+        letter-spacing: 0.5vmin;
+        text-align: start;
+
+        @include mobile {
+          font-size: $eng-mobile--main-title;
+          line-height: $eng-mobile--main-title;
+          text-align: center;
+        }
+      }
+
+      h2 {
+        @include font__chin--(var(--pk--white), $chin--main-title);
+        letter-spacing: 0.5vmin;
+        transition: 0.1s ease-in-out;
+        padding: 15px 60px;
+        width: fit-content;
+
+        @include mobile {
+          font-size: $chin-mobile--main-title;
+          padding: $space--1 $space--1 * 9;
+          justify-content: center;
+        }
+      }
+
+    }
+
+    // 手機版scroll提示字
+    .scroll-hint {
+      display: none;
+
+      @include mobile {
+        @include flex--(normal, center);
+
+      }
+
+      div {
+        display: flex;
+        overflow: hidden;
+
+        &:nth-child(1) {
+          svg {
+            animation: scrollHintLeft 1s ease-in-out infinite;
+          }
+        }
+
+        &:nth-child(3) {
+          svg {
+            animation: scrollHintRight 1s ease-in-out infinite;
+          }
+        }
+      }
+
+    }
+  }
+}
