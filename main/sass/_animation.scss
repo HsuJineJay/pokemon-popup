@@ -88,3 +88,63 @@
   }
 }
 
+// ----------------------
+// section1 寶可夢影片提示晃動動畫
+// ----------------------
+@keyframes videoShakeHint {
+  0% {
+    transform: rotate(0deg) translateX(0px);
+  }
+
+  2% {
+    transform: rotate(2deg) translateX(1px);
+  }
+
+  4% {
+    transform: rotate(-1deg) translateX(0px);
+  }
+
+  8% {
+    transform: rotate(0deg) translateX(0px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateX(0px);
+  }
+}
+
+// ----------------------
+// section1 顏色切換按鈕 hover換色
+// ----------------------
+@keyframes scrollIconBG {
+  0% {
+    outline: 0 solid rgba(255, 255, 255, 1);
+  }
+
+  100% {
+    outline: 1vmin solid rgba(255, 255, 255, 0);
+  }
+}
+
+// ----------------------
+// section1 手機版Scroll 提示箭頭動畫
+// ----------------------
+@keyframes scrollHintLeft {
+  0% {
+    transform: translateX(15px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollHintRight {
+  0% {
+    transform: translateX(-15px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
