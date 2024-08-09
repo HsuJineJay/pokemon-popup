@@ -80,3 +80,11 @@
     justify-content: $justify;
     align-items: $align;
 }
+
+// ----------------------
+// 等寬高大小
+// ----------------------
+@mixin equal-wh--($scale) {
+  width: $scale;
+  height: $scale;
+}
