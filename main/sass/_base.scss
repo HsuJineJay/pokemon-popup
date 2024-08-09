@@ -1,0 +1,66 @@
+//==================================================================================
+//Base:全站預設樣式
+//==================================================================================
+
+// ----------------------
+// 滾動行為
+// ----------------------
+:root {
+  scroll-behavior: smooth;
+}
+
+// ----------------------
+// 去除預設樣式
+// ----------------------
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+a{
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none !important;
+}
+}
+
+
+// ----------------------
+// 預設容器大小
+// ----------------------
+.section-container {
+  max-width: 1200px;
+}
+
+// ----------------------
+// 預設中英文class設置
+// ----------------------
+.font__eng {
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+}
+
+.font__chin {
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+}
+
+// ----------------------
+// 文字顏色class
+// ----------------------
+.text--black {
+  color: var(--pk--black) !important;
+}
+.text--white {
+  color: var(--pk--white);
+}
+.text--main-color {
+  color: var(--home-main);
+}
+.text--sub-color {
+  color: var(--home-sub);
+}
+
+

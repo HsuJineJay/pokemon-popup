@@ -1,0 +1,85 @@
+//==================================================================================
+//variale:全站變數設定
+//==================================================================================
+
+// ----------------------
+// 全域配置設定字型與顏色
+// ----------------------
+:root {
+  // 全站的顏色變數
+  --pk--white: #fff;
+  --pk--black: #3F3A3A;
+  --pk-bg-beige: #FCF3E4;
+  --pk-bg-ligthGray: #F0F0F1;
+
+  // 首頁6種寶可夢顏色，每個主題個兩種顏色
+  $pokemon-colors: (
+    // 皮卡丘
+    pika: (yellow: #FFE050, red: #FF6542),
+    // 傑尼龜
+    water: (blue: #92E2FB, brown: #CA8B7A),
+    // 小火龍
+    fire: (orange: #FFB700, green: #407B80),
+    // 菊草葉
+    grass: (lightGreen: #E4EFB7, darkGreen: #6C904D),
+    // 小拳石
+    stone: (gray: #CBCBBD, brown: #CC9E85),
+    // 果然翁
+    psychic: (pink: #FFC4FA, blue: #6CDBFC)
+  );
+
+  // 動態生成寶可夢顏色變數
+  @each $pokemon, $colors in $pokemon-colors {
+    @each $name, $color in $colors {
+      --#{$pokemon}--#{$name}: #{$color};
+    }
+  }
+
+  // 主色與輔色，初始使用皮卡丘色
+  --home-main: var(--pika--yellow);
+  --home-sub: var(--pika--red);
+
+  // 字型
+  --pk--font-chin: 'Noto Sans TC Local', 'Noto Sans TC', sans-serif;
+  --pk--font-eng: 'Fredoka Local', 'Fredoka', sans-serif;
+
+}
+
+// ----------------------
+// margin、padding 間距大小
+// ----------------------
+$space--0: 0;
+$space--1: 5px;
+$space--2: 8px;
+$space--3: 15px;
+$space--4: 25px;
+$space--5: 30px;
+
+
+// ----------------------
+// 文字大小
+// ----------------------
+
+// 英文字型大小
+$eng--sub-title: 2vmin;
+
+// 英文字型大小--手機版
+
+
+// 中文字型大小--電腦版
+$chin--sub-title: 2vmin;
+
+// 中文字型大小--手機版
+$chin-mobile--sub-title: 5vmin;
+
+
+
+
+
+
+
+
+
+
+
+

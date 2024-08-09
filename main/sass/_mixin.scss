@@ -1,0 +1,82 @@
+
+//==================================================================================
+// mixin:創建打包可重複使用的組件
+//==================================================================================
+
+// ----------------------
+// 電腦版與手機版斷點
+// ----------------------
+@mixin mobile{
+	@media screen and (max-width:768px) {
+		@content;
+	}
+}
+
+// ----------------------
+// 電腦版hover斷點
+// ----------------------
+@mixin web-hover{
+  @media only screen and (min-width: 768px) and (any-hover: hover) {
+		@content;
+  }
+}
+
+// ----------------------
+// 中英文class設置
+// ----------------------
+@mixin font__eng--($color, $size) {
+  color: $color;
+  font-size:  $size;
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+}
+
+@mixin font__chin--($color, $size) {
+  color: $color;
+  font-size:  $size;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+}
+
+// ----------------------
+// 預設margin
+// ----------------------
+@mixin margin-x--($spacing) {
+    margin-left: $spacing;
+    margin-right: $spacing;
+}
+@mixin margin-y--($spacing) {
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+}
+
+
+// ----------------------
+// 預設padding
+// ----------------------
+@mixin padding-x--($spacing) {
+    padding-left: $spacing;
+    padding-right: $spacing;
+}
+@mixin padding-y--($spacing) {
+    padding-top: $spacing;
+    padding-bottom: $spacing;
+}
+
+
+// ----------------------
+// 預設flex配置
+// ----------------------
+@mixin flex--($justify, $align){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
