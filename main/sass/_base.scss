@@ -102,3 +102,20 @@ a{
 .round--circle{
   border-radius: 50%;
 }
+// ----------------------
+// flex方向
+// ----------------------
+.flex--col{
+  flex-direction: column;
+}
+.flex--row{
+  flex-direction: row;
+}
+@media screen and (max-width:768px) {
+  .flex-mobile--col{
+    flex-direction: column;
+  }
+  .flex-mobile--row{
+    flex-direction: row;
+  } 
+}

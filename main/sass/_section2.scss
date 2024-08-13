@@ -1,0 +1,532 @@
+.section2 {
+  @include flex--(center, normal);
+  transition: 0.5s ease-in;
+
+  &__container {
+    @include flex--(center, center);
+    flex-direction: column;
+    width: 100%;
+    gap: $space--3;
+
+    @include mobile{
+      background-color: var(--pk--white);
+      padding: $space--4 * 4 $space--3 $space--5 $space--3;
+      border-radius: $space--6 $space--6 0 0;
+    }
+
+    // section2標題區
+    .title-container {
+      @include flex--(center, center);
+      width: 100%;
+      gap: $space--3;
+
+
+      // section2 標題
+      .section-title {
+        @include section-title;
+      }
+
+      // 切換快閃/咖啡廳資訊按鈕
+      &__switch {
+        @include flex--(center, normal);
+        padding: $space--3;
+        width: 100%;
+        gap: $space--5;
+
+        @include mobile {
+          gap: $space--3;
+          padding: 0;
+        }
+
+        // 沒選中的按鈕
+        button {
+          @include font__chin--(var(--pk--black), $chin--button-lg);
+          padding: $space--1 $space--6;
+          border: 2px solid var(--pk--black);
+          cursor: pointer;
+          pointer-events: auto;
+          background-color: transparent;
+          transition: 0.1s ease-in-out;
+
+          &:hover {
+            background-color: var(--home-main);
+            outline: 2px solid var(--pk--black);
+          }
+
+          @include mobile{
+            font-size: $chin-mobile--button-lg;
+            letter-spacing: 0.3vmin;
+            width: 100%;
+            padding: $space--1 * 2;
+          }
+        }
+
+        // 選中的按鈕
+        .switchActive {
+          background-color: var(--home-sub) !important;
+          color: var(--pk--white) !important;
+          border: 2px solid var(--home-sub) !important;
+          outline: 0px solid var(--home-sub) !important;
+
+          &:hover {
+            box-shadow: 3px 5px var(--home-main);
+            transform: translate(-3px, -5px);
+          }
+        }
+      }
+
+
+    }
+
+    .info-card {
+      display: flex;
+
+      &__container {
+        display: flex;
+        flex: 1 1 auto;
+        gap: $space--5;
+
+        @include mobile{
+          gap: 0;
+        }
+
+        // 活動與預約兩個卡片的群組
+        .card-left {
+          display: flex;
+          width: 50%;
+          gap: $space--5;
+
+          @include mobile {
+            width: 100%;
+            gap: 0;
+          }
+
+          // 01活動日期卡片
+          .card-date {
+            @include info-card;
+            @include flex--(center, flex-start);
+            gap: $space--4;
+            border-radius: 30px;
+
+            @include mobile{
+              background-color: var(--home-main);
+              border-radius: $space--5 $space--5 0 0;
+            }
+
+            // 卡片標題區塊
+            .card-title {
+              @include flex--(space-between, normal);
+              width: 100%;
+
+              // 卡片標題文字
+              &__text {
+                @include flex--(flex-end, normal);
+
+                h6 {
+                  @include font__eng--(var(--home-sub), $eng--sub-title);
+                  text-align: start;
+                  letter-spacing: 0.3vmin;
+
+                  @include mobile{
+                    font-size: $eng-mobile--sub-title;
+                  }
+                }
+
+                h3 {
+                  @include font__chin--(var(--pk--black), $chin--heading-title);
+                  text-align: start;
+                  letter-spacing: 0.3vmin;
+
+                  @include mobile{
+                    font-size: $chin-mobile--heading-title;
+                  }
+                }
+              }
+
+              // 卡片圓形標籤
+              .card-tag {
+                @include flex--(center, center);
+                @include equal-wh--(15vmin);
+                border: 2px solid var(--home-sub);
+
+                @include mobile{
+                  @include equal-wh--(30vmin);
+                  border-color: var(--pk--white);
+                }
+
+                h5 {
+                  @include font__chin--(var(--home-sub), $chin--main-title);
+                  margin: 0;
+
+                  @include mobile{
+                    font-size: $chin-mobile--main-title-lg;
+                    letter-spacing: 0.5vmin;
+                    color: var(--pk--white);
+                  }
+                }
+
+                h6 {
+                  @include font__eng--(var(--home-sub), $eng--button-md);
+                  font-weight: 500;
+                  margin: 0;
+
+                  @include mobile{
+                    font-size: $eng-mobile--sub-title;
+                    color: var(--pk--white);
+                  }
+                }
+              }
+
+            }
+
+            // 卡片內容
+            .card-detail {
+              @include flex--(normal, flex-start);
+              gap: $space--4;
+
+              .date-tag {
+                @include flex--(normal, center);
+                gap: $space--3;
+
+                @include mobile {
+                  gap: $space--2;
+                }
+
+                h5 {
+                  @include font__chin--(var(--pk--white), $chin--button-lg);
+                  margin: 0;
+                  padding: $space--1 * 2 $space--6;
+                  width: fit-content;
+                  border-radius: 5px;
+
+                  @include mobile{
+                    font-size: $chin-mobile--sub-title;
+                    padding: $space--1 $space--5;
+                  }
+                }
+
+                path {
+                  fill: var(--home-sub);
+                }
+              }
+            }
+
+            // 注意事項
+            .card-notice {
+              padding: $space--3;
+              border-radius: $space--3;
+
+              @include mobile{
+                background-color: var(--pk--white);
+              }
+
+              h6 {
+                @include font__eng--(var(--home-sub), $eng--sub-title);
+                text-align: start;
+                margin: $space--1;
+
+                @include mobile{
+                  font-size: $eng-mobile--sub-title;
+                  letter-spacing: 0.3vmin;
+                }
+              }
+
+              ul {
+                padding-left: 2vmin;
+
+                @include mobile{
+                  padding-left: 5vmin;
+                  line-height: 6vmin;
+                }
+
+                li {
+                  @include font__chin--(var(--pk--black), $chin--text);
+                  text-align: start;
+                  letter-spacing: 0.1vmin;
+                  line-height: 2rem;
+
+                  @include mobile{
+                    line-height: 1.5rem;
+                  }
+                }
+              }
+            }
+
+
+
+          }
+
+          // 02預約指南卡片
+          .card-reservation {
+            @include info-card;
+            @include flex--(center, flex-start);
+            gap: $space--4;
+            border-radius: 30px;
+
+            @include mobile {
+              border-radius: $space--5 $space--5 0 0;
+              margin-top: -($space--5);
+              margin-bottom: -($space--5);
+            }
+
+            // 卡片標題區塊
+            .card-title {
+              @include flex--(space-between, normal);
+              width: 100%;
+
+              // 卡片標題文字
+              &__text {
+                @include flex--(flex-end, normal);
+
+                h6 {
+                  @include font__eng--(var(--home-main), $eng--sub-title);
+                  text-align: start;
+                  letter-spacing: 0.3vmin;
+
+                  @include mobile{
+                    font-size: $eng-mobile--sub-title;
+                  }
+                }
+
+                h3 {
+                  @include font__chin--(var(--pk--white), $chin--heading-title);
+                  text-align: start;
+                  letter-spacing: 0.3vmin;
+
+                  @include mobile{
+                    font-size: $chin-mobile--heading-title;
+                  }
+                }
+              }
+
+              // 卡片圓形標籤
+              .card-tag {
+                @include flex--(center, center);
+                @include equal-wh--(15vmin);
+                border: 2px solid var(--pk--white);
+
+                @include mobile{
+                  @include equal-wh--(30vmin);
+                }
+
+                h5 {
+                  @include font__chin--(var(--pk--white), $chin--main-title);
+                  margin: 0;
+
+                  @include mobile{
+                    font-size: $chin-mobile--main-title-lg;
+                    letter-spacing: 0.5vmin;
+                  }
+                }
+
+                h6 {
+                  @include font__eng--(var(--pk--white), $eng--button-md);
+                  font-weight: 500;
+                  margin: 0;
+
+                  @include mobile{
+                    font-size: $eng-mobile--sub-title;
+                  }
+                }
+              }
+
+            }
+
+            // 注意事項
+            .card-notice {
+              padding: $space--3;
+              border-radius: $space--3;
+
+              h6 {
+                @include font__eng--(var(--home-main), $eng--sub-title);
+                text-align: start;
+                margin: $space--1;
+
+                @include mobile{
+                  font-size: $eng-mobile--sub-title;
+                  letter-spacing: 0.3vmin;
+                }
+              }
+
+              ul {
+                padding-left: 2vmin;
+
+                @include mobile{
+                  padding-left: 5vmin;
+                }
+
+                li {
+                  @include font__chin--(var(--pk--black), $chin--text);
+                  text-align: start;
+                  letter-spacing: 0.1vmin;
+                  line-height: 2rem;
+
+                  @include mobile{
+                    line-height: 1.5rem;
+                  }
+                }
+              }
+            }
+
+            // 預約按鈕
+            &__btn {
+              @include flex--(center, normal);
+              @include font__chin--(var(--pk--black), $chin--button-lg);
+              width: 100%;
+              padding: $space--3;
+              box-shadow: 0px 0px var(--pk--white);
+              transition: 0.15s ease-out;
+
+              @include web-hover {
+                &:hover {
+                  box-shadow: 5px 5px var(--pk--white);
+                  transform: translate(-5px, -5px);
+                }
+              }
+
+              @include mobile {
+                font-size: $chin-mobile--button-lg;
+                letter-spacing: 0.8vmin;
+                padding: $space--1 * 2;
+              }
+
+            }
+          }
+
+
+
+
+        }
+
+        // 右側卡片
+        // 03交通資訊卡片
+        .card-location {
+          @include info-card;
+          @include flex--(center, center);
+
+          display: flex;
+          width: 50%;
+          gap: $space--5;
+          border-radius: $space--5;
+
+          @include mobile {
+            width: 100%;
+            gap: $space--4;
+          }
+
+          // 卡片標題區塊
+          .card-title {
+            @include flex--(space-between, normal);
+            width: 100%;
+
+            // 卡片標題文字
+            &__text {
+              @include flex--(flex-end, normal);
+
+              h6 {
+                @include font__eng--(var(--home-sub), $eng--sub-title);
+                text-align: start;
+                letter-spacing: 0.3vmin;
+
+                @include mobile{
+                  font-size: $eng-mobile--sub-title;
+                }
+              }
+
+              h3 {
+                @include font__chin--(var(--pk--white), $chin--heading-title);
+                text-align: start;
+                letter-spacing: 0.3vmin;
+
+                @include mobile{
+                  font-size: $chin-mobile--heading-title;
+                }
+              }
+            }
+
+            // 卡片圓形標籤
+            .card-tag {
+              @include flex--(center, center);
+              @include equal-wh--(15vmin);
+              border: 2px solid var(--pk--white);
+
+              @include mobile{
+                @include equal-wh--(30vmin);
+              }
+
+              h5 {
+                @include font__chin--(var(--pk--white), $chin--main-title);
+                margin: 0;
+
+                @include mobile{
+                  font-size: $chin-mobile--main-title-lg;
+                  letter-spacing: 0.5vmin;
+                }
+              }
+
+              h6 {
+                @include font__eng--(var(--pk--white), $eng--button-md);
+                font-weight: 500;
+                margin: 0;
+                
+                @include mobile{
+                  font-size: $eng-mobile--sub-title;
+                }
+              }
+            }
+
+          }
+
+
+          // 卡片內容
+          .card-detail {
+            @include flex--(normal, flex-start);
+            padding: $space--5 * 2 $space--3;
+            border-radius: $space--3;
+            gap: $space--4;
+            
+            @include mobile{
+              gap: $space--2;
+              padding: $space--3;
+            }
+
+            h6{
+              @include font__eng--(var(--home-sub), $eng--sub-title);
+              text-align: start;
+
+              @include mobile{
+                font-size: $eng-mobile--sub-title;
+                letter-spacing: 0.3vmin;
+              }
+            }
+            h5{
+              @include font__chin--(var(--pk--black), $chin--sub-title);
+              text-align: start;
+
+              @include mobile{
+                font-size: $chin--heading-title;
+                letter-spacing: 0.3vmin;
+              }
+            }
+            p{
+              @include font__chin--(var(--pk--black), $chin--text);
+              text-align: start;
+              font-weight: 400;
+            }
+            img{
+              border-radius: $space--3;
+
+              @include mobile{
+                border-radius: $space--1 * 2;
+              }
+            }
+          }
+
+        }
+
+
+      }
+
+    }
+  }
+}

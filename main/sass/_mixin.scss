@@ -88,3 +88,39 @@
   width: $scale;
   height: $scale;
 }
+
+// ----------------------
+// section標題與副標題
+// ----------------------
+@mixin section-title {
+  @include flex--(normal, center);
+
+  h2{
+    @include font__eng--(var(--pk-black), $eng--main-title);
+    margin: 0;
+    letter-spacing: 0.5vmin;
+
+    @include mobile{
+      font-size: $eng-mobile--main-title-sm;
+    }
+  }
+  h3{
+    @include font__eng--(var(--home-sub), $chin--main-title);
+    letter-spacing: 0.5vmin;
+
+    @include mobile{
+      font-size: $chin-mobile--sub-title;
+      letter-spacing: 1vmin;
+    }
+  }
+}
+
+// ----------------------
+// section2資訊卡片padding
+// ----------------------
+@mixin info-card{
+  padding: $space--6 $space--3 $space--3 $space--3;
+  @include mobile{
+    padding: $space--6 $space--3 $space--5 * 2 $space--3;
+  }
+}

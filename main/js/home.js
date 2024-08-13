@@ -298,13 +298,13 @@ window.onload = function () {
 
   //咖啡廳/快閃店按鈕切換，移除.switchActive在針對現在點擊的按鈕增加.switchActive
   $('#switchCafe').on('click', function () {
-    $('.switch_button button').removeClass('switchActive')
+    $('.title-container__switch button').removeClass('switchActive')
     $(this).addClass('switchActive')
     changeInfo(infoData.cafe)
     cardMoveUp()
   })
   $('#switchStore').on('click', function () {
-    $('.switch_button button').removeClass('switchActive')
+    $('.title-container__switch button').removeClass('switchActive')
     $(this).addClass('switchActive')
     changeInfo(infoData.store)
     cardMoveUp()
@@ -315,13 +315,13 @@ window.onload = function () {
     // 內容更換
     // console.log(info.title);
 
-    $('.card_title_text:first h6').text(info.title)
-    $('.type_tag>h5').text(info.tagChin)
-    $('.type_tag>h6').text(info.tagEng)
-    $('.date_tag h5:first-child').text(info.date)
-    $('.card_lg_detail h5').text(info.location)
-    $('.card_lg_detail p').text(info.address)
-    $('.card_lg_detail img').attr('src', info.imgUrl)
+    $('.card-title__text:first h6').text(info.title)
+    $('.card-tag>h5').text(info.tagChin)
+    $('.card-tag>h6').text(info.tagEng)
+    $('.date-tag h5:first-child').text(info.date)
+    $('#locationCardDetail h5').text(info.location)
+    $('#locationCardDetail p').text(info.address)
+    $('#locationCardDetail img').attr('src', info.imgUrl)
   }
 
 
@@ -330,12 +330,12 @@ window.onload = function () {
       // console.log(12345);
 
       // 每次執行的時候都歸零動畫屬性
-      $('.card_date, .card_reservation, .card_location').css('animation', 'none')
+      $('.card-date, .card-reservation, .card-location').css('animation', 'none')
       // 個別加入動畫並造成時差
       setTimeout(function() {
-        $('.card_date').css('animation', 'infoCardMoveUp 0.2s ease-in-out')
-        $('.card_reservation').css('animation', 'infoCardMoveUp 0.3s ease-in-out')
-        $('.card_location').css('animation', 'infoCardMoveUp 0.4s ease-in-out')
+        $('.card-date').css('animation', 'infoCardMoveUp 0.2s ease-in-out')
+        $('.card-reservation').css('animation', 'infoCardMoveUp 0.3s ease-in-out')
+        $('.card-location').css('animation', 'infoCardMoveUp 0.4s ease-in-out')
       }, 10)
 
     }

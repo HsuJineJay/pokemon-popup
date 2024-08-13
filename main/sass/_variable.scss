@@ -54,27 +54,44 @@ $space--2: 8px;
 $space--3: 15px;
 $space--4: 25px;
 $space--5: 30px;
+$space--6: 45px;
 
 
 // ----------------------
 // 文字大小
 // ----------------------
 
-// 英文字型大小
+// -->英文字型大小
 $eng--main-title: 11vmin;
-$eng--sub-title: 2vmin;
+$eng--sub-title: 2.4vmin;
+
+$eng--button-md: 2vmin;
+
 
 // 英文字型大小--手機版
 $eng-mobile--main-title: 18vmin;
+$eng-mobile--main-title-sm: 15vmin;
+$eng-mobile--sub-title: 4.5vmin;
 
 
-// 中文字型大小--電腦版
+// -->中文字型大小--電腦版
 $chin--main-title: 3.5vmin;
 $chin--sub-title: 2vmin;
+$chin--heading-title: 4.5vmin;
+
+$chin--button-lg: 3vmin;
+$chin--text: 1.5vmin;
+$chin--text-lg: 1.8vmin;
 
 // 中文字型大小--手機版
+$chin-mobile--main-title-lg: 6vmin;
 $chin-mobile--main-title: 5vmin;
-$chin-mobile--sub-title: 5vmin;
+$chin-mobile--sub-title: 4.5vmin;
+$chin-mobile--heading-title: 9.5vmin;
+
+
+$chin-mobile--button-lg: 5.5vmin;
+
 
 
 

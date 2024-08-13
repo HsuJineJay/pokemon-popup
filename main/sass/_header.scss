@@ -124,7 +124,7 @@
             text-decoration: none;
 
             .nav__button__text {
-              @include font__eng--(var(--pk--black), $eng--sub-title);
+              @include font__eng--(var(--pk--black), $eng--button-md);
               letter-spacing: 0.3rem;
               display: block;
               overflow: hidden;

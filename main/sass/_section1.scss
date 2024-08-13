@@ -162,7 +162,7 @@
 
         @include mobile {
           font-size: $chin-mobile--main-title;
-          padding: $space--1 $space--1 * 9;
+          padding: $space--1 $space--6;
           justify-content: center;
         }
       }
