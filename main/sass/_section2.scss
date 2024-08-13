@@ -193,7 +193,7 @@
                 }
 
                 h5 {
-                  @include font__chin--(var(--pk--white), $chin--button-lg);
+                  @include font__chin--(var(--pk--white), $chin--button);
                   margin: 0;
                   padding: $space--1 * 2 $space--6;
                   width: fit-content;
@@ -515,6 +515,7 @@
             }
             img{
               border-radius: $space--3;
+              width: 100%;
 
               @include mobile{
                 border-radius: $space--1 * 2;

@@ -971,7 +971,7 @@ a:hover, a:visited, a:link, a:active {
 }
 .section2__container .info-card__container .card-left .card-date .card-detail .date-tag h5 {
   color: var(--pk--white);
-  font-size: 3vmin;
+  font-size: 2.5vmin;
   font-family: var(--pk--font-chin);
   font-weight: 700;
   text-align: center;
@@ -1414,6 +1414,7 @@ a:hover, a:visited, a:link, a:active {
 }
 .section2__container .info-card__container .card-location .card-detail img {
   border-radius: 15px;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   .section2__container .info-card__container .card-location .card-detail img {
