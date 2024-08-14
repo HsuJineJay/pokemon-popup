@@ -6,7 +6,7 @@
     @include flex--(center, center);
     flex-direction: column;
     width: 100%;
-    gap: $space--3;
+    gap: $space--6;
 
     @include mobile{
       background-color: var(--pk--white);
@@ -136,6 +136,7 @@
                   @include font__chin--(var(--pk--black), $chin--heading-title);
                   text-align: start;
                   letter-spacing: 0.3vmin;
+                  margin: 0;
 
                   @include mobile{
                     font-size: $chin-mobile--heading-title;
@@ -292,6 +293,7 @@
                   @include font__chin--(var(--pk--white), $chin--heading-title);
                   text-align: start;
                   letter-spacing: 0.3vmin;
+                  margin: 0;
 
                   @include mobile{
                     font-size: $chin-mobile--heading-title;
@@ -437,6 +439,7 @@
                 @include font__chin--(var(--pk--white), $chin--heading-title);
                 text-align: start;
                 letter-spacing: 0.3vmin;
+                margin: 0;
 
                 @include mobile{
                   font-size: $chin-mobile--heading-title;
