@@ -57,7 +57,7 @@
             font-size: $chin-mobile--button-lg;
             letter-spacing: 0.3vmin;
             width: 100%;
-            padding: $space--1 * 2;
+            padding: $space--2;
           }
         }
 
@@ -196,7 +196,7 @@
                 h5 {
                   @include font__chin--(var(--pk--white), $chin--button);
                   margin: 0;
-                  padding: $space--1 * 2 $space--6;
+                  padding: $space--2 $space--6;
                   width: fit-content;
                   border-radius: 5px;
 
@@ -389,7 +389,7 @@
               @include mobile {
                 font-size: $chin-mobile--button-lg;
                 letter-spacing: 0.8vmin;
-                padding: $space--1 * 2;
+                padding: $space--2;
               }
 
             }
@@ -521,7 +521,7 @@
               width: 100%;
 
               @include mobile{
-                border-radius: $space--1 * 2;
+                border-radius: $space--2;
               }
             }
           }

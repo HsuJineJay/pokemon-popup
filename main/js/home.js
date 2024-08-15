@@ -690,34 +690,34 @@ function productGetData() {
 
         // console.log(row['productImg'][0].productImg);
         result += `
-                  <div class="carousel_item item${index + 1}">
-                    <div class="product_card d-flex flex-column gap-3">
-                    <div class="before_product_card" >
+                  <div class="rotate-item item--${index + 1}">
+                    <div class="product-card bk--sub-color flex--col">
+                      <div class="product-card--before" >
 
-                      <!-- ver2點擊卡片去商品頁 -->
-                      <a href="./goods/goods.html" >
+                        <!-- ver2點擊卡片去商品頁 -->
+                        <a href="./goods/goods.html" >
 
-                        <!-- 圖片 -->
-                        <img src="${row['productImg'][0].productImg}">
-                        <!-- 內容 -->
-                        <div class="d-flex flex-column gap-2">
-                          <div class="product_tag d-flex">
-                            <h6 class="font-chin m-0">會場限定</h6>
+                          <!-- 圖片 -->
+                          <img class="round--circle" src="${row['productImg'][0].productImg}">
+                          <!-- 內容 -->
+                          <div class="card-text flex--col">
+                            <div class="product-tag">
+                              <h6 class="round--pill">會場限定</h6>
+                            </div>
+
+                            <div class="product-title flex--col">
+                              <h4 class="">${row['productName']}</h4>
+                              <h5 class="">${row['productPrice']}元</h5>
+                            </div>
                           </div>
 
-                          <div class="d-flex flex-column text-start gap-0">
-                            <h4 class="font-chin m-0">${row['productName']}</h4>
-                            <h5 class="font-chin my-1">${row['productPrice']}元</h5>
-                          </div>
+                        </a>
+                        
+                        <!-- 右下更多按鈕 -->
+                        <button class="more-product-btn rotateButton bk--black round--circle" onclick="clickMoreBN()">
+
+                        </button>
                         </div>
-
-                      </a>
-                      
-                      <!-- 右下更多按鈕 -->
-                      <button class="more_product_bn rotateButton" onclick="clickMoreBN()">
-
-                      </button>
-                      </div>
                     </div>
                   </div>
       `;
@@ -735,11 +735,6 @@ function productGetData() {
   })
 }
 
-// 點擊右下角箭頭按鈕跳轉到商品頁面
-// function clickMoreBN(){
-//   window.location.href = './goods/goods.html';
-// }
-
 
 
 
@@ -750,8 +745,8 @@ function allRotateFunction() {
   let rotateScrollStartX = 0;
   let rotateScrollEndX = 0;
 
-  let rotateContain = document.querySelector('.rotate_card')
-  let productItems = document.querySelectorAll('.carousel_item .product_card')
+  let rotateContain = document.querySelector('.rotate-card__container')
+  let productItems = document.querySelectorAll('.rotate-item .product-card')
 
     // ver2 點擊右下角按鈕旋轉
     let rotateButton = document.querySelectorAll('.rotateButton')

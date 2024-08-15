@@ -335,27 +335,11 @@
 
 
     <!-- ==========section3 人氣商品 開始========== -->
-    <section id="section3" class="section_3">
+    <section id="section3" class="section3">
 
       <!-- 頂部波浪svg -->
-      <!-- <div class="wave_container" id="waveTop">
-        <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
-            fill="#FFE050">
-            <animate attributeName="d"
-              values="
-                M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z;
-                M0 16.67L4.27 20C8.53 23.33 17.07 26.67 25.6 25C34.13 23.33 42.67 16.67 51.2 15C59.73 13.33 68.27 16.67 76.8 18.33C85.33 20 93.87 20 97.93 20L102 20V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V16.67Z;
-                M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
-              dur="30s" repeatCount="indefinite" />
-          </path>
-        </svg>
-      </div> -->
-
-      <div class="wave_container" id="waveTop">
-        <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
+      <div class="wave wave--top" id="waveTop">
+        <svg viewBox="0 0 100 30" class="wave__svg" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
@@ -374,45 +358,27 @@
       </div>
 
       <!-- section3標題列 -->
-      <div class="sec_title d-flex flex-column align-items-center justify-content-center w-100 gap-3 mt-5">
-        <div class="d-flex flex-column align-items-center">
-          <h2 class="font-eng m-0">GOODS</h2>
-          <h3 class="font-chin">人氣商品</h3>
+      <div class="title-container flex--col">
+        <div class="section-title flex--col">
+          <h2 class="">GOODS</h2>
+          <h3 class="">人氣商品</h3>
         </div>
       </div>
 
       <!-- section3商品卡片 -->
-      <div class="rotate_card_section d-flex justify-content-center align-items-center">
+      <div class="rotate-card">
 
-        <div id="productCardContainer" class="rotate_card" style="transform: rotate(0deg)">
+        <div id="productCardContainer" class="rotate-card__container round--circle" style="transform: rotate(0deg)">
 
-
-
+          <!-- 卡片內容由js動態產生 -->
 
         </div>
       </div>
 
 
       <!-- 底部波浪svg -->
-      <!-- <div class="wave_container">
-        <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
-            fill="#FCF3E4">
-            <animate attributeName="d"
-              values="
-              M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z;
-              M0 25L15.625 20C31.25 15 62.5 5 93.75 10C125 15 156.25 35 187.5 45C218.75 55 250 55 281.25 50C312.5 45 343.75 35 359.375 30L375 25V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V25Z;
-              M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
-              dur="10s" repeatCount="indefinite" />
-          </path>
-        </svg>
-      </div> -->
-
-
-      <div class="wave_container">
-        <svg viewBox="0 0 375 85" class="wave_svg" preserveAspectRatio="none" fill="none"
+      <div class="wave wave--top">
+        <svg viewBox="0 0 375 85" class="wave__svg" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"

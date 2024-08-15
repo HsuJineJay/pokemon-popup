@@ -240,6 +240,22 @@ a:hover, a:visited, a:link, a:active {
     /* transform: translateY(0px); */
   }
 }
+@keyframes moveComicBG {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0vw 100vh;
+  }
+}
+@keyframes rotateHint {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .header {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -341,8 +357,8 @@ a:hover, a:visited, a:link, a:active {
   }
 }
 .header__nav .nav__menu__button {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
   display: flex;
@@ -967,7 +983,7 @@ a:hover, a:visited, a:link, a:active {
 }
 @media screen and (max-width: 768px) {
   .section2__container .info-card__container .card-left .card-date .card-detail .date-tag {
-    gap: 8px;
+    gap: 10px;
   }
 }
 .section2__container .info-card__container .card-left .card-date .card-detail .date-tag h5 {
@@ -1365,7 +1381,7 @@ a:hover, a:visited, a:link, a:active {
 }
 @media screen and (max-width: 768px) {
   .section2__container .info-card__container .card-location .card-detail {
-    gap: 8px;
+    gap: 10px;
     padding: 15px;
   }
 }
@@ -1423,6 +1439,342 @@ a:hover, a:visited, a:link, a:active {
   .section2__container .info-card__container .card-location .card-detail img {
     border-radius: 10px;
   }
+}
+
+.section3 {
+  width: 100vw;
+  background: url("../images/sec3_bg_comic.png") repeat center/30%;
+  animation: moveComicBG 30s linear infinite;
+}
+@media screen and (max-width: 768px) {
+  .section3 {
+    background: url("../images/sec3_bg_comic.png") repeat center/70%;
+  }
+}
+.section3 .wave {
+  margin-top: -1px;
+  margin-bottom: -1px;
+  width: 100vw;
+  height: 15vh;
+  z-index: 100;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .section3 .wave {
+    height: 10vh;
+  }
+}
+.section3 .wave__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.section3 .wave__svg path {
+  transition: all ease-in-out;
+}
+.section3 .wave--top path {
+  fill: var(--home-main);
+}
+@media screen and (max-width: 768px) {
+  .section3 .wave--top path {
+    fill: var(--pk--white);
+  }
+}
+.section3 .title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  margin-top: 45px;
+}
+.section3 .title-container .section-title {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+}
+.section3 .title-container .section-title h2 {
+  color: var(--pk-black);
+  font-size: 11vmin;
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  margin: 0;
+  letter-spacing: 0.5vmin;
+}
+@media screen and (max-width: 768px) {
+  .section3 .title-container .section-title h2 {
+    font-size: 15vmin;
+  }
+}
+.section3 .title-container .section-title h3 {
+  color: var(--home-sub);
+  font-size: 3.5vmin;
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  letter-spacing: 0.5vmin;
+}
+@media screen and (max-width: 768px) {
+  .section3 .title-container .section-title h3 {
+    font-size: 4.5vmin;
+    letter-spacing: 1vmin;
+  }
+}
+.section3 .rotate-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vw;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card {
+    height: 60vw;
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+  }
+}
+.section3 .rotate-card__container {
+  width: 90vw;
+  height: 90vw;
+  margin-top: 70%;
+  position: relative;
+  transition: 0.8s;
+  transform: rotate(0deg);
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container {
+    width: 100vw;
+    height: 100vw;
+    margin-top: 170%;
+  }
+}
+.section3 .rotate-card__container .item--1 {
+  transform: translateX(-50%) rotate(0deg);
+}
+.section3 .rotate-card__container .item--1 .product-card {
+  transform: translateX(-50%);
+}
+.section3 .rotate-card__container .item--2 {
+  transform: translateX(-50%) rotate(60deg);
+}
+.section3 .rotate-card__container .item--2 .product-card {
+  transform: translateX(-50%) rotate(-60deg);
+}
+.section3 .rotate-card__container .item--3 {
+  transform: translateX(-50%) rotate(120deg);
+}
+.section3 .rotate-card__container .item--3 .product-card {
+  transform: translateX(-50%) rotate(-120deg);
+}
+.section3 .rotate-card__container .item--4 {
+  transform: translateX(-50%) rotate(180deg);
+}
+.section3 .rotate-card__container .item--4 .product-card {
+  transform: translateX(-50%) rotate(-180deg);
+}
+.section3 .rotate-card__container .item--5 {
+  transform: translateX(-50%) rotate(240deg);
+}
+.section3 .rotate-card__container .item--5 .product-card {
+  transform: translateX(-50%) rotate(-240deg);
+}
+.section3 .rotate-card__container .item--6 {
+  transform: translateX(-50%) rotate(300deg);
+}
+.section3 .rotate-card__container .item--6 .product-card {
+  transform: translateX(-50%) rotate(-300deg);
+}
+.section3 .rotate-card__container .rotate-item {
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  transform-origin: center bottom;
+  height: 60%;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item {
+    top: -80%;
+    height: 130%;
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  left: 50%;
+  gap: 15px;
+  border-radius: 200px 200px 30px 30px;
+  outline: 0px solid var(--home-main);
+  transition: 0.4s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item .product-card {
+    border-radius: 200px 200px 15px 15px;
+  }
+}
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .section3 .rotate-card__container .rotate-item .product-card:hover {
+    outline: 10px solid var(--home-main);
+  }
+  .section3 .rotate-card__container .rotate-item .product-card:has(.more-product-btn:hover)::after {
+    transform: scale(1);
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card:has(.more-product-btn)::after {
+  width: 6vw;
+  height: 6vw;
+  position: absolute;
+  content: "";
+  background: url(../images/card_hint.svg) no-repeat;
+  bottom: -4vw;
+  right: -4vw;
+  transform: scale(0);
+  transform-origin: 0 0;
+  transition: 0.4s ease-in-out;
+  z-index: -1;
+}
+.section3 .rotate-card__container .rotate-item .product-card--before {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 200px 200px 30px 30px;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item .product-card--before {
+    border-radius: 200px 200px 15px 15px;
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card--before a img {
+  width: 20vw;
+  height: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item .product-card--before a img {
+    width: 50vw;
+    height: 50vw;
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card--before a .card-text {
+  display: flex;
+  gap: 10px;
+}
+.section3 .rotate-card__container .rotate-item .product-card--before a .card-text .product-tag {
+  display: flex;
+  margin-top: 15px;
+}
+.section3 .rotate-card__container .rotate-item .product-card--before a .card-text .product-tag h6 {
+  color: var(--pk--black);
+  font-size: 1.8vmin;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  margin: 0;
+  padding: 5px 20px;
+  border: 1px solid var(--pk--black);
+}
+.section3 .rotate-card__container .rotate-item .product-card--before a .card-text .product-title {
+  display: flex;
+  gap: 0;
+  align-items: start;
+}
+.section3 .rotate-card__container .rotate-item .product-card--before a .card-text .product-title h4 {
+  color: var(--pk--white);
+  font-size: 2.2vmin;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  letter-spacing: 0.3vmin;
+  line-height: 3vmin;
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item .product-card--before a .card-text .product-title h4 {
+    font-size: 4.5vmin;
+    letter-spacing: 0.3vmin;
+    line-height: 6vmin;
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card--before a .card-text .product-title h5 {
+  color: var(--pk--white);
+  font-size: 1.9vmin;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item .product-card--before a .card-text .product-title h5 {
+    font-size: 4vmin;
+    letter-spacing: 0.3vmin;
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card--before .more-product-btn {
+  width: 12vw;
+  height: 12vw;
+  position: absolute;
+  right: -6vw;
+  bottom: -6vw;
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item .product-card--before .more-product-btn {
+    width: 30vw;
+    height: 30vw;
+    right: -15vw;
+    bottom: -15vw;
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card--before .more-product-btn::before {
+  width: 2vw;
+  height: 2vw;
+  position: absolute;
+  background: url("../images/shake_rotate.svg") no-repeat center center;
+  top: 2.5vw;
+  left: 2.5vw;
+  content: "";
+  transition: 0.15s ease-in-out;
+  animation: rotateHint 3.5s ease-in-out infinite;
+}
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .section3 .rotate-card__container .rotate-item .product-card--before .more-product-btn:hover::before {
+    animation: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section3 .rotate-card__container .rotate-item .product-card--before .more-product-btn::before {
+    width: 4vw;
+    height: 8vw;
+    top: 5vw;
+    left: 7vw;
+  }
+}
+.section3 .rotate-card__container .rotate-item .product-card--before .more-product-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .footer {

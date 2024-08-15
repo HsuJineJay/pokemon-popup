@@ -163,3 +163,26 @@
     /* transform: translateY(0px); */
   }
 }
+// ----------------------
+// section3 背景漫畫向下移動動畫
+// ----------------------
+@keyframes moveComicBG{
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 0vw 100vh;
+  }
+}
+// ----------------------
+// section3 商品卡片右下角旋轉提示動畫
+// ----------------------
+@keyframes rotateHint {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

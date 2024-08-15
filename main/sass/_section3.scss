@@ -1,0 +1,285 @@
+.section3 {
+  width: 100vw;
+  background: url('../images/sec3_bg_comic.png') repeat center/30%;
+  animation: moveComicBG 30s linear infinite;
+
+  @include mobile {
+    background: url('../images/sec3_bg_comic.png') repeat center/70%;
+  }
+
+  // 上下波浪控制
+  .wave {
+    @include margin-y--(-1px); //去白邊用
+    width: 100vw;
+    height: 15vh;
+    z-index: 100;
+    position: relative;
+
+    @include mobile {
+      height: 10vh;
+    }
+
+    &__svg {
+      @include equal-wh--(100%);
+      overflow: visible;
+
+      path {
+        transition: all ease-in-out;
+      }
+    }
+
+  }
+
+  // 頂部波浪svg
+  .wave--top {
+    path {
+      fill: var(--home-main);
+
+      @include mobile {
+        fill: var(--pk--white);
+      }
+    }
+  }
+
+  // section3標題區
+  .title-container {
+    @include flex--(center, center);
+    width: 100%;
+    gap: $space--3;
+    margin-top: $space--6;
+
+
+    // section3 標題
+    .section-title {
+      @include section-title;
+    }
+  }
+
+  // section3商品卡片
+  .rotate-card {
+    @include flex--(center, center);
+    height: 50vw;
+
+    @include mobile {
+      height: 60vw;
+      margin-top: 15vh;
+      margin-bottom: 20vh;
+    }
+
+    &__container {
+      @include equal-wh--(90vw);
+      margin-top: 70%;
+      position: relative;
+      transition: .8s;
+      transform: rotate(0deg);
+
+      @include mobile {
+        width: 100vw;
+        height: 100vw;
+        margin-top: 170%;
+      }
+
+      //旋轉卡片的角度回正
+      @for $i from 1 through 6 {
+        $rotation: ($i - 1) * 60deg;
+
+        .item--#{$i} {
+          transform: translateX(-50%) rotate($rotation);
+
+          //第一個卡片不要再次旋轉
+          @if $i ==1 {
+            .product-card {
+              transform: translateX(-50%);
+            }
+          }
+
+          //其他卡片旋轉成正的
+          @if $i !=1 {
+            .product-card {
+              transform: translateX(-50%) rotate(-$rotation);
+            }
+          }
+        }
+      }
+
+      // 旋轉卡片的樣式
+      .rotate-item {
+        position: absolute;
+        left: 50%;
+        top: -10%;
+        transform-origin: center bottom;
+        height: 60%;
+
+        @include mobile {
+          top: -80%;
+          height: 130%;
+        }
+
+        .product-card {
+          position: absolute;
+          cursor: pointer;
+          top: $space--2;
+          left: 50%;
+          gap: $space--3;
+          border-radius: $space--2 * 20 $space--2 * 20 $space--5 $space--5;
+          outline: 0px solid var(--home-main);
+          transition: 0.4s ease-in-out;
+
+          @include mobile {
+            border-radius: $space--2 * 20 $space--2 * 20 $space--3 $space--3;
+          }
+
+          @include web-hover {
+            &:hover {
+              outline: 10px solid var(--home-main);
+            }
+
+            &:has(.more-product-btn:hover)::after {
+              transform: scale(1);
+            }
+          }
+
+          &:has(.more-product-btn)::after {
+            @include equal-wh--(6vw);
+            position: absolute;
+            content: "";
+            background: url(../images/card_hint.svg) no-repeat;
+            bottom: -4vw;
+            right: -4vw;
+            transform: scale(0);
+            transform-origin: 0 0;
+            transition: 0.4s ease-in-out;
+            z-index: -1;
+          }
+
+          &--before {
+            position: relative;
+            overflow: hidden;
+            padding: $space--2 * 2;
+            border-radius: $space--2 * 20 $space--2 * 20 $space--5 $space--5;
+
+            @include mobile {
+              border-radius: $space--2 * 20 $space--2 * 20 $space--3 $space--3;
+            }
+
+            a {
+
+              // 商品圖片
+              img {
+                @include equal-wh--(20vw);
+                object-fit: cover;
+
+                @include mobile {
+                  @include equal-wh--(50vw);
+                }
+              }
+
+              // 商品內容
+              .card-text {
+                display: flex;
+                gap: $space--2;
+
+                .product-tag {
+                  display: flex;
+                  margin-top: $space--3;
+
+                  h6 {
+                    @include font__chin--(var(--pk--black), $chin--text);
+                    margin: 0;
+                    padding: $space--1 $space--2 * 2;
+                    border: 1px solid var(--pk--black);
+                  }
+                }
+
+                .product-title {
+                  display: flex;
+                  gap: 0;
+                  align-items: start;
+
+                  h4 {
+                    @include font__chin--(var(--pk--white), $chin--card-title);
+                    letter-spacing: 0.3vmin;
+                    line-height: 3vmin;
+                    margin: 0;
+
+                    @include mobile {
+                      font-size: $chin-mobile--card-title;
+                      letter-spacing: 0.3vmin;
+                      line-height: 6vmin;
+                    }
+                  }
+
+                  h5 {
+                    @include font__chin--(var(--pk--white), $chin--card-price);
+                    font-weight: 400;
+
+                    @include mobile {
+                      font-size: $chin-mobile--card-price;
+                      letter-spacing: 0.3vmin;
+                    }
+                  }
+                }
+              }
+            }
+
+            .more-product-btn {
+              @include equal-wh--(12vw);
+              position: absolute;
+              right: -6vw;
+              bottom: -6vw;
+              z-index: 1;
+
+              @include mobile {
+                @include equal-wh--(30vw);
+                right: -15vw;
+                bottom: -15vw;
+              }
+
+              //商品卡片右下角旋轉提示動畫
+              &::before {
+                @include equal-wh--(2vw);
+                position: absolute;
+                background: url('../images/shake_rotate.svg') no-repeat center center;
+                top: 2.5vw;
+                left: 2.5vw;
+                content: "";
+                transition: 0.15s ease-in-out;
+                animation: rotateHint 3.5s ease-in-out infinite;
+              }
+
+              @include web-hover {
+                &:hover::before {
+                  animation: none;
+                }
+              }
+
+              @include mobile {
+                &::before {
+                  width: 4vw;
+                  height: 8vw;
+                  top: 5vw;
+                  left: 7vw;
+                }
+              }
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+                cursor: pointer;
+              }
+
+
+            }
+          }
+
+        }
+      }
+    }
+
+  }
+}
