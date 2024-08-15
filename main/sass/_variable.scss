@@ -63,6 +63,7 @@ $space--6: 45px;
 
 // -->英文字型大小
 $eng--main-title: 11vmin;
+$eng--main-title-sm: 8vmin;
 $eng--sub-title: 2.4vmin;
 
 $eng--button-md: 2vmin;
@@ -87,14 +88,16 @@ $chin--text: 1.8vmin;
 $chin--text-lg: 2vmin;
 
 // 中文字型大小--手機版
-$chin-mobile--main-title-lg: 6vmin;
-$chin-mobile--main-title: 5vmin;
-$chin-mobile--sub-title: 4.5vmin;
+$chin-mobile--main-title-lg: 6.5vmin;
+$chin-mobile--main-title: 6.5vmin;
+$chin-mobile--sub-title: 6vmin;
+$chin-mobile--sub-title-sm: 5vmin;
 $chin-mobile--heading-title: 9.5vmin;
 
 $chin-mobile--card-title: 4.5vmin;
 $chin-mobile--card-price: 4vmin;
 $chin-mobile--button-lg: 5.5vmin;
+$chin-mobile--button: 3vmin;
 
 
 

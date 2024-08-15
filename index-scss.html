@@ -377,7 +377,7 @@
 
 
       <!-- 底部波浪svg -->
-      <div class="wave wave--top">
+      <div class="wave">
         <svg viewBox="0 0 375 85" class="wave__svg" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -408,20 +408,20 @@
 
 
     <!-- ==========section4 熱門餐點 開始========== -->
-    <section class="section_4 gap-md-0 gap-5 d-flex flex-column flex-md-row">
+    <section class="section4 bk--beige flex--row flex-mobile--col">
       <!-- section4標題列 -->
       <div
-        class="sec_title d-flex flex-column align-items-md-start align-items-center justify-content-center w-100 gap-3 mt-5">
-        <div class="d-flex flex-column align-items-md-start align-items-center">
-          <h2 class="font-eng m-0">MENU</h2>
-          <h3 class="font-chin">熱門餐點</h3>
+        class="title-container flex--col">
+        <div class="section-title flex--col">
+          <h2 class="">MENU</h2>
+          <h3 class="">熱門餐點</h3>
         </div>
-        <button class="more_menu_bn font-chin d-none d-md-flex" onclick="location.href='./menu/menu.html';">更多餐點</button>
+        <button class="more-menu-btn bk--sub-color round--pill" onclick="location.href='./menu/menu.html';">更多餐點</button>
       </div>
 
       <!-- section4餐點卡片 -->
       <div id="menuCardContainer"
-        class="menu_card_group col-md-8 col-12 d-inline-flex justify-content-start overflow-scroll position-relative">
+        class="menu-card-container">
 
         <!-- 餐點卡片1 -->
         <!-- <div class="menu_card d-flex flex-column flex-fill justify-content-center align-items-center gap-3">
@@ -497,17 +497,17 @@
 
       </div>
 
-      <div class="menu_slide_group position-absolute d-flex">
-        <button id="menuPrev" class="menu-nav-btn">
-          <img src="./images/icon/silde_icon_left.svg" alt="left_button">
+      <div class="menu-slide">
+        <button id="menuPrev" class="menu-slide__prev menu-slide__btn">
+          <img src="./images/icon/silde_icon_left.svg" alt="left-button">
         </button>
-        <button id="menuNext" class="menu-nav-btn">
-          <img src="./images/icon/silde_icon_right.svg" alt="right_button">
+        <button id="menuNext" class="menu-slide__next menu-slide__btn">
+          <img src="./images/icon/silde_icon_right.svg" alt="right-button">
         </button>
       </div>
 
       <!-- 手機版更多餐點按鈕 -->
-      <button class="more_menu_bn font-chin d-md-none d-flex justify-content-center">更多餐點</button>
+      <button class="more-menu-btn--mobile bk--sub-color round--pill">更多餐點</button>
 
     </section>
     <!-- ==========section4 熱門餐點 結束========== -->

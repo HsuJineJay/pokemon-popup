@@ -1,0 +1,206 @@
+.section4 {
+  display: flex;
+  position: relative;
+  z-index: 100;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  gap: $space--0;
+
+  @include mobile {
+    gap: $space--5;
+  }
+
+  // section4標題區
+  .title-container {
+    @include flex--(center, center);
+    width: 100%;
+    gap: $space--3;
+    margin-top: $space--6;
+    margin-left: 5vw;
+
+    @include mobile{
+      margin-left: 0vw;
+    }
+
+    // section4 標題
+    .section-title {
+      @include section-title;
+    }
+
+    .more-menu-btn {
+      @include font__chin--(var(--pk--white), $chin-mobile--button);
+      padding: $space--3 $space--3 * 4;
+      box-shadow: 0px 0px var(--pk--white);
+      transition: 0.15s ease-out;
+      display: flex;
+
+      @include web-hover {
+        &:hover {
+          box-shadow: -5px 0px var(--home-main);
+          transform: translate(5px, 0px);
+        }
+      }
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  // section4餐點卡片
+  .menu-card-container {
+    display: inline-flex;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    width: 65%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: $space--5 0px 0px $space--5;
+    gap: $space--3;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include mobile {
+      width: 100%;
+      border-radius: $space--5 0px 0px $space--5;
+      margin-left: $space--3;
+    }
+
+    .menu-card {
+      @include flex--(center, center);
+      flex: 1 1 auto;
+      gap: $space--3;
+      border-radius: $space--5;
+      width: fit-content;
+      height: 100%;
+      padding: $space--6 $space--3 $space--3 $space--3;
+      transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
+
+      // 當菜單卡片hover時圖片放大
+      @include web-hover {
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      h3 {
+        @include font__eng--(var(--pk--white), $eng--main-title-sm);
+        letter-spacing: 0.5vmin;
+        margin: 0;
+
+        @include mobile{
+          font-size: $eng-mobile--main-title-sm;
+        }
+      }
+
+      figure {
+        width: 100%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          transition: 0.3s ease-in-out;
+        }
+      }
+
+      &__detail {
+        @include flex--(center, center);
+        flex: 1 1 auto;
+        padding: $space--2 * 2 $space--3;
+        border-radius: $space--3;
+        width: 28vw;
+        height: max-content;
+
+        @include mobile{
+          padding: $space--3 $space--2;
+          width: 75vw;
+        }
+
+        h4 {
+          @include font__chin--(var(--home-sub), $chin--card-title);
+          width: fit-content;
+
+          @include mobile{
+            font-size: $chin-mobile--card-title;
+            letter-spacing: 0.1vmin;
+          }
+        }
+
+        h5 {
+          @include font__chin--(var(--pk--black), $chin--card-price);
+          font-weight: 500;
+          letter-spacing: 0.1vmin;
+
+          @include mobile{
+            font-size: $chin-mobile--card-price;
+          }
+        }
+
+        p {
+          @include flex--(center, center);
+          @include font__chin--(var(--pk--black), $chin--text);
+          font-weight: 400;
+          border-top: 1px dashed var(--pk--black);
+          border-bottom: 1px dashed var(--pk--black);
+          padding: $space--2 0;
+          width: 95%;
+          height: 100%;
+          margin: 0;
+
+          @include mobile{
+            height: 10vh;
+          }
+        }
+      }
+    }
+  }
+
+  .menu-slide{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+
+    &__btn{
+      width: 8vmin;
+      cursor: pointer;
+      pointer-events: auto;
+
+      @include mobile{
+        width: 15vmin;
+      }
+    }
+
+    &__prev{
+      margin-left: 35vw;
+
+      @include mobile{
+        margin-left: 0;
+      }
+    }
+    
+    &__next{
+      margin-left: auto;
+    }
+
+  }
+
+  .more-menu-btn--mobile{
+    display: none;
+
+    @include mobile{
+      @include margin-x--($space--3);
+      @include flex--(center, normal);
+      @include font__chin--(var(--pk--white), $chin-mobile--button-lg);
+      letter-spacing: 0.8vmin;
+      padding: $space--2;
+    }
+  }
+}

@@ -850,13 +850,13 @@ function menuSwitch() {
         // console.log("row--->>" , row);
         // console.log("index--->>" , index);
         result += `
-                  <div class="menu_card d-flex flex-column flex-fill justify-content-center align-items-center gap-3">
-                      <h3 class="font-eng m-0"> TOP${index + 1}</h3>
-                      <figure><img src="${row['itemImg']}"></figure>
-                      <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-                          <h4 class="font-chin">${row['itemName']}</h4>
-                          <h5 class="font-chin">${row['itemPrice']}元</h5>
-                          <p class="font-chin m-0">${row['itemDescribe']}</p>
+                  <div class="menu-card bk--main-color flex--col">
+                      <h3 class=""> TOP${index + 1}</h3>
+                      <figure class="round--circle"><img src="${row['itemImg']}"></figure>
+                      <div class="menu-card__detail bk--white flex--col">
+                          <h4 class="">${row['itemName']}</h4>
+                          <h5 class="">${row['itemPrice']}元</h5>
+                          <p class="">${row['itemDescribe']}</p>
                       </div>
                   </div>`;
       })
@@ -875,10 +875,10 @@ function menuSwitch() {
 
 // 所有卡片的事件打包
 function allCardsFunction() {
-  let cardContain = document.querySelector('.menu_card_group');
+  let cardContain = document.getElementById('menuCardContainer');
   let menuPrev = document.getElementById("menuPrev");
   let menuNext = document.getElementById("menuNext");
-  let menuCardAll = document.querySelectorAll(".menu_card");
+  let menuCardAll = document.querySelectorAll(".menu-card");
   let currentIndex = 0;
 
   // 至少有一个卡片存在的話才使用前後按鈕

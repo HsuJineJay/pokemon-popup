@@ -201,7 +201,7 @@
                   border-radius: 5px;
 
                   @include mobile{
-                    font-size: $chin-mobile--sub-title;
+                    font-size: $chin-mobile--sub-title-sm;
                     padding: $space--1 $space--5;
                   }
                 }
