@@ -186,3 +186,17 @@
     transform: rotate(360deg);
   }
 }
+// ----------------------
+// section5 環形文字旋轉動畫
+// ----------------------
+@keyframes rotateTextPath {
+  0%{
+    transform: rotate(0deg); 
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(360deg); 
+  }
+}

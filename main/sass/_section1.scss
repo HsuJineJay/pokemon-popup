@@ -175,7 +175,12 @@
 
       @include mobile {
         @include flex--(normal, center);
+      }
 
+      p{
+        @include padding-x--($space--3);
+        margin: 0;
+        z-index: 1;
       }
 
       div {
@@ -183,14 +188,14 @@
         overflow: hidden;
 
         &:nth-child(1) {
+          animation: scrollHintLeft 1s ease-in-out infinite;
           svg {
-            animation: scrollHintLeft 1s ease-in-out infinite;
           }
         }
 
         &:nth-child(3) {
+          animation: scrollHintRight 1s ease-in-out infinite;
           svg {
-            animation: scrollHintRight 1s ease-in-out infinite;
           }
         }
       }

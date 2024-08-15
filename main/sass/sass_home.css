@@ -260,6 +260,17 @@ a:hover, a:visited, a:link, a:active {
     transform: rotate(360deg);
   }
 }
+@keyframes rotateTextPath {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .header {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -703,17 +714,22 @@ a:hover, a:visited, a:link, a:active {
     align-items: center;
   }
 }
+.section1__container .scroll-hint p {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0;
+  z-index: 1;
+}
 .section1__container .scroll-hint div {
   display: flex;
   overflow: hidden;
 }
-.section1__container .scroll-hint div:nth-child(1) svg {
+.section1__container .scroll-hint div:nth-child(1) {
   animation: scrollHintLeft 1s ease-in-out infinite;
 }
-.section1__container .scroll-hint div:nth-child(3) svg {
+.section1__container .scroll-hint div:nth-child(3) {
   animation: scrollHintRight 1s ease-in-out infinite;
 }
-
 .section2 {
   display: flex;
   justify-content: center;
@@ -950,7 +966,7 @@ a:hover, a:visited, a:link, a:active {
 }
 @media screen and (max-width: 768px) {
   .section2__container .info-card__container .card-left .card-date .card-title .card-tag h5 {
-    font-size: 6.5vmin;
+    font-size: 7vmin;
     letter-spacing: 0.5vmin;
     color: var(--pk--white);
   }
@@ -1161,7 +1177,7 @@ a:hover, a:visited, a:link, a:active {
 }
 @media screen and (max-width: 768px) {
   .section2__container .info-card__container .card-left .card-reservation .card-title .card-tag h5 {
-    font-size: 6.5vmin;
+    font-size: 7vmin;
     letter-spacing: 0.5vmin;
   }
 }
@@ -1354,7 +1370,7 @@ a:hover, a:visited, a:link, a:active {
 }
 @media screen and (max-width: 768px) {
   .section2__container .info-card__container .card-location .card-title .card-tag h5 {
-    font-size: 6.5vmin;
+    font-size: 7vmin;
     letter-spacing: 0.5vmin;
   }
 }
@@ -2065,6 +2081,172 @@ a:hover, a:visited, a:link, a:active {
     letter-spacing: 0.1rem;
     letter-spacing: 0.8vmin;
     padding: 10px;
+  }
+}
+
+.section5 .game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/sec5_game_bg.png") lightgray 50%/cover no-repeat;
+  mix-blend-mode: multiply;
+  border-radius: 8000px 8000px 0 0;
+  width: 100vw;
+  height: 50vw;
+  margin-bottom: -60px;
+}
+@media screen and (max-width: 768px) {
+  .section5 .game {
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: -30px;
+  }
+}
+.section5 .game__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .section5 .game__btn:hover .game__btn__container {
+    background-color: var(--home-sub);
+    outline: 3vw solid var(--pk--white);
+  }
+  .section5 .game__btn:hover .game__btn__container h5 {
+    color: var(--pk--white);
+  }
+  .section5 .game__btn:hover .game__btn__container h6 {
+    color: var(--pk--white);
+  }
+  .section5 .game__btn:hover .game__btn__container textPath {
+    fill: var(--pk--black);
+  }
+  .section5 .game__btn:hover h3 {
+    color: var(--home-sub);
+    box-shadow: 0px 5px var(--home-sub);
+    transform: translate(0px, -5px);
+  }
+}
+.section5 .game__btn__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  height: 25vw;
+  transition: 0.3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .section5 .game__btn__container {
+    width: 70vw;
+    height: 70vw;
+  }
+}
+.section5 .game__btn__container .game-circle {
+  width: 26vw;
+  height: 26vw;
+  position: absolute;
+  z-index: 0;
+  animation: rotateTextPath 15s ease-in-out infinite;
+}
+@media screen and (max-width: 768px) {
+  .section5 .game__btn__container .game-circle {
+    width: 72vw;
+    height: 72vw;
+  }
+}
+.section5 .game__btn__container .game-circle svg {
+  display: block;
+  overflow: visible;
+}
+.section5 .game__btn__container .game-circle svg path {
+  fill: none;
+}
+.section5 .game__btn__container .game-circle svg textPath {
+  color: var(--pk--white);
+  font-size: 8.9px;
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  fill: var(--pk--white);
+  font-weight: 900;
+  letter-spacing: 0;
+  transition: 0.1s ease-in-out;
+}
+.section5 .game__btn__container h5 {
+  color: var(--pk--black);
+  font-size: 4.5vmin;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  letter-spacing: 0.3vmin;
+  transition: 0.1s ease-out;
+}
+@media screen and (max-width: 768px) {
+  .section5 .game__btn__container h5 {
+    font-size: 9.5vmin;
+  }
+}
+.section5 .game__btn__container h6 {
+  color: var(--pk--black);
+  font-size: 3vmin;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  letter-spacing: 0.3vmin;
+  font-weight: 400;
+  transition: 0.1s ease-out;
+}
+@media screen and (max-width: 768px) {
+  .section5 .game__btn__container h6 {
+    font-size: 6.5vmin;
+  }
+}
+.section5 .game__btn h3 {
+  color: var(--home-main);
+  font-size: 8vmin;
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  letter-spacing: 0.5vmin;
+  width: 100%;
+  margin-top: -8vh;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 0px var(--home-sub);
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .section5 .game__btn h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -7vh;
+    font-size: 15vmin;
+  }
+}
+.section5 .footer-top-decoration {
+  width: 100vw;
+  height: 60px;
+  border-radius: 60px 60px 0px 0px;
+  z-index: 1;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .section5 .footer-top-decoration {
+    height: 30px;
+    border-radius: 30px 30px 0 0;
   }
 }
 
