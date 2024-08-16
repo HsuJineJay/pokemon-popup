@@ -104,6 +104,10 @@ a:hover, a:visited, a:link, a:active {
   background-color: var(--home-sub);
 }
 
+.bk--transparent {
+  background-color: transparent;
+}
+
 .round--pill {
   border-radius: 1000px;
 }
@@ -272,15 +276,15 @@ a:hover, a:visited, a:link, a:active {
   }
 }
 .header {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: 0;
-  margin-right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  align-self: stretch;
+  transition: top 0.3s ease-in-out;
 }
 @media screen and (max-width: 768px) {
   .header {
@@ -299,10 +303,29 @@ a:hover, a:visited, a:link, a:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   width: 100%;
   position: relative;
+}
+@media only screen and (min-width: 768px) and (any-hover: hover) {
+  .header__nav::before {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    left: 0;
+    border-radius: 1000px;
+    background: transparent;
+    outline: 0 solid var(--pk--black);
+    transition: all 0.1s ease-in-out;
+    z-index: -1;
+  }
+  .header__nav:hover::before {
+    outline: 5px solid var(--pika--red);
+  }
 }
 .header__nav__logo {
   width: 25%;
@@ -340,12 +363,6 @@ a:hover, a:visited, a:link, a:active {
   gap: 0;
   position: relative;
 }
-.header__nav .nav__menu--rounded {
-  border-radius: 1000px;
-}
-.header__nav .nav__menu--bk-white {
-  background-color: var(--pk--white);
-}
 .header__nav .nav__menu--text-black {
   color: var(--pk--black);
 }
@@ -376,6 +393,8 @@ a:hover, a:visited, a:link, a:active {
   margin-right: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -437,7 +456,7 @@ a:hover, a:visited, a:link, a:active {
   .header__nav .nav__menu__button a .nav__button__text > span > span {
     display: block;
     color: var(--home-sub);
-    line-height: 2vmin;
+    line-height: 2.2vmin;
     letter-spacing: 0.3vmin;
   }
 }
@@ -483,15 +502,41 @@ a:hover, a:visited, a:link, a:active {
   height: 45px !important;
 }
 .header__nav .nav .offcanvas {
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: var(--home-main) !important;
   border-radius: 30px 0px 0px 30px;
+  top: 0;
+  right: 0;
+  width: 95vw;
+  transform: translateX(100%);
+  transition: 0.2s ease-in-out;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .header__nav .nav .offcanvas {
+    display: block;
+  }
 }
 .header__nav .nav .offcanvas-header {
-  background-color: var(--home-main) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
 }
 .header__nav .nav .offcanvas-header__label {
   width: 50vw;
   filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(346deg) brightness(1000%) contrast(100%);
+}
+.header__nav .nav .offcanvas-header__btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 0;
 }
 .header__nav .nav .offcanvas-body {
   padding-left: 25px;
@@ -529,6 +574,7 @@ a:hover, a:visited, a:link, a:active {
   padding-top: 10vh;
   padding-bottom: 5vh;
   width: 100vw;
+  border-radius: 30px 30px 0px 0px;
 }
 @media screen and (max-width: 768px) {
   .footer {
@@ -662,4 +708,8 @@ a:hover, a:visited, a:link, a:active {
 }
 .footer__container .footer-navbar__item .footer-link button svg path {
   fill: var(--home-sub);
+}
+.footer__container p {
+  margin-top: 0;
+  margin-bottom: 0;
 }/*# sourceMappingURL=public.css.map */

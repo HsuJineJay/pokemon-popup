@@ -11,7 +11,7 @@ window.onload = function () {
 
 
   //點擊來切換menu的類別
-  $('.menu_category li').on('click', function() {
+  $('.menu-category__btn').on('click', function() {
     // console.log(this);
     
     //再次點選已經active按鈕的話就顯示全部
@@ -26,7 +26,7 @@ window.onload = function () {
     } else { //切換個別類別的菜單內容
 
       //移除所有的.active
-      $('.menu_category li a').removeClass('active')
+      $('.menu-category__btn__link').removeClass('active')
       //對現在點選的a標籤添加.active
       $(this).find('a').addClass('active');
       // 針對不同id名稱加入apiUrl的切換菜單內容
@@ -68,12 +68,12 @@ window.onload = function () {
         for (row of data) {
           // console.log(row);
           result += `
-                    <div class="menu_card d-flex flex-column justify-content-center align-items-center gap-3">
-                      <figure><img src="${row['itemImg']}" ></figure>
-                      <div class="menu_card_detail d-flex flex-fill flex-column justify-content-center align-items-center">
-                        <h4 class="font-chin">${row['itemName']}</h4>
-                        <h5 class="font-chin">${row['itemPrice']}元</h5>
-                        <p class="font-chin m-0">
+                    <div class="menu-card bk--main-color flex--col">
+                      <figure class="round--circle"><img src="${row['itemImg']}" ></figure>
+                      <div class="menu-card__detail bk--white flex--col">
+                        <h4 class="">${row['itemName']}</h4>
+                        <h5 class="">${row['itemPrice']}元</h5>
+                        <p class="">
                             ${row['itemDescribe']}
                         </p>
                       </div>

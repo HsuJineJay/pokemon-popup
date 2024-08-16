@@ -1,8 +1,9 @@
 .header {
-  @include padding-y--($space--4);
-  @include padding-x--($space--3);
-  @include margin-x--($space--0);
   @include flex--(space-between, center);
+  @include padding-x--($space--3);
+  @include padding-y--($space--4);
+  align-self: stretch;
+  transition: top 0.3s ease-in-out;
 
   @include mobile {
     @include padding-y--($space--3);
@@ -19,9 +20,28 @@
 
   &__nav {
     @include flex--(space-between, center);
-    @include padding-x--($space--0);
+    @include padding-x--(5vw);
+    @include padding-y--(2vh);
     width: 100%;
     position: relative;
+
+    @include web-hover {
+      &::before {
+        @include equal-wh--(100%);
+        content: "";
+        position: absolute;
+        left: 0;
+        border-radius: 1000px;
+        background: transparent;
+        outline: 0 solid var(--pk--black);
+        transition: all 0.1s ease-in-out;
+        z-index: -1;
+      }
+
+      &:hover::before{
+        outline: 5px solid var(--pika--red);
+      }
+    }
 
     // header logo
     &__logo {
@@ -58,17 +78,8 @@
       &__menu {
         @include padding-x--($space--4);
         @include flex--(center, center);
-
         gap: 0;
         position: relative;
-
-        &--rounded {
-          border-radius: 1000px;
-        }
-
-        &--bk-white {
-          background-color: var(--pk--white);
-        }
 
         &--text-black {
           color: var(--pk--black);
@@ -100,6 +111,7 @@
         &__button {
           @include margin-x--($space--2);
           @include padding-y--($space--3);
+          @include padding-x--(0);
           @include flex--(center, center);
 
           cursor: pointer;
@@ -154,7 +166,7 @@
                   >span {
                     display: block;
                     color: var(--home-sub);
-                    line-height: 2vmin;
+                    line-height: 2.2vmin;
                     letter-spacing: 0.3vmin;
                   }
                 }
@@ -215,16 +227,35 @@
 
       // 手機offcanvas彈出菜單 開始
       .offcanvas {
+        @include padding-x--($space--3);
         background-color: var(--home-main) !important;
         border-radius: 30px 0px 0px 30px;
+        top: 0;
+        right: 0;
+        width: 95vw;
+        transform: translateX(100%);
+        transition: 0.2s ease-in-out;
+        display: none;
+
+        @include mobile {
+          display: block;
+        }
 
         // 手機offcanvas標題
         &-header {
-          background-color: var(--home-main) !important;
+          @include flex--(space-between, center);
+          @include padding-x--($space--4);
+          @include padding-y--($space--2);
+          margin-top: $space--3;
 
           &__label {
             width: 50vw;
             filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(346deg) brightness(1000%) contrast(100%);
+          }
+
+          &__btn {
+            @include flex--(flex-end, center);
+            border: 0;
           }
         }
 

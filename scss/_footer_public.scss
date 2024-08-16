@@ -4,6 +4,7 @@
   padding-top: 10vh;
   padding-bottom: 5vh;
   width: 100vw;
+  border-radius: $space--5 $space--5 0px 0px;
 
   @include mobile{
     height: fit-content;
@@ -120,6 +121,10 @@
           }
         }
       }
+    }
+
+    p{
+      @include margin-y--(0);
     }
   }
 }

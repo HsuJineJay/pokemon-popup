@@ -115,3 +115,12 @@
   }
 }
 
+// ----------------------
+// section2資訊卡片padding
+// ----------------------
+@mixin info-card{
+  padding: $space--6 $space--3 $space--3 $space--3;
+  @include mobile{
+    padding: $space--6 $space--3 $space--5 * 2 $space--3;
+  }
+}

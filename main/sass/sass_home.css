@@ -2421,4 +2421,8 @@ a:hover, a:visited, a:link, a:active {
 }
 .footer__container .footer-navbar__item .footer-link button svg path {
   fill: var(--home-sub);
+}
+.footer__container p {
+  margin-top: 0;
+  margin-bottom: 0;
 }/*# sourceMappingURL=sass_home.css.map */

@@ -1,0 +1,186 @@
+.menu-section {
+  @include flex--(normal, center);
+  padding: 20vh 0px 5vh 0px;
+
+  .section-container {
+    @include flex--(center, center);
+    gap: $space--5;
+    width: 100%;
+
+    // 菜單頁標題區
+    .title-container {
+      @include flex--(center, center);
+      width: 100%;
+      gap: $space--3;
+      margin-top: $space--6;
+
+
+      // 菜單標題
+      .section-title {
+        @include section-title;
+      }
+    }
+
+    // 菜單分類類別
+    .menu-category{
+      @include flex--(center, center);
+      @include padding-y--($space--2);
+      gap: $space--3;
+      width: 100%;
+      list-style: none;
+
+      @include mobile{
+        gap: $space--1;
+      }
+
+      &__btn{
+        transition: 0.2s ease-out;
+
+        @include web-hover{
+          // 未選取的類別hover
+          &:hover{
+            background-color: var(--pika--yellow);
+            outline: 2px solid var(--pk--white);
+
+            h4{
+              color: var(--pika--red);
+            }
+          }
+
+          // 已經選取的類別hover
+          &:hover:has(.active){
+            box-shadow: 3px 5px var(--pika--yellow);
+            transform: translate(-3px, -5px);
+            outline: 0px solid var(--pk--white);
+
+            h4{
+              color: var(--pk--white); 
+            }
+          }
+
+
+        }
+
+        &__link{
+          padding: $space--2 $space--2 * 6;
+          border: 1px solid var(--pk--white) !important;
+          box-sizing: border-box;
+          text-align: center;
+          border-radius: 1000px;
+          display: block;
+          text-decoration: none;
+
+          @include mobile{
+            padding: $space--1 $space--5;
+
+            h4{
+              font-size: $chin-mobile--button;
+            }
+          }
+
+          &.active{
+            background-color: var(--pika--red) !important;
+            border: 1px solid var(--pika--red) !important;
+          }
+
+          h4{
+            @include font__chin--(var(--pk--white), $chin--button);
+            margin: 0;
+            letter-spacing: 0.3vmin;
+            transition: 0.3s ease-out;
+          }
+        }
+      }
+    }
+
+    // 菜單品項卡片
+    .menu-card-container{
+      @include flex--(space-around, normal);
+      flex-wrap: wrap;
+      row-gap: $space--5;
+      column-gap: $space--2 * 2;
+
+      .menu-card {
+        @include flex--(center, center);
+        flex: 1 1 auto;
+        gap: $space--3;
+        border-radius: $space--2 * 50 $space--2 * 50 $space--5 $space--5;
+        padding: $space--3;
+        max-width: $space--3 * 19;
+
+        @include mobile{
+          max-width: 90%;
+        }
+  
+        // 當菜單卡片hover時圖片放大
+        @include web-hover {
+          &:hover img {
+            transform: scale(1.2);
+          }
+        }
+  
+        figure {
+          width: 100%;
+          overflow: hidden;
+  
+          img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            transition: 0.3s ease-in-out;
+          }
+        }
+  
+        &__detail {
+          @include flex--(center, center);
+          flex: 1 1 auto;
+          padding: $space--2 * 2 $space--3;
+          border-radius: $space--3;
+          height: max-content;
+  
+          @include mobile{
+            padding: $space--3 $space--2;
+            width: 100%;
+          }
+  
+          h4 {
+            @include font__chin--(var(--home-sub), $chin--card-title);
+            width: fit-content;
+  
+            @include mobile{
+              font-size: $chin-mobile--card-title;
+              letter-spacing: 0.1vmin;
+            }
+          }
+  
+          h5 {
+            @include font__chin--(var(--pk--black), $chin--card-price);
+            font-weight: 500;
+            letter-spacing: 0.1vmin;
+  
+            @include mobile{
+              font-size: $chin-mobile--card-price;
+            }
+          }
+  
+          p {
+            @include flex--(center, center);
+            @include font__chin--(var(--pk--black), $chin--text);
+            @include padding-y--($space--2);
+            font-weight: 400;
+            border-top: 1px dashed var(--pk--black);
+            border-bottom: 1px dashed var(--pk--black);
+            height: 100%;
+            margin: 0;
+  
+            @include mobile{
+              height: 10vh;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}
