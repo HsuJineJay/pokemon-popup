@@ -1,0 +1,117 @@
+
+//==================================================================================
+// mixin:創建打包可重複使用的組件
+//==================================================================================
+
+// ----------------------
+// 電腦版與手機版斷點
+// ----------------------
+@mixin mobile{
+	@media screen and (max-width:768px) {
+		@content;
+	}
+}
+
+// ----------------------
+// 電腦版hover斷點
+// ----------------------
+@mixin web-hover{
+  @media only screen and (min-width: 768px) and (any-hover: hover) {
+		@content;
+  }
+}
+
+// ----------------------
+// 中英文class設置
+// ----------------------
+@mixin font__eng--($color, $size) {
+  color: $color;
+  font-size:  $size;
+  font-family: var(--pk--font-eng);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+}
+
+@mixin font__chin--($color, $size) {
+  color: $color;
+  font-size:  $size;
+  font-family: var(--pk--font-chin);
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+}
+
+// ----------------------
+// 預設margin
+// ----------------------
+@mixin margin-x--($spacing) {
+    margin-left: $spacing;
+    margin-right: $spacing;
+}
+@mixin margin-y--($spacing) {
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+}
+
+
+// ----------------------
+// 預設padding
+// ----------------------
+@mixin padding-x--($spacing) {
+    padding-left: $spacing;
+    padding-right: $spacing;
+}
+@mixin padding-y--($spacing) {
+    padding-top: $spacing;
+    padding-bottom: $spacing;
+}
+
+
+// ----------------------
+// 預設flex配置
+// ----------------------
+@mixin flex--($justify, $align){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// ----------------------
+// 等寬高大小
+// ----------------------
+@mixin equal-wh--($scale) {
+  width: $scale;
+  height: $scale;
+}
+
+// ----------------------
+// section標題與副標題
+// ----------------------
+@mixin section-title {
+  @include flex--(normal, center);
+
+  h2{
+    @include font__eng--(var(--pk-black), $eng--main-title);
+    margin: 0;
+    letter-spacing: 0.5vmin;
+
+    @include mobile{
+      font-size: $eng-mobile--main-title-sm;
+    }
+  }
+  h3{
+    @include font__eng--(var(--home-sub), $chin--main-title);
+    letter-spacing: 0.5vmin;
+
+    @include mobile{
+      font-size: $chin-mobile--sub-title;
+      letter-spacing: 1vmin;
+    }
+  }
+}
+

@@ -215,35 +215,16 @@
 
       // 手機offcanvas彈出菜單 開始
       .offcanvas {
-        @include padding-x--($space--3);
         background-color: var(--home-main) !important;
         border-radius: 30px 0px 0px 30px;
-        top: 0;
-        right: 0;
-        width: 95vw;
-        transform: translateX(100%);
-        transition: 0.2s ease-in-out;
-        display: none;
 
-        @include mobile{
-          display: block;
-        }
-        
         // 手機offcanvas標題
         &-header {
-          @include flex--(space-between, center);
-          @include padding-x--($space--4);
-          @include padding-y--($space--2);
-          margin-top: $space--3;
+          background-color: var(--home-main) !important;
 
           &__label {
             width: 50vw;
             filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(346deg) brightness(1000%) contrast(100%);
-          }
-
-          &__btn{
-            @include flex--(flex-end, center);
-            border: 0;
           }
         }
 

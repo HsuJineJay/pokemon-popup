@@ -104,6 +104,10 @@ a:hover, a:visited, a:link, a:active {
   background-color: var(--home-sub);
 }
 
+.bk--transparent {
+  background-color: transparent;
+}
+
 .round--pill {
   border-radius: 1000px;
 }
@@ -483,15 +487,41 @@ a:hover, a:visited, a:link, a:active {
   height: 45px !important;
 }
 .header__nav .nav .offcanvas {
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: var(--home-main) !important;
   border-radius: 30px 0px 0px 30px;
+  top: 0;
+  right: 0;
+  width: 95vw;
+  transform: translateX(100%);
+  transition: 0.2s ease-in-out;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .header__nav .nav .offcanvas {
+    display: block;
+  }
 }
 .header__nav .nav .offcanvas-header {
-  background-color: var(--home-main) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
 }
 .header__nav .nav .offcanvas-header__label {
   width: 50vw;
   filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(346deg) brightness(1000%) contrast(100%);
+}
+.header__nav .nav .offcanvas-header__btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 0;
 }
 .header__nav .nav .offcanvas-body {
   padding-left: 25px;
