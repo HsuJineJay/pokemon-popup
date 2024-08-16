@@ -73,7 +73,7 @@ window.onload = function () {
       'var(--fire--orange)',
       'var(--grass--lightGreen)',
       'var(--stone--gray)',
-      'var(--Psychic--pink)',
+      'var(--psychic--pink)',
     ],
     sub: [
       'var(--pika--red)',
@@ -81,7 +81,7 @@ window.onload = function () {
       'var(--fire--green)',
       'var(--grass--darkGreen)',
       'var(--stone--brown)',
-      'var(--Psychic--blue)',
+      'var(--psychic--blue)',
     ]
   }
 

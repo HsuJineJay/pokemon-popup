@@ -9,7 +9,7 @@
 
 
   <!-- <link rel="stylesheet" href="./main/css/home.css"> -->
-  <link rel="stylesheet" href="./main/css/home.css">
+  <link rel="stylesheet" href="./main/sass/sass_home.css">
   <script src="./main/js/home.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -31,40 +31,40 @@
   <div class="home-container " style="overflow-x: clip;">
 
     <!-- ==========header 開始========== -->
-    <header class="nav-header header d-flex align-items-center fixed-top py-4 px-3">
-      <div class="container-fluid  position-relative d-flex align-items-center justify-content-between px-0">
+    <header class="header header--fixed ">
+      <div class="header__nav">
 
-        <a href="#" class="navbar-brand col-5 col-md-3 nav-logo ">
+        <a href="#" class="header__nav__logo ">
           <img src="./images/logo/pokemon_popup_logo.svg" />
         </a>
 
-        <div class="d-flex ">
+        <div class="nav">
           <!-- 電腦版菜單 -->
-          <div class="header-navibar px-4 d-none d-md-flex">
-            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+          <div class="nav__menu nav__menu--rounded nav__menu--bk-white nav__menu--text-black">
+            <button class="nav__menu__button nav__menu__button--bk-transparent">
               <a href="./reservation/reservation.html">
-                <span class="nav-button-text"><span>&nbsp;RESERVATION&nbsp;<span>預約入場</span></span>
+                <span class="nav__button__text"><span>&nbsp;RESERVATION&nbsp;<span>預約入場</span></span>
               </a>
             </button>
-            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+            <button class="nav__menu__button nav__menu__button--bk-transparent">
               <a href="./goods/goods.html">
-                <span class="nav-button-text"><span>&nbsp;GOODS&nbsp;<span>快閃商品</span></span>
+                <span class="nav__button__text"><span>&nbsp;GOODS&nbsp;<span>快閃商品</span></span>
               </a>
             </button>
-            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+            <button class="nav__menu__button nav__menu__button--bk-transparent">
               <a href="./menu/menu.html">
-                <span class="nav-button-text"><span>&nbsp;MENU&nbsp;<span>餐點菜單</span></span>
+                <span class="nav__button__text"><span>&nbsp;MENU&nbsp;<span>餐點菜單</span></span>
               </a>
             </button>
-            <button class="nav-button shadow-drop-2-center bn-transition mx-2">
+            <button class="nav__menu__button nav__menu__button--bk-transparent">
               <a href="./game/game.html">
-                <span class="nav-button-text"><span>&nbsp;GAME&nbsp;<span>大冒險</span></span>
+                <span class="nav__button__text"><span>&nbsp;GAME&nbsp;<span>大冒險</span></span>
               </a>
             </button>
           </div>
 
           <!-- 購物車按鈕 -->
-          <div class="navbar-cart" id="openNav" onclick="openNav()">
+          <div class="nav__cart" id="openNav" onclick="openNav()">
             <img src="./images/icon/cart_icon.svg" alt="購物車圖示">
           </div>
           <!-- 購物車導覽列小圖片 -->
@@ -81,45 +81,48 @@
 
           <!-- 手機版菜單 -->
           <!-- 手機按鈕icon -->
-          <button class="navbar-toggler d-md-none d-block col-3 border-0" type="button" data-bs-toggle="offcanvas"
+          <button class="nav__menu-mobile" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <object class="menu-icon" data="./images/icon/menu_icon.svg" type="image/svg+xml"></object>
+            <object class=" nav__menu-mobile__icon" data="./images/icon/menu_icon.svg" type="image/svg+xml"></object>
           </button>
           <!-- 手機offcanvas菜單 開始 -->
-          <div class="offcanvas offcanvas-end header-navibar-sm d-md-none d-block px-3" tabindex="-1"
+          <div class="offcanvas bk--main-color" tabindex="-1"
             id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <!-- 手機offcanvas標題 -->
-            <div class="offcanvas-header mt-3 rounded-pill px-4 py-2 justify-content-between">
+            <div class="offcanvas-header bk--main-color round--pill">
 
-              <object id="offcanvasNavbarLabel" data="./images/logo/pokemon_popup_logo.svg"></object>
+              <object id="offcanvasNavbarLabel" class="offcanvas-header__label" data="./images/logo/pokemon_popup_logo.svg"></object>
 
-              <button type="button" class="border-0 bg-transparent d-flex" data-bs-dismiss="offcanvas"
+              <button type="button" class="offcanvas-header__btn bk--transparent" data-bs-dismiss="offcanvas"
                 aria-label="Close">
-                <object class="menu-icon" data="./images/icon/close_icon.svg" type="image/svg+xml"></object>
+                <object class="nav__menu-mobile__icon" data="./images/icon/close_icon.svg" type="image/svg+xml"></object>
               </button>
 
             </div>
             <!-- 手機offcanvas項目 -->
-            <div class="offcanvas-body px-4">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
+            <div class="offcanvas-body">
+              <ul class="mobile-nav navbar-nav">
+                <li class="nav-item mobile-nav__item">
                   <a class="nav-link active" aria-current="page" href="#">首頁｜<span>HOME</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mobile-nav__item">
                   <a class="nav-link" href="./reservation/reservation.html">預約入場｜<span>RESERVATION</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mobile-nav__item">
                   <a class="nav-link" href="./goods/goods.html">快閃商品｜<span>GOODS</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mobile-nav__item">
                   <a class="nav-link " href="./menu/menu.html">餐點菜單｜<span>MENU</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mobile-nav__item">
                   <a class="nav-link " href="./game/game.html">心理測驗｜<span>GAME</span></a>
                 </li>
               </ul>
             </div>
           </div>
+
+         
+          
 
         </div>
 
@@ -134,30 +137,30 @@
     <!-- ==========header 結束========== -->
 
     <!-- ==========section1 主視覺 開始========== -->
-    <section id="section1" class="section_1 d-flex flex-column flex-md-row justify-content-center">
-      <div class="section_container main_banner d-flex  align-items-center gap-md-5 gap-3">
+    <section id="section1" class="section1 mobile-container bk--main-color">
+      <div class="section1__container">
 
         <!-- 動畫區塊 -->
-        <div class="main_video h-100 d-flex flex-column justify-content-center">
+        <div class="main-video">
           <!-- <video src="/./main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm" muted autoplay loop></video> -->
-          <div class="video_container">
-            <video id="bannerAnimaiton" autoplay loop muted preload="none"
+          <div id="videoContainer" class="main-video__container ">
+            <video id="bannerAnimaiton" class="round--circle" autoplay loop muted preload="none"
               src="./main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm"></video>
           </div>
           <!-- <video id="bannerAnimaiton2" autoplay loop muted style="visibility: hidden;"></video> -->
 
-          <div class="scroll_icon w-100 d-none d-md-flex justify-content-center gap-5 pt-4">
-            <button id="colorChangeL" class="scroll_icon_left"></button>
-            <button id="colorChangeR" class="scroll_icon_right"></button>
+          <div class="scroll-icon">
+            <button id="colorChangeL" class="scroll-icon__left round--circle"></button>
+            <button id="colorChangeR" class="scroll-icon__right round--circle"></button>
           </div>
         </div>
         <!-- 主標題 -->
-        <div class="main_title d-inline-flex flex-column gap-md-3 gap-0">
+        <div class="main-title main_title d-inline-flex flex-column gap-md-3 gap-0">
           <h1>POKEMON<br>POP-UP</h1>
-          <div>快閃店 X 咖啡廳</div>
+          <h2 class="round--pill bk--sub-color">快閃店 X 咖啡廳</h2>
         </div>
         <!-- 手機版scroll提示字 -->
-        <div class="scroll_hint d-flex d-md-none align-items-center">
+        <div class="scroll-hint">
 
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="135" height="15" viewBox="0 0 135 15" fill="none">
@@ -167,7 +170,7 @@
             </svg>
           </div>
 
-          <p class="m-0 mx-3">scroll</p>
+          <p class="bk--main-color">scroll</p>
 
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="134" height="15" viewBox="0 0 134 15" fill="none">
@@ -185,65 +188,65 @@
 
 
     <!-- ==========section2 快閃店資訊 開始========== -->
-    <section class="section_2 d-flex  justify-content-center">
-      <div class="section_container d-flex justify-content-center align-items-center w-100 flex-column gap-5">
+    <section class="section2 bk--main-color  ">
+      <div class="section2__container section-container flex--col">
 
-        <div class="sec_title d-flex flex-column align-items-center justify-content-center w-100 gap-3">
-          <div class="d-flex flex-column align-items-center">
-            <h2 class="font-eng m-0">VISIT</h2>
-            <h3 class="font-chin">快閃資訊</h3>
+        <div class="title-container flex--col">
+          <div class="section-title flex--col ">
+            <h2 class="">VISIT</h2>
+            <h3 class="">快閃資訊</h3>
           </div>
-          <div class="switch_button d-flex w-100 justify-content-center gap-md-5 gap-3">
-            <button id="switchStore" class="switch_bn switchActive font-chin">快閃店</button>
-            <button id="switchCafe" class="switch_bn font-chin">咖啡廳</button>
+          <div class="title-container__switch bk--white round--pill">
+            <button id="switchStore" class="round--pill switchActive">快閃店</button>
+            <button id="switchCafe" class="round--pill">咖啡廳</button>
           </div>
         </div>
 
-        <div class="info_card_group d-flex ">
-          <div id="cardContainer" class="d-flex flex-fill flex-column flex-md-row">
+        <div class="info-card">
+          <div id="cardContainer" class="info-card__container flex--row flex-mobile--col">
 
             <!-- 活動與預約兩個卡片的群組 -->
-            <div class="card_group_two d-flex flex-column w-md-50 w-100">
+            <div class="card-left flex--col">
 
 
               <!-- 01活動日期卡片 -->
-              <div class="card_date info_card d-flex flex-column justify-content-center align-items-start gap-4">
+              <div class="card-date bk--white flex--col">
 
                 <!-- 活動日期標題列 -->
-                <div class="card_title_group d-flex justify-content-between w-100">
+                <div class="card-title">
 
-                  <div class="card_title_text d-flex flex-column justify-content-end">
-                    <h6 class="font-eng m-0 eventTitle">STORE</h6>
-                    <h3 class="font-chin m-0">活動日期</h3>
+                  <div class="card-title__text flex--col">
+                    <h6 class="">STORE</h6>
+                    <h3 class="">活動日期</h3>
                   </div>
 
-                  <div class="type_tag d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="m-0">快閃店</h5>
-                    <h6 class="m-0">store</h6>
+                  <div class="card-tag round--circle flex--col">
+                    <h5 class="">快閃店</h5>
+                    <h6 class="">store</h6>
                   </div>
 
                 </div>
                 <!-- 活動日期內容 -->
-                <div class="card_sm_detail d-flex flex-column align-items-start gap-4">
+                <div class="card-detail flex--col">
 
                   <!-- 日期標籤 -->
-                  <div class="date_tag d-flex flex-column align-items-center gap-md-3 gap-2">
-                    <h5 class="font-chin m-0">2024年8月1日(周四)</h5>
+                  <div class="date-tag flex--col">
+                    <h5 class="bk--sub-color">2024年8月1日(周四)</h5>
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
                       <path
                         d="M11.2321 15.5C10.4623 16.8333 8.53775 16.8333 7.76795 15.5L0.839748 3.5C0.0699477 2.16667 1.0322 0.499998 2.5718 0.499998L16.4282 0.5C17.9678 0.5 18.9301 2.16667 18.1603 3.5L11.2321 15.5Z"
                         fill="#FF6542" />
                     </svg>
-                    <h5 class="font-chin m-0">2024年9月1日(周日)</h5>
+                    <h5 class="bk--sub-color">2024年9月1日(周日)</h5>
                   </div>
                 </div>
                 <!-- 注意事項 -->
-                <div class="card_notice">
-                  <h6 class="font-eng m-1">NOTICE</h6>
+                <div class="card-notice bk--main-color">
+                  <h6 class="">NOTICE</h6>
                   <ul>
-                    <li class="font-chin">POP-UP STORE全場皆為事前預約制</li>
-                    <li class="font-chin">入場前不提供外部等候空間，請按照預約的時間段進行訪問。請按照預約的時間段進行訪問。依現場情況，入場前可能需要等候</li>
-                    <li class="font-chin">為確保所有訪客的安全和活動的順利進行，請積極配合現場工作人員的引導工作</li>
+                    <li class="">POP-UP STORE全場皆為事前預約制</li>
+                    <li class="">入場前不提供外部等候空間，請按照預約的時間段進行訪問。請按照預約的時間段進行訪問。依現場情況，入場前可能需要等候</li>
+                    <li class="">為確保所有訪客的安全和活動的順利進行，請積極配合現場工作人員的引導工作</li>
                   </ul>
                 </div>
 
@@ -253,35 +256,37 @@
 
 
               <!-- 02預約指南卡片 -->
-              <div class="card_reservation info_card d-flex flex-column justify-content-center  gap-4">
+              <div class="card-reservation bk--sub-color flex--col">
 
                 <!-- 預約指南標題列 -->
-                <div class="card_title_group d-flex justify-content-between w-100">
+                <div class="card-title">
 
-                  <div class="card_title_text d-flex flex-column justify-content-end">
-                    <h6 class="font-eng m-0">RESERVATION</h6>
-                    <h3 class="font-chin m-0">預約指南</h3>
+                  <div class="card-title__text flex--col">
+                    <h6 class="">RESERVATION</h6>
+                    <h3 class="">預約指南</h3>
                   </div>
 
-                  <div class="type_tag d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="m-0">快閃店</h5>
-                    <h6 class="m-0">store</h6>
+                  <div class="card-tag round--circle flex--col">
+                    <h5 class="">快閃店</h5>
+                    <h6 class="">store</h6>
                   </div>
 
                 </div>
 
                 <!-- 注意事項 -->
-                <div class="card_notice">
-                  <h6 class="font-eng m-1">NOTICE</h6>
+                <div class="card-notice bk--white">
+                  <h6 class="">NOTICE</h6>
                   <ul>
-                    <li class="font-chin">POP-UP STORE全場皆為事前預約制</li>
-                    <li class="font-chin">只有預約者本人方可入場。請使用以本人名義進行提前預約，入場時將進行身份確認</li>
-                    <li class="font-chin">每場只能預約1次，每個使用者名稱最多可以預約2次</li>
+                    <li class="">POP-UP STORE全場皆為事前預約制</li>
+                    <li class="">只有預約者本人方可入場。請使用以本人名義進行提前預約，入場時將進行身份確認</li>
+                    <li class="">每場只能預約1次，每個使用者名稱最多可以預約2次</li>
                   </ul>
                 </div>
 
                 <!-- 預約按鈕 -->
-                <button class="card_reservation_bn font-chin d-flex w-100 justify-content-center" onclick="location.href='./reservation/reservation.html';">預約入場</button>
+                <button class="card-reservation__btn bk--main-color round--pill" onclick="location.href='./reservation/reservation.html';">
+                  預約入場
+                </button>
 
 
               </div>
@@ -293,30 +298,30 @@
 
             <!-- 03交通資訊卡片 -->
             <div
-              class="card_location info_card d-flex flex-column justify-content-center align-items-center gap-md-5 gap-4 w-md-50 w-100">
+              class="card-location bk--black flex--col">
 
               <!-- 交通資訊標題列 -->
-              <div class="card_title_group d-flex justify-content-between w-100">
+              <div class="card-title">
 
-                <div class="card_title_text d-flex flex-column justify-content-end">
-                  <h6 class="font-eng m-0">LOCATION</h6>
-                  <h3 class="font-chin m-0">交通位置</h3>
+                <div class="card-title__text flex--col">
+                  <h6 class="">LOCATION</h6>
+                  <h3 class="">交通位置</h3>
                 </div>
 
-                <div class="type_tag d-flex flex-column justify-content-center align-items-center">
-                  <h5 class="m-0">快閃店</h5>
-                  <h6 class="m-0">store</h6>
+                <div class="card-tag round--circle flex--col">
+                  <h5 class="">快閃店</h5>
+                  <h6 class="">store</h6>
                 </div>
 
               </div>
               <!-- 交通資訊內容 -->
-              <div class="card_lg_detail d-flex flex-column gap-md-4 gap-2">
+              <div id="locationCardDetail" class="card-detail bk--white flex--col">
                 <div>
-                  <h6 class="font-eng m-1">ADDRESS</h6>
-                  <h5 class="font-chin m-1">新光三越信義新天地A11館 3 樓</h5>
-                  <p class="font-chin m-1">台北市信義區松壽路11號</p>
+                  <h6 class="">ADDRESS</h6>
+                  <h5 class="">新光三越信義新天地A11館 3 樓</h5>
+                  <p class="">台北市信義區松壽路11號</p>
                 </div>
-                <img class="w-100" src="./main/images/store_popup_map.jpg">
+                <img class="" src="./main/images/store_popup_map.jpg">
               </div>
             </div>
 
@@ -330,27 +335,11 @@
 
 
     <!-- ==========section3 人氣商品 開始========== -->
-    <section id="section3" class="section_3">
+    <section id="section3" class="section3">
 
       <!-- 頂部波浪svg -->
-      <!-- <div class="wave_container" id="waveTop">
-        <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
-            fill="#FFE050">
-            <animate attributeName="d"
-              values="
-                M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z;
-                M0 16.67L4.27 20C8.53 23.33 17.07 26.67 25.6 25C34.13 23.33 42.67 16.67 51.2 15C59.73 13.33 68.27 16.67 76.8 18.33C85.33 20 93.87 20 97.93 20L102 20V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V16.67Z;
-                M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
-              dur="30s" repeatCount="indefinite" />
-          </path>
-        </svg>
-      </div> -->
-
-      <div class="wave_container" id="waveTop">
-        <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
+      <div class="wave wave--top" id="waveTop">
+        <svg viewBox="0 0 100 30" class="wave__svg" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M0 19L4.27 18.33C8.53 17.67 17.07 16.33 25.6 19.33C34.13 22.67 42.67 30 51.2 30C59.73 30 68.27 22.67 76.8 20C85.33 17.67 93.87 20 97.93 21.33L102 22.67V0H97.73C93.47 0 84.93 0 76.4 0C67.87 0 59.33 0 50.8 0C42.27 0 33.73 0 25.2 0C16.67 0 8.13 0 4.07 0H0V19Z"
@@ -369,45 +358,27 @@
       </div>
 
       <!-- section3標題列 -->
-      <div class="sec_title d-flex flex-column align-items-center justify-content-center w-100 gap-3 mt-5">
-        <div class="d-flex flex-column align-items-center">
-          <h2 class="font-eng m-0">GOODS</h2>
-          <h3 class="font-chin">人氣商品</h3>
+      <div class="title-container flex--col">
+        <div class="section-title flex--col">
+          <h2 class="">GOODS</h2>
+          <h3 class="">人氣商品</h3>
         </div>
       </div>
 
       <!-- section3商品卡片 -->
-      <div class="rotate_card_section d-flex justify-content-center align-items-center">
+      <div class="rotate-card">
 
-        <div id="productCardContainer" class="rotate_card" style="transform: rotate(0deg)">
+        <div id="productCardContainer" class="rotate-card__container round--circle" style="transform: rotate(0deg)">
 
-
-
+          <!-- 卡片內容由js動態產生 -->
 
         </div>
       </div>
 
 
       <!-- 底部波浪svg -->
-      <!-- <div class="wave_container">
-        <svg viewBox="0 0 100 30" class="wave_svg" preserveAspectRatio="none" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
-            fill="#FCF3E4">
-            <animate attributeName="d"
-              values="
-              M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z;
-              M0 25L15.625 20C31.25 15 62.5 5 93.75 10C125 15 156.25 35 187.5 45C218.75 55 250 55 281.25 50C312.5 45 343.75 35 359.375 30L375 25V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V25Z;
-              M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
-              dur="10s" repeatCount="indefinite" />
-          </path>
-        </svg>
-      </div> -->
-
-
-      <div class="wave_container">
-        <svg viewBox="0 0 375 85" class="wave_svg" preserveAspectRatio="none" fill="none"
+      <div class="wave">
+        <svg viewBox="0 0 375 85" class="wave__svg" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M0 17.498L15.625 11.8728C31.25 6.24768 62.5 -5.00265 93.75 2.49757C125 9.99779 156.25 36.2486 187.5 49.374C218.75 62.4993 250 62.4993 281.25 56.8742C312.5 51.249 343.75 39.9987 359.375 34.3735L375 28.7483V85H359.375C343.75 85 312.5 85 281.25 85C250 85 218.75 85 187.5 85C156.25 85 125 85 93.75 85C62.5 85 31.25 85 15.625 85H0V17.498Z"
@@ -437,20 +408,20 @@
 
 
     <!-- ==========section4 熱門餐點 開始========== -->
-    <section class="section_4 gap-md-0 gap-5 d-flex flex-column flex-md-row">
+    <section class="section4 bk--beige flex--row flex-mobile--col">
       <!-- section4標題列 -->
       <div
-        class="sec_title d-flex flex-column align-items-md-start align-items-center justify-content-center w-100 gap-3 mt-5">
-        <div class="d-flex flex-column align-items-md-start align-items-center">
-          <h2 class="font-eng m-0">MENU</h2>
-          <h3 class="font-chin">熱門餐點</h3>
+        class="title-container flex--col">
+        <div class="section-title flex--col">
+          <h2 class="">MENU</h2>
+          <h3 class="">熱門餐點</h3>
         </div>
-        <button class="more_menu_bn font-chin d-none d-md-flex" onclick="location.href='./menu/menu.html';">更多餐點</button>
+        <button class="more-menu-btn bk--sub-color round--pill" onclick="location.href='./menu/menu.html';">更多餐點</button>
       </div>
 
       <!-- section4餐點卡片 -->
       <div id="menuCardContainer"
-        class="menu_card_group col-md-8 col-12 d-inline-flex justify-content-start overflow-scroll position-relative">
+        class="menu-card-container">
 
         <!-- 餐點卡片1 -->
         <!-- <div class="menu_card d-flex flex-column flex-fill justify-content-center align-items-center gap-3">
@@ -526,30 +497,30 @@
 
       </div>
 
-      <div class="menu_slide_group position-absolute d-flex">
-        <button id="menuPrev" class="menu-nav-btn">
-          <img src="./images/icon/silde_icon_left.svg" alt="left_button">
+      <div class="menu-slide">
+        <button id="menuPrev" class="menu-slide__prev menu-slide__btn">
+          <img src="./images/icon/silde_icon_left.svg" alt="left-button">
         </button>
-        <button id="menuNext" class="menu-nav-btn">
-          <img src="./images/icon/silde_icon_right.svg" alt="right_button">
+        <button id="menuNext" class="menu-slide__next menu-slide__btn">
+          <img src="./images/icon/silde_icon_right.svg" alt="right-button">
         </button>
       </div>
 
       <!-- 手機版更多餐點按鈕 -->
-      <button class="more_menu_bn font-chin d-md-none d-flex justify-content-center">更多餐點</button>
+      <button class="more-menu-btn--mobile bk--sub-color round--pill">更多餐點</button>
 
     </section>
     <!-- ==========section4 熱門餐點 結束========== -->
 
 
     <!-- ==========section5 心理測驗 開始========== -->
-    <section class="section_5">
-      <div class="game_bg d-flex flex-column justify-content-center align-items-center">
+    <section class="section5 bk--beige">
+      <div class="game flex--col">
 
-        <button class="game_bn d-flex flex-column justify-content-center align-items-center" onclick="location.href='./game/game.html';">
-          <div class="d-flex flex-column justify-content-center align-items-center">
+        <button class="game__btn flex--col" onclick="location.href='./game/game.html';">
+          <div class="game__btn__container bk--main-color round--circle flex--col">
 
-            <div class="game_circle">
+            <div class="game-circle">
               <svg viewBox="0 0 100 100">
                 <path d="M 0,50 a 50,50 0 1, 1 0, 1 z" id="circlePath"></path>
                 <text>
@@ -560,30 +531,30 @@
               </svg>
             </div>
 
-            <h5 class="font-chin">寶可夢大冒險</h5>
-            <h6 class="font-chin">測你是什麼屬性</h6>
+            <h5 class="">寶可夢大冒險</h5>
+            <h6 class="">測你是什麼屬性</h6>
           </div>
-          <h3 class="font-eng">START</h3>
+          <h3 class="bk--black round--pill">START</h3>
         </button>
       </div>
 
-      <div class="footer_top"></div>
+      <div class="footer-top-decoration bk--sub-color"></div>
     </section>
     <!-- ==========section5 心理測驗 結束========== -->
 
 
     <!-- ==========footer 開始========== -->
-    <footer id="footer">
-      <div class="footer-contnet flex-fill">
-        <div class="footer-navbar flex-fill">
+    <footer id="footer" class="footer mobile-container bk--main-color">
+      <div class="footer__container section-container ">
+        <div class="footer-navbar">
 
-          <div class="footer-logo">
+          <div class="footer-navbar__logo">
             <object data="./images/logo/pokemon_popup_logo.svg"></object>
           </div>
 
-          <div class="footer-item flex-fill">
+          <div class="footer-navbar__item">
 
-            <div class="footer-social flex-fill">
+            <div class="footer-social">
               <button class=""><img src="./images/icon/social_icon_fb.png" alt="facebook"></button>
               <button class=""><img src="./images/icon/social_icon_ig.png" alt="instagram"></button>
 
@@ -591,7 +562,7 @@
             </div>
 
             <div class="footer-link">
-              <button class="">
+              <button class="round--pill bk--white">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                   y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
                   <path class="st0" d="M23.9,2.4c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.2-0.3c0-0.1-0.1-0.1-0.1-0.2
@@ -601,7 +572,7 @@
                 </svg>
                 隱私權政策
               </button>
-              <button class="">
+              <button class="round--pill bk--white">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                   y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
                   <path class="st0" d="M23.9,2.4c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.2-0.3c0-0.1-0.1-0.1-0.1-0.2
@@ -617,7 +588,7 @@
 
         </div>
         <!-- <p class="my-0">©Pokémon. ©Nintendo/Creatures Inc. /GAME FREAK inc.</p> -->
-        <p class="my-0">圖片影片素材取自網路，僅作學習使用</p>
+        <p class="">圖片影片素材取自網路，僅作學習使用</p>
       </div>
 
     </footer>
