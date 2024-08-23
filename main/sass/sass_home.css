@@ -334,6 +334,7 @@ a:hover, a:visited, a:link, a:active {
 }
 .header__nav .nav {
   display: flex;
+  position: relative;
 }
 .header__nav .nav__menu {
   padding-left: 25px;
@@ -452,14 +453,22 @@ a:hover, a:visited, a:link, a:active {
 }
 .header__nav .nav__cart {
   display: flex;
-  height: 60px !important;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
   margin-left: 1vw;
   cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   .header__nav .nav__cart {
-    height: 45px !important;
+    width: -moz-fit-content;
+    width: fit-content;
     margin-right: 2vw;
+  }
+  .header__nav .nav__cart img {
+    width: 45px;
+    height: 45px;
   }
 }
 @media only screen and (min-width: 768px) and (any-hover: hover) {
@@ -469,22 +478,26 @@ a:hover, a:visited, a:link, a:active {
   }
 }
 .header__nav .nav__menu-mobile {
+  padding-left: 0;
+  padding-right: 0;
   display: none;
   border: 0;
   flex: 0 0 auto;
   width: -moz-fit-content;
   width: fit-content;
-  padding-left: 0;
-  padding-right: 0;
+  height: 60px;
 }
 @media screen and (max-width: 768px) {
   .header__nav .nav__menu-mobile {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .header__nav .nav__menu-mobile__icon {
+  width: 45px;
+  height: 45px;
   pointer-events: none;
-  height: 45px !important;
 }
 .header__nav .nav .offcanvas {
   padding-left: 15px;

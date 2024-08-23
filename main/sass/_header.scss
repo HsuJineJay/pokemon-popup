@@ -53,6 +53,7 @@
     // header內容區
     .nav {
       display: flex;
+      position: relative;
 
       // 電腦版菜單
       &__menu {
@@ -177,14 +178,18 @@
 
       // 購物車按鈕
       &__cart {
-        display: flex;
-        height: 60px !important;
+        @include flex--(center, center);
+        @include equal-wh--(60px);
         margin-left: 1vw;
         cursor: pointer;
 
         @include mobile {
-          height: 45px !important;
+          width: fit-content;
           margin-right: 2vw;
+
+          img{
+            @include equal-wh--(45px);
+          }
         }
 
         @include web-hover {
@@ -197,19 +202,20 @@
 
       // 手機版菜單按鈕
       &__menu-mobile {
+        @include padding-x--($space--0);
         display: none;
         border: 0;
         flex: 0 0 auto;
         width: fit-content;
-        @include padding-x--($space--0);
+        height: 60px;
 
         @include mobile {
-          display: block;
+          @include flex--(center,center);
         }
 
         &__icon {
+          @include equal-wh--(45px);
           pointer-events: none;
-          height: 45px !important;
         }
       }
 
