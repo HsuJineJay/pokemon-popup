@@ -260,7 +260,6 @@ window.onload = function () {
 
   // 隱藏影片的控制條
   animaiton.controls=false;
-  animaiton.autoplay=true;
   
 
 
