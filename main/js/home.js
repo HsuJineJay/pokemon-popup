@@ -28,7 +28,7 @@ window.onload = function () {
   //手機版scroll觸發換寶可夢與顏色
   let touchstartX = 0;
   let touchendX = 0;
-  const scrollTriggerDistance = 70 //滑動超過這個距離才觸發
+  const scrollTriggerDistance = 50 //滑動超過這個距離才觸發
   const section1 = document.getElementById('section1')
 
   section1.addEventListener('touchstart', e => {
@@ -50,7 +50,7 @@ window.onload = function () {
       // console.log("左滑");
       nextColor();
     }
-    if (distanceX > scrollTriggerDistance) {
+    else if (distanceX > scrollTriggerDistance) {
       // console.log("右滑");
       prevColor();
     }
@@ -800,6 +800,7 @@ function allRotateFunction() {
   })
 
   // >>>>>>scroll 360度旋轉滾動卡片<<<<<<
+  const scrollRotateTrigger = 25 //滑動超過這個距離才觸發
   section3.addEventListener('touchstart', e => {
     rotateScrollStartX = e.changedTouches[0].screenX;
   });
@@ -810,15 +811,16 @@ function allRotateFunction() {
   });
 
   function scrollRotate() {
-    if (rotateScrollEndX < rotateScrollStartX) {
+    const distanceX = rotateScrollEndX - rotateScrollStartX
+    if (distanceX < -scrollRotateTrigger) {
       rotateIndex++;
       console.log(rotateIndex);
-      rotateCard()
+      rotateCard();
     }
-    if (rotateScrollEndX > rotateScrollStartX) {
+     else if (distanceX > scrollRotateTrigger) {
       rotateIndex--;
       console.log(rotateIndex);
-      rotateCard()
+      rotateCard();
     }
   }
 
