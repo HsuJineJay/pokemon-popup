@@ -28,6 +28,7 @@ window.onload = function () {
   //手機版scroll觸發換寶可夢與顏色
   let touchstartX = 0;
   let touchendX = 0;
+  const scrollTriggerDistance = 50 //滑動超過這個距離才觸發
   const section1 = document.getElementById('section1')
 
   section1.addEventListener('touchstart', e => {
@@ -40,10 +41,12 @@ window.onload = function () {
   });
 
   function handleSwipe() {
-    if (touchendX < touchstartX) {
+    const distanceX = touchendX - touchstartX;
+
+    if (distanceX < -swipeThreshold) {
       nextColor();
     }
-    if (touchendX > touchstartX) {
+    else if (distanceX > swipeThreshold) {
       prevColor();
     }
   }
