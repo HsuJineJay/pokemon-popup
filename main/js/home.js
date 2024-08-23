@@ -1,6 +1,25 @@
 window.onload = function () {
 
   // ==============================
+  // section1 手機版預設點擊事件
+  // ==============================
+  const video = document.getElementById('bannerAnimaiton');
+
+  // 監聽頁面加載完成事件
+  window.addEventListener('load', () => {
+    // 嘗試播放影片，如果失敗則顯示錯誤訊息
+    video.play().catch(error => {
+      console.error('自動播放影片失敗', error);
+    });
+  });
+  // 阻止影片點擊的預設事件
+  video.addEventListener('click', (event) => {
+    event.preventDefault();
+
+  });
+
+
+  // ==============================
   // section1 各個屬性顏色變換
   // ==============================
   /*     const changeColorBtn = document.getElementById('colorChangeR');
@@ -195,17 +214,17 @@ window.onload = function () {
 
     //新增透明度為1的class
     videoContainer.classList.add('show_overlay');
-    
-    
+
+
     setTimeout(() => {
-        //新增漸變並移除透明度1的class
-        videoContainer.classList.add('fade_overlay');
-        videoContainer.classList.remove('show_overlay');
-        
-        //移除漸變class
-        setTimeout(() => {
-            videoContainer.classList.remove('fade_overlay');
-        }, 300); 
+      //新增漸變並移除透明度1的class
+      videoContainer.classList.add('fade_overlay');
+      videoContainer.classList.remove('show_overlay');
+
+      //移除漸變class
+      setTimeout(() => {
+        videoContainer.classList.remove('fade_overlay');
+      }, 300);
     }, 0);
 
     // 如果現在是走路動畫就設定成開心動畫
@@ -325,20 +344,20 @@ window.onload = function () {
   }
 
 
-    // >>>>>>切換資訊按鈕點擊後資訊卡片向上動畫<<<<<<
-    function cardMoveUp(){
-      // console.log(12345);
+  // >>>>>>切換資訊按鈕點擊後資訊卡片向上動畫<<<<<<
+  function cardMoveUp() {
+    // console.log(12345);
 
-      // 每次執行的時候都歸零動畫屬性
-      $('.card-date, .card-reservation, .card-location').css('animation', 'none')
-      // 個別加入動畫並造成時差
-      setTimeout(function() {
-        $('.card-date').css('animation', 'infoCardMoveUp 0.2s ease-in-out')
-        $('.card-reservation').css('animation', 'infoCardMoveUp 0.3s ease-in-out')
-        $('.card-location').css('animation', 'infoCardMoveUp 0.4s ease-in-out')
-      }, 10)
+    // 每次執行的時候都歸零動畫屬性
+    $('.card-date, .card-reservation, .card-location').css('animation', 'none')
+    // 個別加入動畫並造成時差
+    setTimeout(function () {
+      $('.card-date').css('animation', 'infoCardMoveUp 0.2s ease-in-out')
+      $('.card-reservation').css('animation', 'infoCardMoveUp 0.3s ease-in-out')
+      $('.card-location').css('animation', 'infoCardMoveUp 0.4s ease-in-out')
+    }, 10)
 
-    }
+  }
 
 
 
@@ -748,8 +767,8 @@ function allRotateFunction() {
   let rotateContain = document.querySelector('.rotate-card__container')
   let productItems = document.querySelectorAll('.rotate-item .product-card')
 
-    // ver2 點擊右下角按鈕旋轉
-    let rotateButton = document.querySelectorAll('.rotateButton')
+  // ver2 點擊右下角按鈕旋轉
+  let rotateButton = document.querySelectorAll('.rotateButton')
 
   const totalItems = productItems.length;
   let rotateIndex = 0
