@@ -1,24 +1,4 @@
 window.onload = function () {
-
-  // ==============================
-  // section1 手機版預設點擊事件
-  // ==============================
-  const video = document.getElementById('bannerAnimaiton');
-
-  // 監聽頁面加載完成事件
-  window.addEventListener('load', () => {
-    // 嘗試播放影片，如果失敗則顯示錯誤訊息
-    video.play().catch(error => {
-      console.error('自動播放影片失敗', error);
-    });
-  });
-  // 阻止影片點擊的預設事件
-  video.addEventListener('click', (event) => {
-    event.preventDefault();
-
-  });
-
-
   // ==============================
   // section1 各個屬性顏色變換
   // ==============================
@@ -277,6 +257,11 @@ window.onload = function () {
   //當按鈕點擊時執行換顏色函式
   colorChangeR.addEventListener('click', nextColor)
   colorChangeL.addEventListener('click', prevColor)
+
+  // 隱藏影片的控制條
+  animaiton.controls=false;
+  animaiton.autoplay=true;
+  
 
 
 
