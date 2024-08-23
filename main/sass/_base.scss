@@ -26,6 +26,20 @@ a{
 }
 }
 
+// ----------------------
+// 禁止顯示影片控制條與阻止使用者點擊選取影片
+// ----------------------
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 // ----------------------
 // 電腦預設容器大小
