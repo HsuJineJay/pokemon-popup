@@ -4,7 +4,7 @@
 module.exports = {
   // 解決同源政策CORS 配置
   corsOptions: {
-    origin: ['http://localhost:5432', 'http://0.0.0.0:5432'],
+    origin: ['http://localhost:5432', 'http://0.0.0.0:5432', 'https://pokemon-popup.onrender.com', 'https://pokemon-popup-gruop.onrender.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
