@@ -8,13 +8,13 @@ const app = express();
 
 // 導入配置
 const dbConfig = require('./config/database');
-// const appConfig = require('./config/app');
+const appConfig = require('./config/app');
 
 // 中間件設置
-// app.use(cors(appConfig.corsOptions));
+app.use(cors(appConfig.corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(session(appConfig.sessionOptions));
+app.use(session(appConfig.sessionOptions));
 app.use(express.static('./public'));
 
 // 數據庫連接
@@ -33,5 +33,5 @@ app.use((req, res, next) => {
 });
 
 // 啟動服務器
-const PORT = process.env.PORT || 5432;
+const PORT = process.env.DB_PORT || 5432;
 app.listen(PORT, () => console.log(`伺服器運行在端口 ${PORT}`));
