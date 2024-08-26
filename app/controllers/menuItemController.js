@@ -6,7 +6,7 @@ exports.getAllMenuItems = async (req, res) => {
         res.json(menuItems);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'menuItem資料庫查詢錯誤' });
+        res.status(500).json({ message: 'menuItem資料庫錯誤:getAll' });
     }
 };
 
@@ -16,7 +16,7 @@ exports.createMenuItem = async (req, res) => {
         res.json({ message: `insert: ${newItemId} --- OK` });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'menuItem資料庫插入錯誤' });
+        res.status(500).json({ message: 'menuItem資料庫錯誤:create' });
     }
 };
 
@@ -26,7 +26,7 @@ exports.deleteMenuItem = async (req, res) => {
         res.json({ message: `delete: ${req.body.itemID} --- OK` });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'menuItem資料庫刪除錯誤' });
+        res.status(500).json({ message: 'menuItem資料庫錯誤:delete' });
     }
 };
 
@@ -36,7 +36,7 @@ exports.updateMenuItem = async (req, res) => {
         res.json({ message: `update: ${req.body.itemID} --- OK` });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'menuItem資料庫更新錯誤' });
+        res.status(500).json({ message: 'menuItem資料庫錯誤:update' });
     }
 };
 
@@ -46,6 +46,6 @@ exports.updateMenuItemStatus = async (req, res) => {
         res.json({ message: `更改菜單狀態 ${req.body.itemID} --- OK` });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'menuItem資料庫更新錯誤' });
+        res.status(500).json({ message: 'menuItem資料庫錯誤:updateMenuItemStatus' });
     }
 };
