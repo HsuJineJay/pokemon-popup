@@ -1,0 +1,6 @@
+.DS_Store
+public/.DS_Store
+backEnd/.DS_Store
+app/.DS_Store
+.env
+.vscode
