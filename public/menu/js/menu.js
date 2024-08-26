@@ -6,7 +6,7 @@ window.onload = function () {
 
   // >>>>>>>>>>撈資料<<<<<<<<<<<<<
 
-  //一載入就顯示全部內容
+  //一載入就先執行一次，顯示全部內容
   menuSwitch("?menuExist=1")
 
   //點擊來切換menu的類別
@@ -56,7 +56,9 @@ window.onload = function () {
     //這裡要帶入的參數名稱 都是資料庫的欄位名稱
     // let apiUrl = 'http://localhost/pokemon-popup-gruop/backEnd/api/menuItem/menuItem.php?itemMain=1&menuExist=1'//以這個例子來說 以itemMain=1（主打商品）和menuExist=1（上架商品）為篩選條件 篩出資料
     // let apiUrl = `http://localhost/pokemon-popup-gruop/backEnd/api/menuItem/menuItem.php${menuName}`//以這個例子來說 以itemMain=1（主打商品）和menuExist=1（上架商品）為篩選條件 篩出資料
-    let apiUrl = `https://pokemon-popup-gruop.onrender.com/api/menuItem${menuName}`//以這個例子來說 以itemMain=1（主打商品）和menuExist=1（上架商品）為篩選條件 篩出資料
+    // let apiUrl = `https://pokemon-popup-gruop.onrender.com/api/menuItem${menuName}`//以這個例子來說 以itemMain=1（主打商品）和menuExist=1（上架商品）為篩選條件 篩出資料
+    let apiUrl = `https://pokemon-popup.onrender.com/api/menuItem${menuName}`;
+
     // console.log('apiUrl:::::::' , apiUrl);
     $.ajax({
       url: apiUrl,
