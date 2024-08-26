@@ -9,54 +9,52 @@ class Product {
         LEFT JOIN productimg pi ON p.productid = pi.imgproductid 
         WHERE 1=1
       `;
-
+  
       const params = [];
       let paramIndex = 1;
-
-      // 使用傳入的 filters 對象，而不是 req.query
+  
+      // 使用傳入的 filters 對象，判斷條件
       if (filters.productID) {
-        query += ` AND productid = $${paramIndex++}`;
+        query += ` AND p.productid = $${paramIndex++}`;
         params.push(filters.productID);
       }
       if (filters.productExist) {
-        query += ` AND productexist = $${paramIndex++}`;
+        query += ` AND p.productexist = $${paramIndex++}`;
         params.push(filters.productExist);
       }
       if (filters.productName) {
-        query += ` AND productname = $${paramIndex++}`;
-        params.push(filters.productName);
+        query += ` AND p.productname ILIKE $${paramIndex++}`;
+        params.push(`%${filters.productName}%`);
       }
       if (filters.productType) {
-        query += ` AND producttype = $${paramIndex++}`;
+        query += ` AND p.producttype = $${paramIndex++}`;
         params.push(filters.productType);
       }
       if (filters.productDescribe) {
-        query += ` AND productdescribe = $${paramIndex++}`;
-        params.push(filters.productDescribe);
+        query += ` AND p.productdescribe ILIKE $${paramIndex++}`;
+        params.push(`%${filters.productDescribe}%`);
       }
       if (filters.productPrice) {
-        query += ` AND productprice = $${paramIndex++}`;
+        query += ` AND p.productprice = $${paramIndex++}`;
         params.push(filters.productPrice);
       }
       if (filters.productInStock) {
-        query += ` AND productinStock = $${paramIndex++}`;
+        query += ` AND p.productinStock = $${paramIndex++}`;
         params.push(filters.productInStock);
       }
       if (filters.storeOnly) {
-        query += ` AND storeonly = $${paramIndex++}`;
+        query += ` AND p.storeonly = $${paramIndex++}`;
         params.push(filters.storeOnly);
       }
       if (filters.productMain) {
-        query += ` AND productmain = $${paramIndex++}`;
+        query += ` AND p.productmain = $${paramIndex++}`;
         params.push(filters.productMain);
       }
-
-      if (conditions.length > 0) {
-        query += " AND " + conditions.join(" AND ");
-      }
-
+  
+      // 移除了 conditions 數組的使用
+  
       const { rows } = await db.query(query, params);
-
+  
       // 處理結果邏輯...
       const data = {};
       rows.forEach(row => {
@@ -81,10 +79,10 @@ class Product {
           });
         }
       });
-
+  
       return Object.values(data);
     } catch (error) {
-      console.error('product getAll 錯誤：', error);
+      console.error('Error in getAll:', error);
       throw error;
     }
   }
