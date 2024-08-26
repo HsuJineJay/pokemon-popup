@@ -2,7 +2,6 @@ const db = require('../../config/database');
 
 class Product {
   static async getAll(filters) {
-    const client = await db.connect();
     try {
       let query = `
         SELECT p.*, pi.imgid, pi.productimg 
@@ -11,7 +10,6 @@ class Product {
         WHERE 1=1
       `;
 
-      const conditions = [];
       const params = [];
       let paramIndex = 1;
 
@@ -57,7 +55,7 @@ class Product {
         query += " AND " + conditions.join(" AND ");
       }
 
-      const { rows } = await client.query(query, params);
+      const { rows } = await db.query(query, params);
 
       // 處理結果邏輯...
       const data = {};
@@ -85,19 +83,19 @@ class Product {
       });
 
       return Object.values(data);
-    } finally {
-      client.release();
+    } catch (error) {
+      console.error('product getAll 錯誤：', error);
+      throw error;
     }
   }
 
   static async create(productData) {
-    const client = await db.connect();
     try {
-      await client.query('BEGIN');
+      await db.query('BEGIN');
 
       const { productExist, productName, productType, productDescribe, productPrice, productInStock, storeOnly, productMain, productImg } = productData;
 
-      const result = await client.query(
+      const result = await db.query(
         'INSERT INTO product (productExist, productName, productType, productDescribe, productPrice, productInStock, storeOnly, productMain) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING productID',
         [productExist, productName, productType, productDescribe, productPrice, productInStock, storeOnly, productMain]
       );
@@ -105,70 +103,64 @@ class Product {
       const productID = result.rows[0].productid;
 
       for (const img of JSON.parse(productImg)) {
-        await client.query(
+        await db.query(
           'INSERT INTO productImg (imgProductID, productImg) VALUES ($1, $2)',
           [productID, img.img]
         );
       }
 
-      await client.query('COMMIT');
+      await db.query('COMMIT');
       return productID;
     } catch (error) {
-      await client.query('ROLLBACK');
+      await db.query('ROLLBACK');
+      console.error('product create 錯誤：', error);
       throw error;
-    } finally {
-      client.release();
-    }
+    } 
   }
 
   static async delete(productID) {
-    const client = await db.connect();
     try {
-      await client.query('BEGIN');
-      await client.query('DELETE FROM productImg WHERE imgProductID = $1', [productID]);
-      await client.query('DELETE FROM product WHERE productID = $1', [productID]);
-      await client.query('COMMIT');
+      await db.query('BEGIN');
+      await db.query('DELETE FROM productImg WHERE imgProductID = $1', [productID]);
+      await db.query('DELETE FROM product WHERE productID = $1', [productID]);
+      await db.query('COMMIT');
     } catch (error) {
-      await client.query('ROLLBACK');
+      await db.query('ROLLBACK');
+      console.error('product delete 錯誤：', error);
       throw error;
-    } finally {
-      client.release();
-    }
+    } 
   }
 
   static async update(productData) {
-    const client = await db.connect();
     try {
-      await client.query('BEGIN');
+      await db.query('BEGIN');
       const { productID, productExist, productName, productType, productDescribe, productPrice, productInStock, storeOnly, productMain, productImg } = productData;
 
-      await client.query(
+      await db.query(
         'UPDATE product SET productExist = $1, productName = $2, productType = $3, productDescribe = $4, productPrice = $5, productInStock = $6, storeOnly = $7, productMain = $8 WHERE productID = $9',
         [productExist, productName, productType, productDescribe, productPrice, productInStock, storeOnly, productMain, productID]
       );
 
-      await client.query('DELETE FROM productImg WHERE imgProductID = $1', [productID]);
+      await db.query('DELETE FROM productImg WHERE imgProductID = $1', [productID]);
 
       for (const img of productImg) {
-        await client.query(
+        await db.query(
           'INSERT INTO productImg (imgProductID, productImg) VALUES ($1, $2)',
           [productID, img.img]
         );
       }
 
-      await client.query('COMMIT');
+      await db.query('COMMIT');
     } catch (error) {
-      await client.query('ROLLBACK');
+      await db.query('ROLLBACK');
+      console.error('product update 錯誤：', error);
       throw error;
-    } finally {
-      client.release();
-    }
+    } 
   }
 
   static async partialUpdate(updateData) {
-    const client = await db.connect();
     try {
-      await client.query('BEGIN');
+      await db.query('BEGIN');
       const { productID, productExist, productInStock, storeOnly, productMain } = updateData;
 
       let condition = '';
@@ -189,17 +181,16 @@ class Product {
       }
 
       if (condition && param !== null) {
-        await client.query(`UPDATE product SET ${condition} WHERE productID = $2`, [param, productID]);
-        await client.query('COMMIT');
+        await db.query(`UPDATE product SET ${condition} WHERE productID = $2`, [param, productID]);
+        await db.query('COMMIT');
         return true;
       } else {
         return false;
       }
     } catch (error) {
-      await client.query('ROLLBACK');
+      await db.query('ROLLBACK');
+      console.error('product partialUpdate 錯誤：', error);
       throw error;
-    } finally {
-      client.release();
     }
   }
 }

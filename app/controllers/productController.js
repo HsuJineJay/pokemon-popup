@@ -2,11 +2,12 @@ const Product = require('../models/Product');
 
 exports.getAllProducts = async (req, res) => {
     try {
-        const products = await Product.getAll(req.query);
+        const filters = req.query;
+        const products = await Product.getAll(filters);
         res.json(products);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: '內部伺服器錯誤' });
+        res.status(500).json({ error: '內部伺服器錯誤:get' });
     }
 };
 
@@ -16,7 +17,7 @@ exports.createProduct = async (req, res) => {
         res.json({ message: `新增: ${productID} --- ${req.body.productName}` });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: '內部伺服器錯誤' });
+        res.status(500).json({ error: '內部伺服器錯誤:create' });
     }
 };
 
@@ -26,7 +27,7 @@ exports.deleteProduct = async (req, res) => {
         res.json({ message: `刪除: ${req.body.productID} --- 成功` });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: '內部伺服器錯誤' });
+        res.status(500).json({ error: '內部伺服器錯誤:delete' });
     }
 };
 
@@ -36,7 +37,7 @@ exports.updateProduct = async (req, res) => {
         res.json({ message: `更新: ${req.body.productID} --- 成功` });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: '內部伺服器錯誤' });
+        res.status(500).json({ error: '內部伺服器錯誤:update' });
     }
 };
 
@@ -50,6 +51,6 @@ exports.partialUpdateProduct = async (req, res) => {
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: '內部伺服器錯誤' });
+        res.status(500).json({ error: '內部伺服器錯誤:partialUpdateProduct' });
     }
 };
