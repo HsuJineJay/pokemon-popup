@@ -5,50 +5,52 @@ class Product {
     const client = await db.connect();
     try {
       let query = `
-                SELECT p.*, pi.imgid, pi.productimg 
-                FROM product p 
-                LEFT JOIN productimg pi ON p.productid = pi.imgproductid 
-                WHERE 1=1
-            `;
+        SELECT p.*, pi.imgid, pi.productimg 
+        FROM product p 
+        LEFT JOIN productimg pi ON p.productid = pi.imgproductid 
+        WHERE 1=1
+      `;
+
+      const conditions = [];
       const params = [];
       let paramIndex = 1;
 
-      // 添加篩選條件邏輯...
-      if (req.query.productID) {
+      // 使用傳入的 filters 對象，而不是 req.query
+      if (filters.productID) {
         query += ` AND productid = $${paramIndex++}`;
-        params.push(req.query.productID);
+        params.push(filters.productID);
       }
-      if (req.query.productExist) {
+      if (filters.productExist) {
         query += ` AND productexist = $${paramIndex++}`;
-        params.push(req.query.productExist);
+        params.push(filters.productExist);
       }
-      if (req.query.productName) {
+      if (filters.productName) {
         query += ` AND productname = $${paramIndex++}`;
-        params.push(req.query.productName);
+        params.push(filters.productName);
       }
-      if (req.query.productType) {
+      if (filters.productType) {
         query += ` AND producttype = $${paramIndex++}`;
-        params.push(req.query.productType);
+        params.push(filters.productType);
       }
-      if (req.query.productDescribe) {
+      if (filters.productDescribe) {
         query += ` AND productdescribe = $${paramIndex++}`;
-        params.push(req.query.productDescribe);
+        params.push(filters.productDescribe);
       }
-      if (req.query.productPrice) {
+      if (filters.productPrice) {
         query += ` AND productprice = $${paramIndex++}`;
-        params.push(req.query.productPrice);
+        params.push(filters.productPrice);
       }
-      if (req.query.productInStock) {
+      if (filters.productInStock) {
         query += ` AND productinStock = $${paramIndex++}`;
-        params.push(req.query.productInStock);
+        params.push(filters.productInStock);
       }
-      if (req.query.storeOnly) {
+      if (filters.storeOnly) {
         query += ` AND storeonly = $${paramIndex++}`;
-        params.push(req.query.storeOnly);
+        params.push(filters.storeOnly);
       }
-      if (req.query.productMain) {
+      if (filters.productMain) {
         query += ` AND productmain = $${paramIndex++}`;
-        params.push(req.query.productMain);
+        params.push(filters.productMain);
       }
 
       if (conditions.length > 0) {
