@@ -95,20 +95,20 @@ window.onload = function () {
   //動畫的資料
   let animaitonData = {
     walk: [
-      './public/main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm',
-      './public/main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm',
-      './public/main/images/寶可夢動圖/小火龍/小火龍_走路.webm',
-      './public/main/images/寶可夢動圖/菊草葉/菊草葉_走路.webm',
-      './public/main/images/寶可夢動圖/小拳石/小拳石_走路.webm',
-      './public/main/images/寶可夢動圖/果然翁/果然翁_走路.webm',
+      './main/images/寶可夢動圖/皮卡丘/皮卡丘_走路.webm',
+      './main/images/寶可夢動圖/傑尼龜/傑尼龜_走路.webm',
+      './main/images/寶可夢動圖/小火龍/小火龍_走路.webm',
+      './main/images/寶可夢動圖/菊草葉/菊草葉_走路.webm',
+      './main/images/寶可夢動圖/小拳石/小拳石_走路.webm',
+      './main/images/寶可夢動圖/果然翁/果然翁_走路.webm',
     ],
     happy: [
-      './public/main/images/寶可夢動圖/皮卡丘/皮卡丘_開心.webm',
-      './public/main/images/寶可夢動圖/傑尼龜/傑尼龜_開心.webm',
-      './public/main/images/寶可夢動圖/小火龍/小火龍_開心.webm',
-      './public/main/images/寶可夢動圖/菊草葉/菊草葉_開心.webm',
-      './public/main/images/寶可夢動圖/小拳石/小拳石_開心.webm',
-      './public/main/images/寶可夢動圖/果然翁/果然翁_開心.webm',
+      './main/images/寶可夢動圖/皮卡丘/皮卡丘_開心.webm',
+      './main/images/寶可夢動圖/傑尼龜/傑尼龜_開心.webm',
+      './main/images/寶可夢動圖/小火龍/小火龍_開心.webm',
+      './main/images/寶可夢動圖/菊草葉/菊草葉_開心.webm',
+      './main/images/寶可夢動圖/小拳石/小拳石_開心.webm',
+      './main/images/寶可夢動圖/果然翁/果然翁_開心.webm',
     ]
   }
 
@@ -685,6 +685,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //>>>>>>商品資料api<<<<<<
+/* // 原本mysql搭配php撈資料方式
 function productGetData() {
   //這裡要帶入的參數名稱 都是資料庫的欄位名稱
   let apiUrl = 'http://localhost/pokemon-popup-gruop/backEnd/api/product/product.php?storeOnly=1&productExist=1' //以這個例子來說 以productMain=1（主打商品）和productExist=1（上架商品）為篩選條件 篩出資料
@@ -719,6 +720,69 @@ function productGetData() {
                             <div class="product-title flex--col">
                               <h4 class="">${row['productName']}</h4>
                               <h5 class="">${row['productPrice']}元</h5>
+                            </div>
+                          </div>
+
+                        </a>
+                        
+                        <!-- 右下更多按鈕 -->
+                        <button class="more-product-btn rotateButton bk--black round--circle" onclick="clickMoreBN()">
+
+                        </button>
+                        </div>
+                    </div>
+                  </div>
+      `;
+      })
+
+
+      $('#productCardContainer').html(result)
+
+      // 在這裡使用所有卡片的事件
+      allRotateFunction();
+
+    }
+  }).fail(function (z) {
+    console.log('fail:', z.innerText);
+  })
+}
+ */
+
+
+function productGetData() {
+  //這裡要帶入的參數名稱 都是資料庫的欄位名稱
+  let apiUrl = 'https://pokemon-popup-gruop.onrender.com/api/product?storeOnly=1&productExist=1' //以這個例子來說 以productMain=1（主打商品）和productExist=1（上架商品）為篩選條件 篩出資料
+  $.ajax({
+    url: apiUrl,
+    method: 'GET',
+    success: function (data) {
+      // data = JSON.parse(dataStr);
+      console.log(data);
+      result = "";
+
+
+      data.forEach((row, index) => {
+
+        console.log(row.productImg[0].productImg);
+        result += `
+                  <div class="rotate-item item--${index + 1}">
+                    <div class="product-card bk--sub-color flex--col">
+                      <div class="product-card--before" >
+
+                        <!-- ver2點擊卡片去商品頁 -->
+                        <a href="./public/goods/goods.html" >
+
+                          <!-- 圖片 -->
+                          <img class="round--circle" src="${row.productImg[0].productImg}">
+                          <!-- 內容 -->
+                          <div class="card-text flex--col">
+                            <div class="product-tag">
+                              <h6 class="round--pill">會場限定</h6>
+                            </div>
+
+                            <div class="product-title flex--col">
+                              <h4 class="">${row.productName}</h4>
+                              <h5 class="">${row.productPrice}元</h5>
                             </div>
                           </div>
 
@@ -849,6 +913,7 @@ function allRotateFunction() {
 
 
 //>>>>>>餐點菜單api<<<<<<
+/* // 原本mysql搭配php撈資料方式
 function menuSwitch() {
   let apiUrl = `http://localhost/pokemon-popup-gruop/backEnd/api/menuItem/menuItem.php?itemMain=1&menuExist=1`;
   $.ajax({
@@ -870,6 +935,47 @@ function menuSwitch() {
                           <h4 class="">${row['itemName']}</h4>
                           <h5 class="">${row['itemPrice']}元</h5>
                           <p class="">${row['itemDescribe']}</p>
+                      </div>
+                  </div>`;
+      })
+
+      $('#menuCardContainer').html(result);
+
+      // 在這裡使用所有卡片的事件
+      allCardsFunction();
+    }
+  }).fail(function (z) {
+    console.log('fail:', z.innerText);
+  });
+} */
+
+
+function menuSwitch() {
+  let apiUrl = `https://pokemon-popup-gruop.onrender.com/api/menuItem?itemMain=1&menuExist=1`;
+  $.ajax({
+    url: apiUrl,
+    method: 'GET',
+    success: function (data) {
+      result = "";
+      // console.log("menuItem data===>>" , data);
+
+      data.forEach((row, index) => {
+        // console.log("menuItem row--->>" , row);
+        // console.log("menuItem index--->>" , index);
+
+        // 將\n的轉成換行符號(原先是mysql現在postrgesql語法有差異)
+        let itemDescribe = row.itemdescribe.replace(/\\n/g, '\n');
+        // console.log("itemDescribe--->>" , itemDescribe);
+
+        //前端卡片顯示html
+        result += `
+                  <div class="menu-card bk--main-color flex--col">
+                      <h3 class=""> TOP${index + 1}</h3>
+                      <figure class="round--circle"><img src="${row.itemimg}"></figure>
+                      <div class="menu-card__detail bk--white flex--col">
+                          <h4 class="">${row.itemname}</h4>
+                          <h5 class="">${row.itemprice}元</h5>
+                          <p class="">${itemDescribe}</p>
                       </div>
                   </div>`;
       })
